@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import { getPool } from "./config/database";
 import redis from "./config/redis";
 import logger from "./config/logger";
+import authRouter from "./routes/auth.route";
 
 // Load environment variables
 dotenv.config();
@@ -40,6 +41,9 @@ const checkRedisConnection = async () => {
     process.exit(1);
   }
 };
+
+// Routes
+app.use('/api/v1/auth', authRouter);
 
 app.get("/test", (req: Request, res: Response) => {
   res.json({ message: "Welcome to the multi-vendor E-commerce API" });
