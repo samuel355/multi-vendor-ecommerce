@@ -38,3 +38,28 @@ class ApiError extends Error {
 }
 
 export default ApiError;
+
+
+// // Example 2: Authentication middleware
+// const authMiddleware = (req, res, next) => {
+//   const token = req.headers.authorization;
+  
+//   if (!token) {
+//     throw ApiError.unauthorized('No token provided');
+//   }
+  
+//   try {
+//     // Verify token logic here
+//     next();
+//   } catch (error) {
+//     throw ApiError.unauthorized('Invalid token');
+//   }
+// };
+
+// // Example 3: Rate limiting
+// const rateLimitMiddleware = (req, res, next) => {
+//   if (tooManyRequests) {
+//     throw ApiError.tooManyRequests('Rate limit exceeded. Please try again later');
+//   }
+//   next();
+// };

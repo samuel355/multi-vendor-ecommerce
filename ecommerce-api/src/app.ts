@@ -5,7 +5,7 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 import { getPool } from "./config/database";
 import redis from "./config/redis";
-import logger from "./config/logger";
+import logger, { requestLogger } from "./config/logger";
 import authRouter from "./routes/auth.route";
 
 // Load environment variables
@@ -20,6 +20,8 @@ app.use(helmet());
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(requestLogger());
+
 
 // Start server
 const PORT = process.env.PORT || 3000;

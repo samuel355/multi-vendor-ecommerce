@@ -13,3 +13,13 @@ export const catchAsync = (fn: AsyncFunction) => {
 };
 
 export default catchAsync;
+
+
+// Example 1: Basic Route Handler
+// const getUserById = catchAsync(async (req: Request, res: Response) => {
+//   const user = await User.findById(req.params.id);
+//   if (!user) {
+//     throw ApiError.notFound("User not found");
+//   }
+//   res.json(user);
+// });
