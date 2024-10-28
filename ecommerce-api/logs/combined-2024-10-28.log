@@ -209,3 +209,870 @@
 {"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND rediss://default:AVa9AAIjcDEwOWU0M2Q2YjYwMjY0NmFjOGQ3YzBmMjY3MGU5Y2EwZnAxMA@working-crappie-22205.upstash.io:6379","service":"app"},"timestamp":"2024-10-28 00:55:14.122"}
 {"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 00:55:19.116"}
 {"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 00:57:48.324"}
+{"level":"error","message":"Redis error","metadata":{"error":"read ETIMEDOUT","service":"app"},"timestamp":"2024-10-28 10:54:15.850"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:15.942"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:16.061"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:16.231"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:16.445"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:16.703"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:17.064"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:17.420"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:17.831"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:18.291"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:18.799"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:19.358"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:19.966"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:20.627"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:21.332"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:22.090"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:22.897"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:23.755"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:24.665"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:25.619"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:26.625"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:27.685"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:28.790"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:29.947"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:31.155"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:32.413"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:33.720"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:35.076"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:36.484"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:37.942"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:39.450"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:41.004"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:42.612"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:44.271"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:45.979"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:47.737"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:49.545"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:51.401"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:53.305"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:55.260"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:57.268"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:54:59.275"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:01.282"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:03.290"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:05.297"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:07.305"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:09.314"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:11.321"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:13.330"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:15.335"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:17.342"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:19.351"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:21.360"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:23.368"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:25.381"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:27.389"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:29.396"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:31.402"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:33.423"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:35.432"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:37.439"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:39.447"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:41.450"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:43.457"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:45.465"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:47.473"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:49.479"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:51.486"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:53.497"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:55.505"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:57.511"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:55:59.517"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:01.525"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:03.533"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:05.540"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:07.548"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:09.554"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:11.561"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:13.570"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:15.576"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:17.585"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:19.593"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:21.605"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:23.612"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:25.618"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:27.626"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:29.633"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:31.638"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:33.646"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:35.652"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:37.657"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:39.665"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:41.672"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:43.680"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:45.685"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:47.692"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:49.706"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:51.722"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:53.730"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:55.736"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:57.743"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:56:59.752"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:01.760"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:03.767"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:05.773"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:07.780"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:09.788"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:11.793"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:13.802"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:15.811"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:17.823"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:19.826"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:21.830"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:23.838"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:25.846"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:27.854"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:29.861"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:31.867"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:33.874"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:35.882"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:37.889"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:39.891"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 10:57:41.897"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:26.198"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:28.204"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:30.212"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:32.217"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:34.222"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:36.240"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:38.262"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:40.285"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:42.310"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:44.331"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:46.357"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:48.380"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:50.400"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:52.426"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:54.449"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:56.471"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:13:58.544"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:00.568"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:02.592"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:04.611"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:06.635"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:08.660"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:10.681"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:12.702"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:14.727"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:16.751"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:18.773"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:20.783"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:22.791"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:24.799"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:26.810"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:28.818"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:30.826"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:32.834"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:34.843"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:36.851"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:38.859"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:40.867"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:42.873"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:44.892"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:46.900"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:48.906"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:50.912"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:52.920"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:54.926"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:56.935"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:14:58.943"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:00.951"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:02.959"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:04.966"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:06.974"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:08.982"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:10.988"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:12.995"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:15.004"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:17.013"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:19.018"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:21.027"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:23.035"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:25.046"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:27.050"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:29.055"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:31.063"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:33.070"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:35.075"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:37.083"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:39.091"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:41.098"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:43.106"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:45.114"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:47.121"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:49.132"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:51.138"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:53.147"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:55.153"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:57.159"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:15:59.167"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:01.176"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:03.200"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:05.207"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:07.215"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:09.224"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:11.232"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:13.240"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:15.248"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:17.257"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:19.265"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:21.274"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:23.280"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:25.288"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:27.294"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:29.302"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:31.308"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:33.314"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:35.322"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:37.328"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:39.334"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:41.343"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:43.349"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:45.358"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:47.365"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:49.371"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:51.380"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:53.387"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:55.395"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:57.402"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:16:59.410"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:01.417"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:03.424"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:05.430"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:07.437"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:09.446"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:11.454"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:13.460"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:15.467"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:17.473"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:19.482"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:21.500"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:23.507"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:25.512"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:27.518"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:29.525"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:31.533"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:33.538"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:35.543"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:37.550"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:39.556"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:41.565"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:43.571"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:45.579"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:47.586"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:49.593"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:51.599"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:53.606"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:55.615"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:57.621"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:17:59.627"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:01.634"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:03.638"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:05.646"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:07.649"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:09.654"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:11.660"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:13.666"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:15.672"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:17.678"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:19.685"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:21.691"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:23.697"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:25.705"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:27.714"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:29.720"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:31.729"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:33.736"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:35.743"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:37.751"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:39.776"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:41.781"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:43.788"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:45.796"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:47.802"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:49.810"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:51.817"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:53.825"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:55.833"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:57.837"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:18:59.843"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:01.850"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:03.856"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:05.864"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:07.872"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:09.880"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:11.887"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:13.892"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:15.899"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:17.907"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:19.913"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:21.920"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:23.926"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:25.932"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:27.941"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:29.948"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:31.956"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:33.963"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:35.969"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:37.976"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:39.984"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:41.993"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:44.001"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:46.007"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:48.010"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:50.015"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:52.023"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:54.030"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:56.036"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:19:58.053"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:00.060"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:02.068"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:04.076"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:06.083"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:08.090"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:10.097"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:12.105"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:14.110"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:16.118"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:18.123"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:20.129"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:22.134"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:24.140"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:26.147"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:28.152"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:30.158"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:32.166"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:34.174"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:36.180"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:38.187"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:40.193"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:42.201"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:44.208"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:46.215"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:48.221"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:50.228"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:52.236"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:54.240"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:56.247"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:20:58.253"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:00.260"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:02.268"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:04.276"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:06.281"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:08.288"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:10.295"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:12.301"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:14.308"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:16.324"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:18.330"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:20.338"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:22.345"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:24.351"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:26.357"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:28.363"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:30.372"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:32.378"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:34.384"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:36.392"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:38.401"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:40.407"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:42.414"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:44.421"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:46.427"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:48.433"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:50.442"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:52.448"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:54.453"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:56.459"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:21:58.464"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:00.473"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:02.479"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:04.486"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:06.493"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:08.499"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:10.506"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:12.513"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:14.519"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:16.527"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:18.534"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:20.541"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:22.547"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:24.553"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:26.559"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:28.565"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:30.572"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:32.578"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:34.597"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:36.604"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:38.610"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:40.616"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:42.624"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:44.631"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:46.639"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:48.644"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:50.650"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:52.657"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:54.664"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:56.672"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:22:58.678"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:00.686"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:02.695"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:04.701"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:06.706"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:08.712"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:10.720"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:12.723"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:14.729"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:16.737"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:18.745"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:20.749"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:22.754"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:24.760"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:26.765"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:28.773"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:30.780"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:32.787"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:34.794"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:36.799"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:38.804"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:40.811"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:42.818"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:44.823"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:46.829"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:48.833"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:50.838"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:52.851"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:54.857"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:56.863"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:23:58.870"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:00.877"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:02.883"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:04.888"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:06.893"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:08.899"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:10.906"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:12.911"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:14.916"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:16.923"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:18.929"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:20.936"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:22.944"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:24.949"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:26.956"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:28.963"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:30.970"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:32.976"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:34.981"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:36.988"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:38.994"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:40.998"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:43.005"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:45.013"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:47.019"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:49.024"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:51.031"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:53.039"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:55.045"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:57.052"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:24:59.059"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:01.065"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:03.072"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:05.078"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:07.086"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:09.091"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:11.111"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:13.120"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:15.127"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:17.133"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:19.140"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:21.147"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:23.154"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:25.160"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:27.165"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:29.172"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:31.179"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:33.189"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:35.195"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:37.202"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:39.206"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:41.213"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:43.221"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:45.227"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:47.234"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:49.240"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:51.248"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:53.255"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:55.260"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:57.267"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:25:59.274"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:01.280"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:03.295"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:05.302"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:07.309"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:09.315"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:11.322"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:13.329"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:15.336"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:17.343"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:19.349"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:21.354"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:23.361"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:25.367"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:27.374"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:29.385"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:31.393"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:33.399"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:35.408"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:37.415"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:39.422"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:41.429"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:43.437"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:45.444"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:47.452"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:49.459"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:51.465"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:53.474"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:55.479"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:57.487"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:26:59.495"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:01.503"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:03.509"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:05.517"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:07.522"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:09.530"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:11.537"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:13.546"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:15.553"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:17.559"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:19.565"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:21.572"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:23.577"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:25.584"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:27.588"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:29.595"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:31.602"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:33.608"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:35.620"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:37.627"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:39.632"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:41.637"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:43.645"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:45.652"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:47.675"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:49.683"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:51.691"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:53.696"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:55.703"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:57.709"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:27:59.715"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:01.722"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:03.732"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:05.739"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:07.746"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:09.752"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:11.760"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:13.766"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:15.773"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:17.780"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:19.785"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:21.791"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:23.799"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:25.806"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:27.813"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:29.821"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:31.826"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:33.832"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:35.839"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:37.844"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:39.852"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:41.859"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:43.866"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:45.872"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:47.879"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:49.888"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:51.896"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:53.904"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:55.915"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:57.922"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:28:59.931"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:01.936"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:03.941"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:05.975"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:07.983"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:09.991"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:11.999"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:14.008"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:16.014"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:18.020"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:20.026"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:22.034"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:24.042"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:26.048"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:28.055"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:30.061"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:32.069"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:34.076"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:36.081"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:38.088"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:40.093"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:42.100"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:44.103"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:46.109"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:48.118"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:50.126"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:52.132"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:54.138"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:56.144"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:29:58.149"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:00.152"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:02.156"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:04.162"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:06.166"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:08.169"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:10.174"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:12.178"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:14.185"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:16.192"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:18.197"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:20.203"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:22.207"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:24.228"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:26.233"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:28.240"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:30.246"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:32.253"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:34.261"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:36.269"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:38.276"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:40.281"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:42.287"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:44.295"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:46.301"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:48.310"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:50.320"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:52.327"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:54.332"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:56.339"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:30:58.347"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:00.354"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:02.361"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:04.366"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:06.374"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:08.382"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:10.392"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:12.399"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:14.407"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:16.415"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:18.423"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:20.429"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:22.435"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:24.443"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:26.450"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:28.458"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:30.466"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:32.472"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:34.479"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:36.486"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:38.494"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:40.501"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:42.519"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:44.526"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:46.534"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:48.546"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:50.552"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:52.558"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:54.566"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:56.575"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:31:58.583"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:00.587"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:02.593"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:04.602"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:06.609"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:08.616"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:10.624"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:12.631"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:14.637"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:16.644"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:18.651"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:20.657"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:22.664"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:24.672"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:26.678"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:28.684"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:30.690"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:32.695"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:34.702"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:36.708"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:38.715"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:40.724"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:42.732"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:44.738"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:46.745"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:48.752"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:50.760"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:52.766"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:54.774"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:56.782"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:32:58.789"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:00.814"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:02.822"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:04.829"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:06.833"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:08.837"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:10.840"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:12.847"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:14.850"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:16.855"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:18.862"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:20.869"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:22.876"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:24.882"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:26.890"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:28.895"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:30.900"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:32.907"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:34.913"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:36.918"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:38.921"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:40.924"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:42.928"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:44.933"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:46.940"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:48.946"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:50.952"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:52.957"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:54.961"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:56.967"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:33:58.973"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:34:00.976"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:34:02.982"}
+{"level":"error","message":"Redis error","metadata":{"error":"getaddrinfo ENOTFOUND working-crappie-22205.upstash.io","service":"app"},"timestamp":"2024-10-28 11:34:04.987"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 11:34:07.694"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:19:25.888"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:20:37.725"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:21:22.555"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:21:31.255"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:21:36.820"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:21:42.721"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:21:53.263"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:21:57.216"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:22:04.494"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:22:15.507"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:22:22.655"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:22:34.056"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:22:45.464"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:22:52.952"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:22:57.417"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:23:04.912"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:23:38.051"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:23:48.037"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:23:53.058"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:24:04.192"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:24:20.386"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:24:33.249"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:24:53.583"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:25:04.211"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:25:12.169"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:25:21.807"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:25:26.010"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:25:49.709"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:25:56.449"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:26:06.717"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:26:14.699"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:26:34.392"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:26:46.261"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:26:53.153"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:26:56.919"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:27:06.084"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:27:13.422"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:27:16.044"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:27:30.465"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:27:41.858"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:27:50.438"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:27:53.536"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:29:55.634"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:30:17.186"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:30:21.065"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:30:23.826"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:31:10.609"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:31:25.630"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:33:30.217"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:33:44.720"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:34:09.234"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:34:38.934"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:34:41.543"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:34:48.364"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:34:55.614"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:35:05.326"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:35:09.455"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:35:18.882"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:35:40.364"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:35:49.007"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:35:51.697"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:35:59.975"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:36:06.779"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:36:13.942"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:36:17.919"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:36:28.178"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:36:34.425"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:36:46.608"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:36:52.441"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:36:57.614"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:37:03.205"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:37:07.985"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:37:16.098"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:37:26.221"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:37:30.772"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:38:46.195"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:45:29.355"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:45:38.020"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:45:51.043"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:46:01.972"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:46:09.881"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:46:25.307"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:46:36.575"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:46:42.138"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:47:06.247"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:47:13.798"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:47:21.995"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:47:29.750"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:47:37.929"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:47:46.639"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:47:51.672"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:48:01.103"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:48:05.710"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:48:15.092"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:48:19.752"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:48:24.662"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:48:30.052"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:48:32.930"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:48:41.088"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:49:16.688"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:49:23.553"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:49:31.939"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:49:35.968"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:49:44.633"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:49:52.170"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:50:01.253"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:50:11.806"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:50:18.859"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:50:32.569"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:50:38.729"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:50:45.529"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:50:50.802"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:50:55.539"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:51:01.963"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:51:09.860"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:51:17.021"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:51:27.488"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:51:30.873"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:51:44.590"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:51:47.847"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:51:52.204"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:51:54.808"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:53:22.403"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:53:38.875"}
+{"level":"info","message":"Redis connected successfully","metadata":{"service":"app"},"timestamp":"2024-10-28 12:53:49.508"}
