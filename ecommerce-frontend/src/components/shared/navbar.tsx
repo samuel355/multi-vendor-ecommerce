@@ -8,7 +8,11 @@ export function Navbar() {
         <Link href="/" className="text-xl font-bold">
           MultiVendor
         </Link>
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> api
         <div className="flex items-center gap-4">
           <Link href="/stores">Stores</Link>
           <Link href="/products">Products</Link>
@@ -23,4 +27,8 @@ export function Navbar() {
       </div>
     </nav>
   )
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> api
