@@ -132,41 +132,156 @@ export class ProductService {
         SET ${setClause}, updated_at=CURRENT_TIMESTAMP
         WHERE id=${values.length}
         RETURNING *`;
-      
-      const result = await client.query(query, values)
-      await client.query('COMMIT');
-      
+
+      const result = await client.query(query, values);
+      await client.query("COMMIT");
+
       //Clear relevant caches
-      await this.clearProductCaches(vendorId)
-      
-      return result.rows[0]
+      await this.clearProductCaches(vendorId);
+
+      return result.rows[0];
     } catch (error) {
-      await client.query('ROLLBACK');
+      await client.query("ROLLBACK");
       throw error;
     } finally {
-      client.release()
+      client.release();
     }
   }
-  
+
   //Get product by Id
-  async getProductById(productId: string){
+  async getProductById(productId: string) {
     const cacheKey = `product:${productId}`;
     const cached = await cache.get(cacheKey);
     if (cached) return cached;
-    
+
     const query = `
       SELECT p.*, v.business_name as vendor_name, v.id as vendor_id
-      FROM products p 
-      JOIN vendors v ON p.vendor_id = v.id 
+      FROM products p
+      JOIN vendors v ON p.vendor_id = v.id
       WHERE p.id = $1 AND p.is_active = true`;
-    
+
     const result = await this.pool.query(query, [productId]);
-    if(!result.rows[0]){
-      throw ApiError.notFound('Product not found');
+    if (!result.rows[0]) {
+      throw ApiError.notFound("Product not found");
     }
-    
+
     await cache.set(cacheKey, result.rows[0], this.CACHE_TTL);
-    return result.rows[0]
+    return result.rows[0];
+  }
+
+  //Get all products
+  async getProducts(
+    filters: ProductFilterDTO,
+    page: number = 1,
+    limit: number = 20,
+  ) {
+    
+    // - Creates a unique cache key based on filters and pagination
+    // - Returns cached results if available
+    const offset = (page - 1) * limit;
+    const cachedKey = `products:${JSON.stringify(filters)}:${page}:${limit}`;
+    const cached = await cache.get(cachedKey);
+    if (cached) return cached;
+
+    //Search filters Builds
+    // - Supports multiple filter types:
+    //   - Text search (name, description, brand)
+    //   - Categories
+    //   - Price range
+    //   - Brand
+    //   - Featured status
+    //   - Vendor ID
+  
+    
+    let whereConditions = ["p.is_active =true"];
+    let values: any[] = [];
+    let paramCount = 1;
+
+    if (filters.search) {
+      whereConditions.push(`
+        (p.name ILIKE $${paramCount} OR
+        p.description ILIKE $${paramCount} OR
+        p.brand ILIKE $${paramCount})
+      `);
+      values.push(`%${filters.search}%`);
+      paramCount++;
+    }
+
+    if (filters.categories) {
+      whereConditions.push(`p.categories && $${paramCount}::text[]`);
+      values.push(filters.categories);
+      paramCount++;
+    }
+
+    if (filters.minPrice !== undefined) {
+      whereConditions.push(`p.price >= $${paramCount}`);
+      values.push(filters.minPrice);
+      paramCount++;
+    }
+
+    if (filters.maxPrice !== undefined) {
+      whereConditions.push(`p.price <= $${paramCount}`);
+      values.push(filters.maxPrice);
+      paramCount++;
+    }
+
+    if (filters.brand) {
+      whereConditions.push(`p.brand = $${paramCount}`);
+      values.push(filters.brand);
+      paramCount++;
+    }
+
+    if (filters.featured !== undefined) {
+      whereConditions.push(`p.featured = $${paramCount}`);
+      values.push(filters.featured);
+      paramCount++;
+    }
+
+    if (filters.vendorId) {
+      whereConditions.push(`p.vendor_id = $${paramCount}`);
+      values.push(filters.vendorId);
+      paramCount++;
+    }
+
+    const whereClause = whereConditions.length
+      ? `WHERE ${whereConditions.join(" AND ")}`
+      : "";
+
+    const query = `
+      SELECT p.*, v.business_name as vendor_name
+      FROM products p
+      JOIN vendors v ON p.vendor_id = v.id
+      ${whereClause}
+      ORDER BY p.created_at DESC
+      LIMIT $${paramCount} OFFSET $${paramCount + 1}
+    `;
+
+    values.push(limit, offset);
+    
+    // Count
+    const countQuery = `
+      SELECT COUNT(*)
+      FROM products p
+      JOIN vendors v ON p.vendor_id = v.id
+      ${whereClause}
+    `;
+
+    const [products, count] = await Promise.all([
+      this.pool.query(query, values),
+      this.pool.query(countQuery, values.slice(0, -2))
+    ]);
+
+    //- Gets total number of matching products for pagination
+    const result = {
+      products: products.rows,
+      total: parseInt(count.rows[0].count),
+      page,
+      totalPages: Math.ceil(parseInt(count.rows[0].count) / limit)
+    };
+
+    //- Stores results in cache for future requests for 1 hour
+    await cache.set(cachedKey, result, this.CACHE_TTL);
+    return result;
   }
   
   
