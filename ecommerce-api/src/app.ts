@@ -11,6 +11,7 @@ import authRouter from "./routes/auth.route";
 import 'reflect-metadata';
 import { errorHandler } from "./middleware/error.middleware";
 import ApiError from "./utils/apiError";
+import vendorRouter from "./routes/vendor.route";
 
 // Load environment variables
 dotenv.config();
@@ -34,6 +35,7 @@ app.use((err: Error | ApiError, req: Request, res: Response, next: NextFunction)
 
 // Routes
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/', vendorRouter)
 
 app.get("/test", (req: Request, res: Response) => {
   res.json({ message: "Welcome to the multi-vendor E-commerce API" });
