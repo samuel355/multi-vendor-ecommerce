@@ -96,13 +96,49 @@ export class VendorService {
       FROM vendors v
       JOIN users u ON v.user_id=u.clerk_id
       WHERE v.id=$1 AND v.is_active=true`;
-    
+
     const result = await this.pool.query(query, [vendorId]);
-    if(!result.rows[0]){
-      throw ApiError.notFound('Vendor not found');
+    if (!result.rows[0]) {
+      throw ApiError.notFound("Vendor not found");
     }
-    
+
     await cache.set(`vendor:${vendorId}`, result.rows[0], 3600);
     return result.rows[0];
+  }
+
+  //Get all vendors
+  async getAllVendors(page: number = 1, limit: number = 10) {
+    const offset = (page - 1) * limit;
+    const cached = await cache.get('vendors:all');
+    if (cached) return cached;
+    
+    const query = `
+      SELECT v.*, u.email, u.full_name
+      FROM vendors v
+      JOIN users u ON v.user_id = u.clerk_id
+      WHERE v.is_active = true 
+      ORDER BY v.created_at DESC 
+      LIMIT $1 OFFSET $2`;
+    
+    const countQuery = `
+      SELECT COUNT(*) 
+      FROM vendors 
+      WHERE is_active = true
+    `;
+    
+    const [vendors, count] = await Promise.all([
+      this.pool.query(query, [limit, offset]),
+      this.pool.query(countQuery)
+    ]);
+    
+    const result = {
+      vendors: vendors.rows,
+      total: parseInt(count.rows[0].count),
+      page,
+      totalPages: Math.ceil(parseInt(count.rows[0].count) / limit)
+    };
+
+    await cache.set('vendors:all', result, 3600);
+    return result;
   }
 }
