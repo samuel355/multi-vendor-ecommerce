@@ -15,6 +15,10 @@ export class VendorService {
     this.pool = await getPool();
   }
 
+  private camelToSnake(str: string): string {
+    return str.replace(/[A-Z]/g, (letter) => `_${letter.toLowerCase()}`);
+  }
+
   //Create vendor
   async createVendor(vendorData: CreateVendorDTO, userId: string) {
     const client = await this.pool.connect();
@@ -39,15 +43,47 @@ export class VendorService {
         "vendor",
         userId,
       ]);
-      await client.query('COMMIT');
-      await cache.del('vendors:all');
-      return result.rows[0]
+      await client.query("COMMIT");
+      await cache.del("vendors:all");
+      return result.rows[0];
     } catch (error) {
-      await client.query('ROLLBACK');
+      await client.query("ROLLBACK");
       throw error;
-      
-    }finally{
-      client.release()
+    } finally {
+      client.release();
     }
+  }
+
+  //Update vendor
+  async updateVendor(
+    vendorId: string,
+    userId: string,
+    updates: UpdateVendorDTO,
+  ) {
+    const setClause = Object.entries(updates)
+      .filter(([_, value]) => value !== undefined)
+      .map(([key, _], index) => `${this.camelToSnake(key)} = $${index + 1}`)
+      .join(", ");
+
+    const values = Object.values(updates).filter(
+      (value) => value !== undefined,
+    );
+    values.push(vendorId, userId);
+
+    const query = `
+        UPDATE vendors
+        SET ${setClause}
+        WHERE id = $${values.length - 1} AND user_id = $${values.length}
+        RETURNING *
+      `;
+
+    const result = await this.pool.query(query, values);
+    if (!result.rows[0]) {
+      throw ApiError.notFound("Vendor not found");
+    }
+
+    await cache.del(`vendor:${vendorId}`);
+    await cache.del("vendors:all");
+    return result.rows[0];
   }
 }
