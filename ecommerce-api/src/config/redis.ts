@@ -1,3 +1,4 @@
+//config/redis.ts
 import Redis, { RedisOptions } from "ioredis";
 import dotenv from "dotenv";
 dotenv.config();

@@ -1,3 +1,4 @@
+//middleware/auth.middleware.ts
 import { Request, Response, NextFunction } from "express";
 import { ClerkExpressRequireAuth } from "@clerk/clerk-sdk-node";
 import { getPool } from "../config/database";

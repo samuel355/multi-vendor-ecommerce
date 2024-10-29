@@ -1,3 +1,4 @@
+//config/database.ts
 import { Pool, PoolConfig } from "pg";
 
 // Single pool instance
