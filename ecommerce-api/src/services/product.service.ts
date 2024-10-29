@@ -175,7 +175,6 @@ export class ProductService {
     page: number = 1,
     limit: number = 20,
   ) {
-    
     // - Creates a unique cache key based on filters and pagination
     // - Returns cached results if available
     const offset = (page - 1) * limit;
@@ -191,8 +190,7 @@ export class ProductService {
     //   - Brand
     //   - Featured status
     //   - Vendor ID
-  
-    
+
     let whereConditions = ["p.is_active =true"];
     let values: any[] = [];
     let paramCount = 1;
@@ -257,7 +255,7 @@ export class ProductService {
     `;
 
     values.push(limit, offset);
-    
+
     // Count
     const countQuery = `
       SELECT COUNT(*)
@@ -268,7 +266,7 @@ export class ProductService {
 
     const [products, count] = await Promise.all([
       this.pool.query(query, values),
-      this.pool.query(countQuery, values.slice(0, -2))
+      this.pool.query(countQuery, values.slice(0, -2)),
     ]);
 
     //- Gets total number of matching products for pagination
@@ -276,13 +274,51 @@ export class ProductService {
       products: products.rows,
       total: parseInt(count.rows[0].count),
       page,
-      totalPages: Math.ceil(parseInt(count.rows[0].count) / limit)
+      totalPages: Math.ceil(parseInt(count.rows[0].count) / limit),
     };
 
     //- Stores results in cache for future requests for 1 hour
     await cache.set(cachedKey, result, this.CACHE_TTL);
     return result;
   }
-  
+
+  //Delete Product
+  async deleteProduct(productId: string, vendorId: string, userId: string) {
+    const client = await this.pool.connect();
+
+    try {
+      await client.query("BEGIN");
+
+      const result = await client.query(
+        `UPDATE products
+         SET is_active = false
+         WHERE id = $1 AND vendor_id = $2
+         AND EXISTS (
+           SELECT 1 FROM vendors
+           WHERE id = $2 AND user_id = $3
+         )
+         RETURNING *`,
+        [productId, vendorId, userId],
+      );
+      
+      if (!result.rows[0]) {
+        throw ApiError.notFound('Product not found or not authorized');
+      }
+
+      await client.query('COMMIT');
+      
+      // Clear relevant caches
+      await this.clearProductCaches(vendorId);
+      return result.rows[0];
+      
+    } catch (error) {
+      await client.query('ROLLBACK');
+      throw error;
+    }finally{
+      client.release()
+    }
+  }
   
 }
+
+export default new ProductService();
