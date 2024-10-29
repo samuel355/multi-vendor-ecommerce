@@ -147,4 +147,27 @@ export class ProductService {
       client.release()
     }
   }
+  
+  //Get product by Id
+  async getProductById(productId: string){
+    const cacheKey = `product:${productId}`;
+    const cached = await cache.get(cacheKey);
+    if (cached) return cached;
+    
+    const query = `
+      SELECT p.*, v.business_name as vendor_name, v.id as vendor_id
+      FROM products p 
+      JOIN vendors v ON p.vendor_id = v.id 
+      WHERE p.id = $1 AND p.is_active = true`;
+    
+    const result = await this.pool.query(query, [productId]);
+    if(!result.rows[0]){
+      throw ApiError.notFound('Product not found');
+    }
+    
+    await cache.set(cacheKey, result.rows[0], this.CACHE_TTL);
+    return result.rows[0]
+  }
+  
+  
 }
