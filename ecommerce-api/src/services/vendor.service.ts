@@ -86,4 +86,23 @@ export class VendorService {
     await cache.del("vendors:all");
     return result.rows[0];
   }
+
+  //Get Vendor by id
+  async getVendorById(vendorId: string) {
+    const cached = await cache.get(`vendor:${vendorId}`);
+    if (cached) return cached;
+
+    const query = ` SELECT v.*, u.email, u.full_name
+      FROM vendors v
+      JOIN users u ON v.user_id=u.clerk_id
+      WHERE v.id=$1 AND v.is_active=true`;
+    
+    const result = await this.pool.query(query, [vendorId]);
+    if(!result.rows[0]){
+      throw ApiError.notFound('Vendor not found');
+    }
+    
+    await cache.set(`vendor:${vendorId}`, result.rows[0], 3600);
+    return result.rows[0];
+  }
 }
