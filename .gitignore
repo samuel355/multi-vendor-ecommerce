@@ -1,6 +1,7 @@
 # Ignore node_modules
 **/node_modules
-
+/ecommerce-api/logs
+ecommerce-api/logs
 # Ignore logs
 logs
 *.log
