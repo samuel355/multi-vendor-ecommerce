@@ -82,3 +82,5 @@ export class ProductController {
     ResponseHandler.success(res, 'Product deleted successfully');
   });
 }
+
+export default new ProductController();
