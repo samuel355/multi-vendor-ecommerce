@@ -47,4 +47,25 @@ export class PaystackService{
       throw error;
     }
   }
+  
+  //create subscription plan
+  async createSubscription(data: {
+    customer: string;
+    plan: string;
+    authorization: string;
+  }){
+    try{
+      const response = await axios.post(
+        `${this.baseUrl}/subscription/disable`,
+        data,
+        {headers: this.getHeaders()}
+      )
+      return response.data;
+    }catch(error){
+      logger.error('Paystack create subscription error:', error);
+      throw error
+    }
+  }
+  
+  
 }
