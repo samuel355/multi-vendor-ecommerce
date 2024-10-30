@@ -160,6 +160,230 @@ export class VendorService {
     await cache.del('vendors:all');
     return result.rows[0];
   }
+  
+  //Update Vendor location
+  async updateVendorLocation(
+    vendorId: string,
+    userId: string,
+    data: {
+      digitalAddress: string;
+      shopImages?: string[];
+      openingHours?: any;
+      shopCategory?: string;
+      shopTags?: string[];
+    }
+  ) {
+    const client = await this.pool.connect();
+
+    try {
+      await client.query('BEGIN');
+
+      // Validate digital address and get coordinates
+      const coordinates = await ghanaPostService.getCoordinates(data.digitalAddress);
+
+      const updateQuery = `
+        UPDATE vendors 
+        SET 
+          digital_address = $1,
+          latitude = $2,
+          longitude = $3,
+          shop_images = $4,
+          opening_hours = $5,
+          shop_category = $6,
+          shop_tags = $7,
+          location_verified = true,
+          updated_at = CURRENT_TIMESTAMP
+        WHERE id = $8 AND user_id = $9
+        RETURNING *
+      `;
+
+      const result = await client.query(updateQuery, [
+        data.digitalAddress,
+        coordinates.latitude,
+        coordinates.longitude,
+        data.shopImages || [],
+        JSON.stringify(data.openingHours || {}),
+        data.shopCategory,
+        data.shopTags || [],
+        vendorId,
+        userId
+      ]);
+
+      // Update operating hours
+      if (data.openingHours) {
+        await this.updateOperatingHours(client, vendorId, data.openingHours);
+      }
+
+      await client.query('COMMIT');
+      await this.clearVendorCache(vendorId);
+
+      return result.rows[0];
+    } catch (error) {
+      await client.query('ROLLBACK');
+      throw error;
+    } finally {
+      client.release();
+    }
+  }
+  
+  //Get Nearby Vendors
+  async getNearbyVendors(
+    latitude: number,
+    longitude: number,
+    radius: number = 5, // km
+    category?: string
+  ) {
+    const cacheKey = `nearby:${latitude}:${longitude}:${radius}:${category || 'all'}`;
+    const cached = await cache.get(cacheKey);
+    
+    if (cached) return JSON.parse(cached);
+
+    // Using Haversine formula to calculate distance
+    const query = `
+      SELECT 
+        v.*,
+        (
+          6371 * acos(
+            cos(radians($1)) * cos(radians(latitude)) *
+            cos(radians(longitude) - radians($2)) +
+            sin(radians($1)) * sin(radians(latitude))
+          )
+        ) AS distance
+      FROM vendors v
+      WHERE 
+        v.is_active = true
+        AND v.location_verified = true
+        ${category ? 'AND v.shop_category = $4' : ''}
+      HAVING 
+        (
+          6371 * acos(
+            cos(radians($1)) * cos(radians(latitude)) *
+            cos(radians(longitude) - radians($2)) +
+            sin(radians($1)) * sin(radians(latitude))
+          )
+        ) < $3
+      ORDER BY distance
+    `;
+
+    const params = [latitude, longitude, radius];
+    if (category) params.push(category);
+
+    const result = await this.pool.query(query, params);
+    
+    const vendors = result.rows.map(vendor => ({
+      ...vendor,
+      distance: Math.round(vendor.distance * 100) / 100 // Round to 2 decimal places
+    }));
+
+    await cache.set(cacheKey, JSON.stringify(vendors), 300); // Cache for 5 minutes
+    return vendors;
+  }
+  
+  //Add shop Reviews
+  async addShopReview(
+    vendorId: string,
+    userId: string,
+    data: {
+      rating: number;
+      reviewText?: string;
+      images?: string[];
+    }
+  ) {
+    const client = await this.pool.connect();
+
+    try {
+      await client.query('BEGIN');
+
+      // Check if user has made a purchase from this vendor
+      const purchaseCheck = `
+        SELECT EXISTS (
+          SELECT 1 FROM order_items oi
+          JOIN orders o ON oi.order_id = o.id
+          WHERE oi.vendor_id = $1 
+          AND o.user_id = $2 
+          AND oi.status = 'delivered'
+        ) as has_purchased
+      `;
+
+      const { has_purchased } = (await client.query(purchaseCheck, [vendorId, userId])).rows[0];
+
+      // Insert review
+      const reviewQuery = `
+        INSERT INTO shop_reviews (
+          vendor_id, user_id, rating, review_text, 
+          images, is_verified_purchase
+        ) VALUES ($1, $2, $3, $4, $5, $6)
+        RETURNING *
+      `;
+
+      const review = await client.query(reviewQuery, [
+        vendorId,
+        userId,
+        data.rating,
+        data.reviewText,
+        data.images || [],
+        has_purchased
+      ]);
+
+      // Update vendor rating
+      await client.query(`
+        UPDATE vendors 
+        SET 
+          average_rating = (
+            SELECT AVG(rating) FROM shop_reviews 
+            WHERE vendor_id = $1
+          ),
+          total_ratings = (
+            SELECT COUNT(*) FROM shop_reviews 
+            WHERE vendor_id = $1
+          )
+        WHERE id = $1
+      `, [vendorId]);
+
+      await client.query('COMMIT');
+      await this.clearVendorCache(vendorId);
+
+      return review.rows[0];
+    } catch (error) {
+      await client.query('ROLLBACK');
+      throw error;
+    } finally {
+      client.release();
+    }
+  }
+  
+  //Update Operating hours
+  private async updateOperatingHours(client: any, vendorId: string, hours: any) {
+    // Clear existing hours
+    await client.query(
+      'DELETE FROM vendor_operating_hours WHERE vendor_id = $1',
+      [vendorId]
+    );
+
+    // Insert new hours
+    for (const [day, times] of Object.entries(hours)) {
+      await client.query(`
+        INSERT INTO vendor_operating_hours (
+          vendor_id, day_of_week, open_time, 
+          close_time, is_closed
+        ) VALUES ($1, $2, $3, $4, $5)
+      `, [
+        vendorId,
+        day,
+        times.open,
+        times.close,
+        times.closed || false
+      ]);
+    }
+  }
+
+  private async clearVendorCache(vendorId: string) {
+    await Promise.all([
+      cache.del(`vendor:${vendorId}`),
+      cache.del('vendors:nearby:*'),
+      cache.del('vendors:all')
+    ]);
+  }
 }
 
 export default new VendorService();

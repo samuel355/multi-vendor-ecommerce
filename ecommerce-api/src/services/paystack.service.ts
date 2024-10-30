@@ -2,6 +2,13 @@ import axios from "axios";
 import { config } from "../config";
 import logger from "../config/logger";
 
+interface PaystackTransactionInit {
+  email: string;
+  amount: number;
+  callback_url: string;
+  metadata: any;
+}
+
 export class PaystackService {
   private readonly baseUrl = config.PAYSTACK_BASE_URL;
   private readonly secretKey = config.PAYSTACK_SECRET_KEY;
@@ -15,12 +22,7 @@ export class PaystackService {
   }
 
   //Initialize transaction
-  async initializeTransaction(data: {
-    email: string;
-    amount: number;
-    callback_url: string;
-    metadata: any;
-  }): Promise<any> {
+  async initializeTransaction(data: PaystackTransactionInit): Promise<any> {
     try {
       const response = await axios.post(
         `${this.baseUrl}/transaction/initialize`,

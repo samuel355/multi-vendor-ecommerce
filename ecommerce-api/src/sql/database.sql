@@ -212,3 +212,137 @@ CREATE TRIGGER update_users_updated_at
         NULL, -- NULL means unlimited
         '{"support": "email,chat,phone", "features": ["Premium analytics", "24/7 support", "Custom shop URL", "Featured listings"]}'
     );
+    
+-- Delivery Zones Table
+    CREATE TABLE delivery_zones (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        name VARCHAR(100) NOT NULL,
+        region VARCHAR(100) NOT NULL,
+        base_fee DECIMAL(10,2) NOT NULL,
+        is_active BOOLEAN DEFAULT true,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    -- Vendor Delivery Settings
+    CREATE TABLE vendor_delivery_settings (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        vendor_id UUID REFERENCES vendors(id),
+        zone_id UUID REFERENCES delivery_zones(id),
+        additional_fee DECIMAL(10,2) DEFAULT 0,
+        minimum_order_amount DECIMAL(10,2),
+        is_active BOOLEAN DEFAULT true,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    
+    -- Shopping Cart
+    CREATE TABLE shopping_carts (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        user_id VARCHAR(255) NOT NULL,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    -- Cart Items
+    CREATE TABLE cart_items (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        cart_id UUID REFERENCES shopping_carts(id),
+        product_id UUID REFERENCES products(id),
+        quantity INTEGER NOT NULL,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    -- Orders
+    CREATE TABLE orders (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        user_id VARCHAR(255) NOT NULL,
+        total_amount DECIMAL(10,2) NOT NULL,
+        delivery_fee DECIMAL(10,2) NOT NULL,
+        status VARCHAR(50) NOT NULL DEFAULT 'pending',
+        delivery_address TEXT NOT NULL,
+        contact_phone VARCHAR(20) NOT NULL,
+        payment_status VARCHAR(50) NOT NULL DEFAULT 'pending',
+        payment_reference VARCHAR(100),
+        notes TEXT,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    -- Order Items (Products from different vendors)
+    CREATE TABLE order_items (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        order_id UUID REFERENCES orders(id),
+        vendor_id UUID REFERENCES vendors(id),
+        product_id UUID REFERENCES products(id),
+        quantity INTEGER NOT NULL,
+        unit_price DECIMAL(10,2) NOT NULL,
+        subtotal DECIMAL(10,2) NOT NULL,
+        delivery_fee DECIMAL(10,2) NOT NULL,
+        status VARCHAR(50) NOT NULL DEFAULT 'pending',
+        tracking_number VARCHAR(100),
+        estimated_delivery_date TIMESTAMP WITH TIME ZONE,
+        actual_delivery_date TIMESTAMP WITH TIME ZONE,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    -- Vendor Settlements
+    CREATE TABLE vendor_settlements (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        vendor_id UUID REFERENCES vendors(id),
+        order_item_id UUID REFERENCES order_items(id),
+        amount DECIMAL(10,2) NOT NULL,
+        fee DECIMAL(10,2) NOT NULL,
+        net_amount DECIMAL(10,2) NOT NULL,
+        status VARCHAR(50) NOT NULL DEFAULT 'pending',
+        payment_reference VARCHAR(100),
+        paid_at TIMESTAMP WITH TIME ZONE,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    -- Delivery Tracking
+    CREATE TABLE delivery_tracking (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        order_item_id UUID REFERENCES order_items(id),
+        status VARCHAR(50) NOT NULL,
+        location TEXT,
+        notes TEXT,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    -- Add location columns to vendors table
+    ALTER TABLE vendors ADD COLUMN digital_address VARCHAR(20);
+    ALTER TABLE vendors ADD COLUMN latitude DECIMAL(10, 8);
+    ALTER TABLE vendors ADD COLUMN longitude DECIMAL(11, 8);
+    ALTER TABLE vendors ADD COLUMN location_verified BOOLEAN DEFAULT false;
+    ALTER TABLE vendors ADD COLUMN shop_images TEXT[];
+    ALTER TABLE vendors ADD COLUMN opening_hours JSONB;
+    ALTER TABLE vendors ADD COLUMN shop_category VARCHAR(100);
+    ALTER TABLE vendors ADD COLUMN shop_tags TEXT[];
+    ALTER TABLE vendors ADD COLUMN average_rating DECIMAL(3,2);
+    ALTER TABLE vendors ADD COLUMN total_ratings INTEGER DEFAULT 0;
+    
+    -- Create shop reviews table
+    CREATE TABLE shop_reviews (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        vendor_id UUID REFERENCES vendors(id),
+        user_id VARCHAR(255) NOT NULL,
+        rating INTEGER CHECK (rating >= 1 AND rating <= 5),
+        review_text TEXT,
+        images TEXT[],
+        is_verified_purchase BOOLEAN DEFAULT false,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    -- Create vendor operating hours table
+    CREATE TABLE vendor_operating_hours (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        vendor_id UUID REFERENCES vendors(id),
+        day_of_week INTEGER CHECK (day_of_week >= 0 AND day_of_week <= 6),
+        open_time TIME,
+        close_time TIME,
+        is_closed BOOLEAN DEFAULT false,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
