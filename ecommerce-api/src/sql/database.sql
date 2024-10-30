@@ -63,3 +63,80 @@ CREATE TRIGGER update_vendors_updated_at
     BEFORE UPDATE ON vendors
     FOR EACH ROW
     EXECUTE FUNCTION update_updated_at_column();
+
+
+    -- Create products table
+    CREATE TABLE products (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        vendor_id UUID NOT NULL REFERENCES vendors(id),
+        name VARCHAR(100) NOT NULL,
+        description TEXT NOT NULL,
+        price DECIMAL(10,2) NOT NULL,
+        quantity INTEGER NOT NULL,
+        categories TEXT[] NOT NULL,
+        images TEXT[] NOT NULL,
+        brand VARCHAR(100),
+        sku VARCHAR(50),
+        featured BOOLEAN DEFAULT false,
+        discount_percentage DECIMAL(5,2) DEFAULT 0,
+        is_active BOOLEAN DEFAULT true,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+
+    -- Create indexes for better performance
+    CREATE INDEX idx_products_vendor_id ON products(vendor_id);
+    CREATE INDEX idx_products_is_active ON products(is_active);
+    CREATE INDEX idx_products_categories ON products USING gin(categories);
+    CREATE INDEX idx_products_price ON products(price);
+    CREATE INDEX idx_products_created_at ON products(created_at);
+
+    -- Insert sample data for testing
+    INSERT INTO products (
+        vendor_id,
+        name,
+        description,
+        price,
+        quantity,
+        categories,
+        images,
+        brand,
+        sku,
+        featured,
+        discount_percentage
+    ) VALUES (
+        '123e4567-e89b-12d3-a456-426614174000', -- Replace with actual vendor_id
+        'Premium Wireless Headphones',
+        'High-quality wireless headphones with noise cancellation',
+        199.99,
+        50,
+        ARRAY['Electronics', 'Audio', 'Accessories'],
+        ARRAY['https://example.com/images/headphones1.jpg', 'https://example.com/images/headphones2.jpg'],
+        'SoundMaster',
+        'SM-WH-001',
+        true,
+        10.00
+    );
+
+    -- Insert more sample products
+    INSERT INTO products (
+        vendor_id,
+        name,
+        description,
+        price,
+        quantity,
+        categories,
+        images,
+        brand,
+        sku
+    ) VALUES (
+        '123e4567-e89b-12d3-a456-426614174000', -- Replace with actual vendor_id
+        'Smart Watch Pro',
+        'Advanced smartwatch with health monitoring features',
+        299.99,
+        30,
+        ARRAY['Electronics', 'Wearables', 'Smart Devices'],
+        ARRAY['https://example.com/images/watch1.jpg'],
+        'TechWear',
+        'TW-SW-002'
+    );
