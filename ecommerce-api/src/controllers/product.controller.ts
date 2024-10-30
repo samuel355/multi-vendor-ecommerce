@@ -72,4 +72,13 @@ export class ProductController {
     const products = await productService.getProducts(filters, page, limit);
     ResponseHandler.success(res, 'Vendor products retrieved successfully', products);
   });
+  
+  //Delete Product
+  deleteProduct = catchAsync(async (req: Request, res: Response) => {
+    const productId = req.params.productId;
+    const vendorId = req.params.vendorId;
+    const userId = req.auth?.userId;
+    await productService.deleteProduct(productId, vendorId, userId!);
+    ResponseHandler.success(res, 'Product deleted successfully');
+  });
 }
