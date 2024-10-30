@@ -34,5 +34,17 @@ export class PaystackService{
     }
   }
   
-  
+  //Verify Transaction
+  async verifyTransaction(reference: string){
+    try{
+      const response = await axios.get(
+        `${this.baseUrl}/transaction/verify/${reference}`,
+        { headers: this.getHeaders() }
+      );
+      return response.data;
+    }catch(error){
+      logger.error('Paystack verify transaction error:', error);
+      throw error;
+    }
+  }
 }
