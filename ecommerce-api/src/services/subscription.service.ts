@@ -146,4 +146,34 @@ export class SubscriptionService {
       client.release()
     }
   }
+  
+  //Admin get all subscriptions
+  async getAllSubscriptions(page: number = 1, limit: number = 20){
+    const offset = (page - 1) * limit;
+    
+    const query = `
+      SELECT vs.*, v.business_name, sp.name as plan_name
+      FROM vendor_subscriptions vs
+      JOIN vendors v ON vs.vendor_id = v.id
+      JOIN subscription_plans sp ON vs.plan_id = sp.id
+      ORDER BY vs.created_at DESC
+      LIMIT $1 OFFSET $2
+    `;
+    
+    const countQuery = `
+      SELECT COUNT(*) FROM vendor_subscriptions
+    `;
+    
+    const [subscriptions, count] = await Promise.all([
+      this.pool.query(query, [limit, offset]),
+      this.pool.query(countQuery)
+    ]);
+    
+    return {
+      subscriptions: subscriptions.rows,
+      total: parseInt(count.rows[0].count),
+      page,
+      totalPages: Math.ceil(parseInt(count.rows[0].count) / limit)
+    };
+  }
 }
