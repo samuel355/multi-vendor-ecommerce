@@ -68,6 +68,82 @@ export class SubscriptionService {
       client.release();
     }
   }
-  
-  
+
+  //Verify Subscription Payment and save record
+  async verifySubscription(reference: string) {
+    const client = await this.pool.connect();
+
+    try {
+      await client.query("BEGIN");
+      const verification = await paystackService.verifyTransaction(reference);
+
+      if (verification.data.status !== "success") {
+        throw ApiError.badRequest("Paystack verification failed");
+      }
+
+      const { vendor_id, plan_id, billing_cycle } = verification.data.metadata;
+
+      //Calculate subscription period
+      const startDate = new Date();
+      const endDate = new Date(startDate);
+
+      if (billing_cycle === BillingCycle.MONTHLY) {
+        endDate.setMonth(endDate.getMonth() + 1);
+      } else {
+        endDate.setFullYear(endDate.getFullYear() + 1);
+      }
+
+      // Create subscription record
+      const subscriptionQuery = `
+        INSERT INTO vendor_subscriptions (
+          vendor_id, plan_id, status, billing_cycle,
+          start_date, end_date, last_payment_date,
+          next_payment_date, paystack_subscription_code
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+        RETURNING *
+      `;
+
+      const subscriptionResult = await client.query(subscriptionQuery, [
+        vendor_id,
+        plan_id,
+        "active",
+        billing_cycle,
+        startDate,
+        endDate,
+        startDate,
+        endDate,
+        verification.data.authorization.authorization_code,
+      ]);
+      
+      // Record transaction
+      const transactionQuery = `
+        INSERT INTO subscription_transactions (
+          vendor_subscription_id, vendor_id, amount,
+          currency, paystack_reference, status,
+          payment_method, metadata
+        ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+        RETURNING *
+      `;
+      
+      await client.query(transactionQuery, [
+        subscriptionResult.rows[0].id,
+        vendor_id,
+        verification.data.amount / 100,
+        'NGN',
+        reference,
+        'success',
+        verification.data.channel,
+        verification.data
+      ]);
+
+      await client.query('COMMIT');
+      return subscriptionResult.rows[0];
+      
+    } catch (error) {
+      await client.query('ROLLBACK');
+      throw error
+    }finally{
+      client.release()
+    }
+  }
 }
