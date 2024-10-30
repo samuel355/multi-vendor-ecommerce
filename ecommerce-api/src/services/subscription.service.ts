@@ -176,4 +176,24 @@ export class SubscriptionService {
       totalPages: Math.ceil(parseInt(count.rows[0].count) / limit)
     };
   }
+  
+  //Admin get subscription stats
+  async getSubscriptionStats() {
+    const query = `
+      SELECT 
+        sp.name as plan_name,
+        COUNT(vs.id) as total_subscriptions,
+        SUM(CASE WHEN vs.status = 'active' THEN 1 ELSE 0 END) as active_subscriptions,
+        SUM(CASE WHEN vs.billing_cycle = 'monthly' THEN 1 ELSE 0 END) as monthly_subscriptions,
+        SUM(CASE WHEN vs.billing_cycle = 'yearly' THEN 1 ELSE 0 END) as yearly_subscriptions
+      FROM subscription_plans sp
+      LEFT JOIN vendor_subscriptions vs ON sp.id = vs.plan_id
+      GROUP BY sp.id, sp.name
+    `;
+
+    const result = await this.pool.query(query);
+    return result.rows;
+  }
 }
+
+export default new SubscriptionService()
