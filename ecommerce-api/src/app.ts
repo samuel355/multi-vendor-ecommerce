@@ -13,6 +13,7 @@ import { errorHandler } from "./middleware/error.middleware";
 import ApiError from "./utils/apiError";
 import vendorRouter from "./routes/vendor.route";
 import productRouter from "./routes/product.route";
+import subscriptionRouter from "./routes/subscription.route";
 
 // Load environment variables
 dotenv.config();
@@ -38,6 +39,7 @@ app.use((err: Error | ApiError, req: Request, res: Response, next: NextFunction)
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/', vendorRouter)
 app.use('/api/v1/', productRouter)
+app.use('/api/v1/', subscriptionRouter) 
 
 app.get("/test", (req: Request, res: Response) => {
   res.json({ message: "Welcome to the multi-vendor E-commerce API" });

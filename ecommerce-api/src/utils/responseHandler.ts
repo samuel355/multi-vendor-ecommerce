@@ -4,12 +4,12 @@ export class ResponseHandler {
   //success
   static success(
     res: Response,
-    data: any = null,
-    message: string = "Success",
+    message: string,
+    data?: any,
     statusCode: number = 200,
   ) {
     return res.status(statusCode).json({
-      success: true,
+      status: 'success',
       message,
       data,
     });
@@ -18,14 +18,12 @@ export class ResponseHandler {
   //Error
   static error(
     res: Response,
-    message: string = "Error Occured",
+    message: string,
     statusCode: number = 500,
-    error: any = null,
   ) {
     return res.status(statusCode).json({
-      success: false,
+      status: 'error',
       message,
-      error,
     });
   }
 }

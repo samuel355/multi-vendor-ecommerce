@@ -70,7 +70,7 @@ export class SubscriptionService {
   }
 
   //Verify Subscription Payment and save record
-  async verifySubscription(reference: string) {
+  async verifySubscriptionPayment(reference: string) {
     const client = await this.pool.connect();
 
     try {
