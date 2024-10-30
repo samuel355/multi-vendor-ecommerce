@@ -11,7 +11,7 @@ import catchAsync from "../utils/catchAsync";
 export class ProductController {
   //Create product Controller
   createProduct = catchAsync(
-    async (req: Request, res: Response, next: NextFunction) => {
+    async (req: Request, res: Response) => {
       const productData: CreateProductDTO = req.body;
       const vendorId = req.params.vendorId;
       const userId = req.auth?.userId;
@@ -31,7 +31,7 @@ export class ProductController {
 
   //Update Product
   updateProduct = catchAsync(
-    async (req: Request, res: Response, next: NextFunction) => {
+    async (req: Request, res: Response) => {
       const updates: UpdateProductDTO = req.body;
       const productId = req.params.productId;
       const vendorId = req.params.vendorId;
@@ -43,6 +43,14 @@ export class ProductController {
         updates,
       );
       ResponseHandler.success(res, "Product updated successfully", product);
+    },
+  );
+
+  //Get Product By Id
+  getProduct = catchAsync(
+    async (req: Request, res: Response) => {
+      const product = await productService.getProductById(req.params.productId);
+      ResponseHandler.success(res, "Product retrieved successfully", product);
     },
   );
 }
