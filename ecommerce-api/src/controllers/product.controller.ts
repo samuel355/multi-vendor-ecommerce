@@ -53,4 +53,23 @@ export class ProductController {
       ResponseHandler.success(res, "Product retrieved successfully", product);
     },
   );
+  
+  //Get Products
+  getProducts = catchAsync(async (req: Request, res: Response) => {
+    const filters: ProductFilterDTO = req.query;
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 20;
+    const products = await productService.getProducts(filters, page, limit);
+    ResponseHandler.success(res, 'Products retrieved successfully', products);
+  });
+
+  //Get Vendor Products
+  getVendorProducts = catchAsync(async (req: Request, res: Response) => {
+    const vendorId = req.params.vendorId;
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 20;
+    const filters: ProductFilterDTO = { ...req.query, vendorId };
+    const products = await productService.getProducts(filters, page, limit);
+    ResponseHandler.success(res, 'Vendor products retrieved successfully', products);
+  });
 }
