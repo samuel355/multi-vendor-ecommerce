@@ -24,6 +24,7 @@ import chatRouter from "./routes/chat.route";
 import { createServer } from 'http';
 import WebSocketService from './services/websocket.service';
 import reviewRouter from "./routes/reviewRoute";
+import wishlistRouter from "./routes/wishlist.route";
 
 // Load environment variables
 dotenv.config();
@@ -64,6 +65,7 @@ app.use("/api/v1/gpgps", gpsRouter);
 app.use("/api/v1/map", mapRouter);
 app.use("/api/v1/chat", chatRouter);
 app.use("/api/v1/review", reviewRouter);
+app.use("/api/v1/wishlist", wishlistRouter);
 
 // 404 Handler
 app.all("*", (req: Request, res: Response, next: NextFunction) => {
