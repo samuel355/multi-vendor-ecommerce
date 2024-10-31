@@ -487,3 +487,85 @@ CREATE TRIGGER update_users_updated_at
         product_id UUID REFERENCES products(id),
         PRIMARY KEY (promotion_id, product_id)
     );
+    
+    CREATE TYPE discount_type AS ENUM ('percentage', 'fixed');
+    CREATE TYPE promotion_status AS ENUM ('draft', 'active', 'scheduled', 'expired', 'cancelled');
+    
+    -- Promotions Table
+    CREATE TABLE promotions (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        vendor_id UUID NOT NULL REFERENCES vendors(id),
+        name VARCHAR(100) NOT NULL,
+        description TEXT,
+        discount_type discount_type NOT NULL,
+        discount_value DECIMAL(10,2) NOT NULL,
+        start_date TIMESTAMP WITH TIME ZONE NOT NULL,
+        end_date TIMESTAMP WITH TIME ZONE NOT NULL,
+        minimum_purchase DECIMAL(10,2),
+        max_uses INTEGER,
+        is_public BOOLEAN DEFAULT false,
+        status promotion_status NOT NULL DEFAULT 'draft',
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    -- Promotion Products (for product-specific promotions)
+    CREATE TABLE promotion_products (
+        promotion_id UUID REFERENCES promotions(id) ON DELETE CASCADE,
+        product_id UUID REFERENCES products(id) ON DELETE CASCADE,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (promotion_id, product_id)
+    );
+    
+    -- Promotion Uses (tracking promotion usage)
+    CREATE TABLE promotion_uses (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        promotion_id UUID REFERENCES promotions(id),
+        order_id UUID REFERENCES orders(id),
+        user_id VARCHAR(255) NOT NULL,
+        discount_amount DECIMAL(10,2) NOT NULL,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    -- Add order-related promotion columns
+    ALTER TABLE orders ADD COLUMN promotion_id UUID REFERENCES promotions(id);
+    ALTER TABLE orders ADD COLUMN discount_amount DECIMAL(10,2) DEFAULT 0;
+    ALTER TABLE orders ADD COLUMN final_amount DECIMAL(10,2);
+    
+    -- Indexes for better performance
+    CREATE INDEX idx_promotions_vendor ON promotions(vendor_id);
+    CREATE INDEX idx_promotions_status ON promotions(status);
+    CREATE INDEX idx_promotions_dates ON promotions(start_date, end_date);
+    CREATE INDEX idx_promotion_uses_promotion ON promotion_uses(promotion_id);
+    CREATE INDEX idx_promotion_uses_user ON promotion_uses(user_id);
+    
+    -- Trigger to automatically update status based on dates
+    CREATE OR REPLACE FUNCTION update_promotion_status()
+    RETURNS TRIGGER AS $$
+    BEGIN
+        IF NEW.end_date < CURRENT_TIMESTAMP THEN
+            NEW.status = 'expired';
+        ELSIF NEW.start_date > CURRENT_TIMESTAMP THEN
+            NEW.status = 'scheduled';
+        ELSIF NEW.start_date <= CURRENT_TIMESTAMP AND NEW.end_date >= CURRENT_TIMESTAMP THEN
+            NEW.status = 'active';
+        END IF;
+        RETURN NEW;
+    END;
+    $$ LANGUAGE plpgsql;
+    
+    CREATE TRIGGER promotion_status_update
+        BEFORE INSERT OR UPDATE ON promotions
+        FOR EACH ROW
+        EXECUTE FUNCTION update_promotion_status();
+    
+    -- Function to clean up expired promotions
+    CREATE OR REPLACE FUNCTION cleanup_expired_promotions()
+    RETURNS void AS $$
+    BEGIN
+        UPDATE promotions
+        SET status = 'expired'
+        WHERE status = 'active'
+        AND end_date < CURRENT_TIMESTAMP;
+    END;
+    $$ LANGUAGE plpgsql;

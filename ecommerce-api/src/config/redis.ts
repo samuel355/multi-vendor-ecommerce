@@ -50,6 +50,42 @@ export const cache = {
       logger.error("Cache delete error", { key, error });
     }
   },
+  
+  // Add keys method
+  async keys(pattern: string) {
+    try {
+      return await redis.keys(pattern);
+    } catch (error) {
+      logger.error("Cache keys error", { pattern, error });
+      return [];
+    }
+  },
+  
+  
+  // Add method to clear multiple keys
+  async clearPattern(pattern: string) {
+    try {
+      const keys = await redis.keys(pattern);
+      if (keys.length > 0) {
+        await redis.del(...keys);
+      }
+    } catch (error) {
+      logger.error("Cache clear pattern error", { pattern, error });
+    }
+  },
+  
+  // Add method to check if key exists
+  async exists(key: string): Promise<boolean> {
+    try {
+      const exists = await redis.exists(key);
+      return exists === 1;
+    } catch (error) {
+      logger.error("Cache exists error", { key, error });
+      return false;
+    }
+  }
+  
+  
 };
 
 export default redis;
