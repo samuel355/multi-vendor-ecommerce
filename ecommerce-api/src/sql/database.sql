@@ -431,3 +431,59 @@ CREATE TRIGGER update_users_updated_at
     
     CREATE INDEX idx_email_logs_status ON email_logs(status);
     CREATE INDEX idx_email_logs_created_at ON email_logs(created_at);
+    
+    CREATE TABLE product_reviews (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        user_id VARCHAR(255) NOT NULL,
+        product_id UUID NOT NULL REFERENCES products(id),
+        order_id UUID NOT NULL REFERENCES orders(id),
+        rating INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 5),
+        comment TEXT,
+        images TEXT[],
+        is_verified BOOLEAN DEFAULT false,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    -- Wishlists
+    CREATE TABLE wishlists (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        user_id VARCHAR(255) NOT NULL,
+        product_id UUID NOT NULL REFERENCES products(id),
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        UNIQUE(user_id, product_id)
+    );
+    
+    -- Notifications
+    CREATE TABLE notifications (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        user_id VARCHAR(255) NOT NULL,
+        type VARCHAR(50) NOT NULL,
+        title VARCHAR(255) NOT NULL,
+        message TEXT NOT NULL,
+        metadata JSONB,
+        read BOOLEAN DEFAULT false,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    -- Promotions
+    CREATE TABLE promotions (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        vendor_id UUID NOT NULL REFERENCES vendors(id),
+        name VARCHAR(100) NOT NULL,
+        description TEXT,
+        discount_type VARCHAR(20) NOT NULL,
+        discount_value DECIMAL(10,2) NOT NULL,
+        start_date TIMESTAMP WITH TIME ZONE NOT NULL,
+        end_date TIMESTAMP WITH TIME ZONE NOT NULL,
+        minimum_purchase DECIMAL(10,2),
+        max_uses INTEGER,
+        uses_count INTEGER DEFAULT 0,
+        is_active BOOLEAN DEFAULT true,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    CREATE TABLE promotion_products (
+        promotion_id UUID REFERENCES promotions(id),
+        product_id UUID REFERENCES products(id),
+        PRIMARY KEY (promotion_id, product_id)
+    );

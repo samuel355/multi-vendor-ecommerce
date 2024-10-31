@@ -23,6 +23,7 @@ import chatRouter from "./routes/chat.route";
 
 import { createServer } from 'http';
 import WebSocketService from './services/websocket.service';
+import reviewRouter from "./routes/reviewRoute";
 
 // Load environment variables
 dotenv.config();
@@ -53,15 +54,16 @@ app.get("/api/v1/", (req: Request, res: Response) => {
 
 // Routes
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/", vendorRouter);
-app.use("/api/v1/", productRouter);
-app.use("/api/v1/", subscriptionRouter);
-app.use("/api/v1/", orderRouter);
-app.use("/api/v1/", adminRouter);
-app.use("/api/v1/", testRouter);
+app.use("/api/v1/vendor", vendorRouter);
+app.use("/api/v1/product", productRouter);
+app.use("/api/v1/subscription", subscriptionRouter);
+app.use("/api/v1/order", orderRouter);
+app.use("/api/v1/admin", adminRouter);
+app.use("/api/v1/test", testRouter);
 app.use("/api/v1/gpgps", gpsRouter);
 app.use("/api/v1/map", mapRouter);
 app.use("/api/v1/chat", chatRouter);
+app.use("/api/v1/review", reviewRouter);
 
 // 404 Handler
 app.all("*", (req: Request, res: Response, next: NextFunction) => {
