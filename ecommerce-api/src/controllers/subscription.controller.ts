@@ -5,7 +5,7 @@ import { Request, Response } from "express";
 import ResponseHandler from "../utils/responseHandler";
 
 export class SubscriptionController {
-  //Initiate Subscription 
+  //Initiate Subscription
   initiateSubscription = catchAsync(async (req: Request, res: Response) => {
     const vendorId = req.params.vendorId;
     const subscriptionData: CreateSubscriptionDTO = req.body;
@@ -13,33 +13,42 @@ export class SubscriptionController {
       vendorId,
       subscriptionData,
     );
-    ResponseHandler.success(res, "Subscription initiated successfully", result);
+    ResponseHandler.success(res, result, "Subscription initiated successfully");
   });
-  
+
   //Verify Subscription
   verifySubscription = catchAsync(async (req: Request, res: Response) => {
     const { reference } = req.query;
-    const result = await subscriptionService.verifySubscriptionPayment(reference as string);
-    ResponseHandler.success(res, 'Subscription verified successfully', result);
+    const result = await subscriptionService.verifySubscriptionPayment(
+      reference as string,
+    );
+    ResponseHandler.success(res, "Subscription verified successfully", result);
   });
-  
+
   //Admin Get All subscriptions
   getAllSubscriptions = catchAsync(async (req: Request, res: Response) => {
     const page = parseInt(req.query.page as string) || 1;
     const limit = parseInt(req.query.limit as string) || 20;
-    const subscriptionsData = await subscriptionService.getAllSubscriptions(page, limit);
-    
+    const subscriptionsData = await subscriptionService.getAllSubscriptions(
+      page,
+      limit,
+    );
+
     ResponseHandler.success(
-      res, 
-      'Subscriptions retrieved successfully', 
-      subscriptionsData
+      res,
+      subscriptionsData,
+      "Subscriptions retrieved successfully",
     );
   });
-  
+
   //Get Subscription Stats
   getSubscriptionStats = catchAsync(async (req: Request, res: Response) => {
     const stats = await subscriptionService.getSubscriptionStats();
-    ResponseHandler.success(res, 'Subscription stats retrieved successfully', stats);
+    ResponseHandler.success(
+      res,
+      stats,
+      "Subscription stats retrieved successfully",
+    );
   });
 }
 

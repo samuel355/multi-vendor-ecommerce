@@ -3,6 +3,22 @@ import { getPool } from "../config/database";
 import { CreateVendorDTO, UpdateVendorDTO } from "../dtos/vendor.dto";
 import ApiError from "../utils/apiError";
 import { cache } from "../config/redis";
+import ghanaPostService from "../services/ghanapost.service";
+
+interface OpeningHours {
+  open: string;
+  close: string;
+  closed?: boolean;
+}
+
+interface VendorLocation {
+  latitude: number;
+  longitude: number;
+}
+
+interface OperatingHours {
+  [key: string]: OpeningHours;
+}
 
 export class VendorService {
   private pool: Pool;
@@ -168,19 +184,22 @@ export class VendorService {
     data: {
       digitalAddress: string;
       shopImages?: string[];
-      openingHours?: any;
+      openingHours?: OperatingHours;
       shopCategory?: string;
       shopTags?: string[];
     }
   ) {
     const client = await this.pool.connect();
-
+  
     try {
       await client.query('BEGIN');
-
-      // Validate digital address and get coordinates
-      const coordinates = await ghanaPostService.getCoordinates(data.digitalAddress);
-
+  
+      // Get address details
+      const addressDetails = await ghanaPostService.getAddressDetails(data.digitalAddress);
+      if (!addressDetails) {
+        throw new ApiError(400, 'Invalid digital address');
+      }
+  
       const updateQuery = `
         UPDATE vendors 
         SET 
@@ -196,11 +215,11 @@ export class VendorService {
         WHERE id = $8 AND user_id = $9
         RETURNING *
       `;
-
+  
       const result = await client.query(updateQuery, [
         data.digitalAddress,
-        coordinates.latitude,
-        coordinates.longitude,
+        addressDetails.coordinates.latitude,
+        addressDetails.coordinates.longitude,
         data.shopImages || [],
         JSON.stringify(data.openingHours || {}),
         data.shopCategory,
@@ -208,15 +227,15 @@ export class VendorService {
         vendorId,
         userId
       ]);
-
-      // Update operating hours
+  
+      // Update operating hours if provided
       if (data.openingHours) {
         await this.updateOperatingHours(client, vendorId, data.openingHours);
       }
-
+  
       await client.query('COMMIT');
       await this.clearVendorCache(vendorId);
-
+  
       return result.rows[0];
     } catch (error) {
       await client.query('ROLLBACK');
@@ -237,7 +256,9 @@ export class VendorService {
     const cached = await cache.get(cacheKey);
     
     if (cached) return JSON.parse(cached);
-
+  
+    const params: (number | string)[] = [latitude, longitude, radius];
+    
     // Using Haversine formula to calculate distance
     const query = `
       SELECT 
@@ -264,17 +285,18 @@ export class VendorService {
         ) < $3
       ORDER BY distance
     `;
-
-    const params = [latitude, longitude, radius];
-    if (category) params.push(category);
-
+  
+    if (category) {
+      params.push(category);
+    }
+  
     const result = await this.pool.query(query, params);
     
     const vendors = result.rows.map(vendor => ({
       ...vendor,
       distance: Math.round(vendor.distance * 100) / 100 // Round to 2 decimal places
     }));
-
+  
     await cache.set(cacheKey, JSON.stringify(vendors), 300); // Cache for 5 minutes
     return vendors;
   }
@@ -353,13 +375,17 @@ export class VendorService {
   }
   
   //Update Operating hours
-  private async updateOperatingHours(client: any, vendorId: string, hours: any) {
+  private async updateOperatingHours(
+    client: any, 
+    vendorId: string, 
+    hours: OperatingHours
+  ) {
     // Clear existing hours
     await client.query(
       'DELETE FROM vendor_operating_hours WHERE vendor_id = $1',
       [vendorId]
     );
-
+  
     // Insert new hours
     for (const [day, times] of Object.entries(hours)) {
       await client.query(`

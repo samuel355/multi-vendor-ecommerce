@@ -3,6 +3,7 @@ import { getPool } from "../config/database";
 import { BillingCycle, CreateSubscriptionDTO } from "../dtos/subscription.dto";
 import ApiError from "../utils/apiError";
 import paystackService from "./paystack.service";
+import emailService from "./email.service";
 
 export class SubscriptionService {
   private pool: Pool;
@@ -136,6 +137,18 @@ export class SubscriptionService {
         verification.data
       ]);
 
+      // Send confirmation email
+      const vendorResult = await client.query(
+        'SELECT * FROM vendors WHERE id = $1',
+        [vendor_id]
+      );
+      const vendor = vendorResult.rows[0];
+
+      await emailService.sendSubscriptionConfirmation(
+        subscriptionResult.rows[0],
+        vendor
+      );
+      
       await client.query('COMMIT');
       return subscriptionResult.rows[0];
       

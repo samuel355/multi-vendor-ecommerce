@@ -1,45 +1,132 @@
-import { Request, Response } from 'express';
-import vendorService from '../services/vendor.service';
-import ResponseHandler from '../utils/responseHandler';
-import catchAsync from '../utils/catchAsync';
+import { Request, Response } from "express";
+import { Pool } from "pg";
+import { getPool } from "../config/database";
+import locationService from "../services/location.service";
+import ResponseHandler from "../utils/responseHandler";
+import catchAsync from "../utils/catchAsync";
+import { UpdateLocationDTO, NearbyVendorsDTO } from "../dtos/location.dto";
+import ApiError from "../utils/apiError";
 
-export class MapsController {
+export class MapController {
+  private pool: Pool;
+
+  constructor() {
+    this.initializePool();
+  }
+
+  private async initializePool() {
+    this.pool = await getPool();
+  }
+
   getNearbyVendors = catchAsync(async (req: Request, res: Response) => {
-    const { latitude, longitude, radius, category } = req.query;
-    
-    const vendors = await vendorService.getNearbyVendors(
-      parseFloat(latitude as string),
-      parseFloat(longitude as string),
-      radius ? parseFloat(radius as string) : undefined,
-      category as string
-    );
+    const {
+      latitude,
+      longitude,
+      radius = 5,
+    } = req.query as unknown as NearbyVendorsDTO;
 
-    ResponseHandler.success(res, 'Nearby vendors retrieved successfully', vendors);
+    const query = `
+      SELECT
+        v.*,
+        ST_Distance(
+          ST_SetSRID(ST_MakePoint($1, $2), 4326),
+          ST_SetSRID(ST_MakePoint(v.longitude, v.latitude), 4326)
+        ) * 111.319 as distance
+      FROM vendors v
+      WHERE v.is_active = true
+      AND v.location_verified = true
+      HAVING ST_Distance(
+        ST_SetSRID(ST_MakePoint($1, $2), 4326),
+        ST_SetSRID(ST_MakePoint(v.longitude, v.latitude), 4326)
+      ) * 111.319 <= $3
+      ORDER BY distance
+    `;
+
+    const result = await this.pool.query(query, [longitude, latitude, radius]);
+
+    ResponseHandler.success(
+      res,
+      result.rows,
+      "Nearby vendors retrieved successfully",
+    );
   });
 
-  getVendorLocation = catchAsync(async (req: Request, res: Response) => {
-    const vendor = await vendorService.getVendorById(req.params.id);
-    
-    const locationData = {
-      id: vendor.id,
-      businessName: vendor.business_name,
-      digitalAddress: vendor.digital_address,
-      coordinates: {
-        lat: vendor.latitude,
-        lng: vendor.longitude
-      },
-      category: vendor.shop_category,
-      rating: vendor.average_rating,
-      openingHours: vendor.opening_hours
-    };
+  updateVendorLocation = catchAsync(async (req: Request, res: Response) => {
+    const { vendorId } = req.params;
+    const locationData: UpdateLocationDTO = req.body;
 
-    ResponseHandler.success(res, 'Vendor location retrieved successfully', locationData);
+    // Validate and convert digital address
+    const coordinates = await locationService.convertDigitalAddress(
+      locationData.digitalAddress,
+    );
+
+    const query = `
+      UPDATE vendors
+      SET
+        digital_address = $1,
+        latitude = $2,
+        longitude = $3,
+        street_address = $4,
+        landmark = $5,
+        location_verified = true,
+        region = $6,
+        district = $7
+      WHERE id = $8
+      RETURNING *
+    `;
+
+    const result = await this.pool.query(query, [
+      locationData.digitalAddress,
+      coordinates.latitude,
+      coordinates.longitude,
+      locationData.streetAddress || null,
+      locationData.landmark || null,
+      coordinates.region,
+      coordinates.district,
+      vendorId,
+    ]);
+
+    if (!result.rows[0]) {
+      ApiError.notFound("Vendor not found");
+      throw Error;
+    }
+
+    ResponseHandler.success(
+      res,
+      "Vendor location updated successfully",
+      result.rows[0],
+    );
+  });
+
+  getVendorsInRegion = catchAsync(async (req: Request, res: Response) => {
+    const { region } = req.params;
+    const bounds = await locationService.getRegionBounds(region);
+
+    const query = `
+      SELECT *
+      FROM vendors
+      WHERE latitude BETWEEN $1 AND $2
+      AND longitude BETWEEN $3 AND $4
+      AND is_active = true
+      AND location_verified = true
+    `;
+
+    const result = await this.pool.query(query, [
+      bounds.minLat,
+      bounds.maxLat,
+      bounds.minLng,
+      bounds.maxLng,
+    ]);
+
+    ResponseHandler.success(
+      res,
+      result.rows,
+      "Vendors in region retrieved successfully",
+    );
   });
 }
 
-export default new MapsController();
-
-
+export default new MapController();
 
 //Fronte End Integration:
 // components/VendorMap.tsx
@@ -70,7 +157,7 @@ export default new MapsController();
 //           lat: position.coords.latitude,
 //           lng: position.coords.longitude
 //         });
-        
+
 //         // Fetch nearby vendors
 //         fetchNearbyVendors(
 //           position.coords.latitude,

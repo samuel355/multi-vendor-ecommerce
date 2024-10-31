@@ -22,9 +22,8 @@ export class ProductController {
       );
       ResponseHandler.success(
         res,
-        "Product Created Successfully",
         product,
-        201,
+        "Product Created Successfully",
       );
     },
   );

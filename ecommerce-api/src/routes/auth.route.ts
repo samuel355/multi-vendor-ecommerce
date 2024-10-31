@@ -1,5 +1,5 @@
 import express from 'express';
-import { requireAuth, isAdmin } from '../middleware/auth.middleware';
+import { isAdmin, requireAuth } from '../middleware/auth.middleware';
 import {
   webhook,
   getProfile,

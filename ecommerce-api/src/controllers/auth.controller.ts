@@ -5,6 +5,31 @@ import ApiError from "../utils/apiError";
 import ResponseHandler from "../utils/responseHandler";
 import { getPool } from "../config/database";
 
+
+// Add interfaces for type safety
+interface ClerkWebhookEvent {
+  type: string;
+  data: {
+    id: string;
+    email_addresses: Array<{
+      id: string;
+      email_address: string;
+    }>;
+    first_name?: string;
+    last_name?: string;
+    phone_numbers?: Array<{
+      phone_number: string;
+    }>;
+    image_url?: string;
+    primary_email_address_id: string;
+  };
+}
+
+// Extend Express Request to include webhook event
+interface WebhookRequest extends Request {
+  body: ClerkWebhookEvent;
+}
+
 export const webhook = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const pool = await getPool();

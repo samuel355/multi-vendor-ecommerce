@@ -11,14 +11,14 @@ export class OrderController {
       callbackUrl: `${process.env.APP_URL}/api/v1/payments/verify-payment` // Add callback URL
     };
     const result = await orderService.createOrder(userId!, orderData);
-    ResponseHandler.success(res, 'Order created successfully', result, 201);
+    ResponseHandler.success(res, result, 'Order created successfully');
   });
 
   trackOrder = catchAsync(async (req: Request, res: Response) => {
     const { orderId } = req.params;
     const userId = req.auth?.userId;
     const tracking = await orderService.trackOrder(orderId, userId!);
-    ResponseHandler.success(res, 'Order tracking retrieved successfully', tracking);
+    ResponseHandler.success(res, tracking, 'Order tracking retrieved successfully');
   });
 
   updateOrderStatus = catchAsync(async (req: Request, res: Response) => {

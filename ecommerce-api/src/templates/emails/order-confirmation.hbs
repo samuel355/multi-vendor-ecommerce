@@ -1,0 +1,22 @@
+<html>
+<head>
+    <style>
+        /* Add your styles here */
+    </style>
+</head>
+<body>
+    <h1>Order Confirmation</h1>
+    <p>Dear {{name}},</p>
+    <p>Your order #{{orderNumber}} has been confirmed.</p>
+    <div class="order-details">
+        {{#each items}}
+        <div class="item">
+            <p>{{name}} - GHS {{price}} x {{quantity}}</p>
+        </div>
+        {{/each}}
+        <div class="total">
+            <p>Total: GHS {{total}}</p>
+        </div>
+    </div>
+</body>
+</html>

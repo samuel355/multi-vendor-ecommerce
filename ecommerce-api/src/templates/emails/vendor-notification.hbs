@@ -1,0 +1,14 @@
+<html>
+<body>
+    <h1>New Order Received</h1>
+    <p>Hello {{vendorName}},</p>
+    <p>You have received a new order:</p>
+    <div class="order-details">
+        {{#each items}}
+        <div class="item">
+            <p>{{name}} - {{quantity}} units</p>
+        </div>
+        {{/each}}
+    </div>
+</body>
+</html>

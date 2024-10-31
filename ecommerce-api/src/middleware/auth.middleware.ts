@@ -1,6 +1,7 @@
 //middleware/auth.middleware.ts
 import { Request, Response, NextFunction } from "express";
 import { ClerkExpressRequireAuth } from "@clerk/clerk-sdk-node";
+import { clerkClient } from "@clerk/express";
 import { getPool } from "../config/database";
 import ApiError from "../utils/apiError";
 
@@ -12,6 +13,10 @@ declare global {
         userId: string;
         sessionId: string;
       };
+      user?: {
+        role: string;
+        metadata: any;
+      };
     }
   }
 }
@@ -19,32 +24,56 @@ declare global {
 // Middleware to require authentication using Clerk
 export const requireAuth = ClerkExpressRequireAuth();
 
+// Middleware to sync user role with database
+export const syncUserRole = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    if (!req.auth?.userId) {
+      return next();
+    }
+
+    const user = await clerkClient.users.getUser(req.auth.userId);
+    const role = user.publicMetadata.role as string || 'user';
+
+    const pool = await getPool();
+    
+    const query = `
+      INSERT INTO users (clerk_id, role, is_active)
+      VALUES ($1, $2, true)
+      ON CONFLICT (clerk_id) 
+      DO UPDATE SET role = $2
+      RETURNING *
+    `;
+
+    await pool.query(query, [req.auth.userId, role]);
+    
+    req.user = {
+      role,
+      metadata: user.publicMetadata
+    };
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
+
 // Middleware to check if user is admin
 export const isAdmin = async (
   req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ) => {
   try {
     if (!req.auth?.userId) {
       throw ApiError.unauthorized("Authentication required");
     }
 
-    const pool = await getPool();
-
-    const query = `
-      SELECT role
-      FROM users
-      WHERE clerk_id = $1 AND is_active = true
-    `;
-
-    const result = await pool.query(query, [req.auth.userId]);
-
-    if (!result.rows[0]) {
-      throw ApiError.notFound("User not found");
-    }
-
-    if (result.rows[0].role !== "admin") {
+    const user = await clerkClient.users.getUser(req.auth.userId);
+    if (user.publicMetadata.role !== "admin") {
       throw ApiError.forbidden("Admin access required");
     }
 
@@ -58,28 +87,17 @@ export const isAdmin = async (
 export const isVendor = async (
   req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ) => {
   try {
     if (!req.auth?.userId) {
       throw ApiError.unauthorized("Authentication required");
     }
 
-    const pool = await getPool();
+    const user = await clerkClient.users.getUser(req.auth.userId);
+    const role = user.publicMetadata.role as string;
 
-    const query = `
-      SELECT role
-      FROM users
-      WHERE clerk_id = $1 AND is_active = true
-    `;
-
-    const result = await pool.query(query, [req.auth.userId]);
-
-    if (!result.rows[0]) {
-      throw ApiError.notFound("User not found");
-    }
-
-    if (result.rows[0].role !== "vendor" && result.rows[0].role !== "admin") {
+    if (role !== "vendor" && role !== "admin") {
       throw ApiError.forbidden("Vendor access required");
     }
 
@@ -97,33 +115,18 @@ export const isOwnerOrAdmin = (paramName: string) => {
         throw ApiError.unauthorized("Authentication required");
       }
 
-      const pool = await getPool();
-
-      // First, check if user is admin
-      const userQuery = `
-        SELECT role
-        FROM users
-        WHERE clerk_id = $1 AND is_active = true
-      `;
-
-      const userResult = await pool.query(userQuery, [req.auth.userId]);
-
-      if (!userResult.rows[0]) {
-        throw ApiError.notFound("User not found");
-      }
-
-      // If user is admin, allow access
-      if (userResult.rows[0].role === "admin") {
+      const user = await clerkClient.users.getUser(req.auth.userId);
+      
+      if (user.publicMetadata.role === "admin") {
         return next();
       }
 
-      // If not admin, check if user owns the resource
       const resourceId = req.params[paramName];
-
       if (!resourceId) {
         throw ApiError.badRequest("Resource ID not provided");
       }
 
+      const pool = await getPool();
       const resourceQuery = `
         SELECT user_id
         FROM ${paramName}s

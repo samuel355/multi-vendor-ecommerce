@@ -346,3 +346,88 @@ CREATE TRIGGER update_users_updated_at
         is_closed BOOLEAN DEFAULT false,
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
     );
+    
+    -- Vendor Status Logs
+    CREATE TABLE vendor_status_logs (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        vendor_id UUID REFERENCES vendors(id),
+        previous_status VARCHAR(50),
+        new_status VARCHAR(50),
+        reason TEXT,
+        changed_by VARCHAR(255),
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    -- Vendor Announcements
+    CREATE TABLE vendor_announcements (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        title VARCHAR(200) NOT NULL,
+        message TEXT NOT NULL,
+        valid_until TIMESTAMP WITH TIME ZONE,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    -- Vendor Announcement Recipients
+    CREATE TABLE vendor_announcement_recipients (
+        announcement_id UUID REFERENCES vendor_announcements(id),
+        vendor_id UUID REFERENCES vendors(id),
+        read_at TIMESTAMP WITH TIME ZONE,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (announcement_id, vendor_id)
+    );
+    
+    -- Add indexes
+    CREATE INDEX idx_vendor_status_logs_vendor_id ON vendor_status_logs(vendor_id);
+    CREATE INDEX idx_vendor_announcements_valid_until ON vendor_announcements(valid_until);
+    CREATE INDEX idx_vendor_announcement_recipients_vendor_id ON vendor_announcement_recipients(vendor_id);
+    
+    
+    -- Add location columns to vendors table
+    ALTER TABLE vendors ADD COLUMN digital_address VARCHAR(20);
+    ALTER TABLE vendors ADD COLUMN latitude DECIMAL(10, 8);
+    ALTER TABLE vendors ADD COLUMN longitude DECIMAL(11, 8);
+    ALTER TABLE vendors ADD COLUMN location_verified BOOLEAN DEFAULT false;
+    
+    -- Create spatial index for faster location queries
+    CREATE INDEX idx_vendors_location ON vendors USING GIST (
+      ST_SetSRID(ST_MakePoint(longitude, latitude), 4326)
+    );
+    
+    -- Create chat related tables
+    CREATE TABLE chat_rooms (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        user_id VARCHAR(255) NOT NULL,
+        vendor_id UUID NOT NULL REFERENCES vendors(id),
+        last_message TEXT,
+        last_message_time TIMESTAMP WITH TIME ZONE,
+        user_unread_count INTEGER DEFAULT 0,
+        vendor_unread_count INTEGER DEFAULT 0,
+        is_active BOOLEAN DEFAULT true,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    CREATE TABLE chat_messages (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        room_id UUID NOT NULL REFERENCES chat_rooms(id),
+        sender_type VARCHAR(10) NOT NULL, -- 'user' or 'vendor'
+        sender_id VARCHAR(255) NOT NULL,
+        message TEXT NOT NULL,
+        message_type VARCHAR(20) DEFAULT 'text', -- text, image, etc.
+        is_read BOOLEAN DEFAULT false,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    CREATE INDEX idx_chat_rooms_user_vendor ON chat_rooms(user_id, vendor_id);
+    CREATE INDEX idx_chat_messages_room ON chat_messages(room_id);
+    
+    CREATE TABLE email_logs (
+        id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+        recipient TEXT NOT NULL,
+        status VARCHAR(50) NOT NULL,
+        error TEXT,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    );
+    
+    CREATE INDEX idx_email_logs_status ON email_logs(status);
+    CREATE INDEX idx_email_logs_created_at ON email_logs(created_at);
