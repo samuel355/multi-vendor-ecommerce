@@ -6,6 +6,8 @@ ecommerce-api/logs
 logs
 *.log
 npm-debug.log*
+.history
+/history
 
 # Ignore environment variables
 .env
