@@ -50,7 +50,7 @@ export const webhook = catchAsync(
       switch (evt.type) {
         case "user.created": {
           const {
-            id,
+            id:clerkUserId,
             email_addresses,
             phone_numbers,
             username,
@@ -72,7 +72,12 @@ export const webhook = catchAsync(
           );
 
           if (!primaryEmail) {
-            throw ApiError.badRequest("No primary email found");
+            console.error('No primary email found for user:', clerkUserId);
+            return ResponseHandler.success(
+              res,
+              { status: 'error', message: 'No primary email found' },
+              "Webhook acknowledged"
+            );
           }
 
           const query = `
@@ -108,7 +113,7 @@ export const webhook = catchAsync(
           `;
 
           const values = [
-            id,
+            clerkUserId,
             primaryEmail.email_address,
             username || null,
             first_name || "",
@@ -124,18 +129,25 @@ export const webhook = catchAsync(
 
           const result = await pool.query(query, values);
 
-          try {
-            // Update Clerk metadata
-            await clerkClient.users.updateUserMetadata(id, {
-              publicMetadata: {
-                role: "user",
-                userId: result.rows[0].id,
-              },
-            });
-          } catch (updateError) {
-            console.error("Error updating Clerk metadata:", updateError);
-            // Continue execution even if Clerk update fails
-          }
+          // try {
+          //   const clerkUser = await clerkClient.users.getUser(clerkUserId);
+          //   console.log(clerkUser)
+            
+          //   if (clerkUser) {
+          //     // Update Clerk metadata
+          //     await clerkClient.users.updateUserMetadata(clerkUserId, {
+          //       publicMetadata: {
+          //         role: 'user',
+          //         userId: result.rows[0].id,
+          //         email: primaryEmail.email_address,
+          //       }
+          //     });
+          //   } else {
+          //     console.error(`User with Clerk ID ${clerkUserId} not found in Clerk`);
+          //   }
+          // } catch (getUserError) {
+          //   console.error('Error checking user existence in Clerk:', getUserError);
+          // }
 
           break;
         }
