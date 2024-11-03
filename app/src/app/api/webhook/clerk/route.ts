@@ -8,6 +8,7 @@ export async function POST(req: Request) {
     const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
 
     if (!WEBHOOK_SECRET) {
+      console.error('Missing WEBHOOK_SECRET');
       return new NextResponse('Webhook secret not provided', { status: 500 });
     }
 
@@ -19,6 +20,7 @@ export async function POST(req: Request) {
 
     // If there are no headers, error out
     if (!svix_id || !svix_timestamp || !svix_signature) {
+      console.error('Missing svix headers');
       return new NextResponse('Missing svix headers', { status: 400 });
     }
 
@@ -48,7 +50,7 @@ export async function POST(req: Request) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-Webhook-Secret': process.env.API_WEBHOOK_SECRET || '', // Add this to secure webhook endpoint
+          'X-Webhook-Secret': process.env.API_WEBHOOK_SECRET || '',
         },
         body: JSON.stringify({
           type: evt.type,
@@ -56,55 +58,31 @@ export async function POST(req: Request) {
         }),
       });
 
+      const responseData = await response.json();
+
+      // Don't throw on non-200 responses, just log them
       if (!response.ok) {
-        throw new Error(`API error: ${response.statusText}`);
+        console.error('API response error:', {
+          status: response.status,
+          data: responseData
+        });
       }
 
-      const data = await response.json();
-
-      return NextResponse.json(
-        { message: 'Webhook processed', data },
-        { status: 200 }
-      );
+      return NextResponse.json(responseData, { status: 200 });
     } catch (error) {
       console.error('Error forwarding webhook:', error);
-      return new NextResponse(
-        'Error processing webhook',
-        { status: 500 }
+      // Still return 200 to acknowledge receipt to Clerk
+      return NextResponse.json(
+        { message: 'Webhook acknowledged with errors' },
+        { status: 200 }
       );
     }
   } catch (error) {
-    console.error('Webhook error:', error);
-    return new NextResponse(
-      'Internal Server Error',
-      { status: 500 }
+    console.error('Webhook handler error:', error);
+    // Still return 200 to acknowledge receipt to Clerk
+    return NextResponse.json(
+      { message: 'Webhook acknowledged with errors' },
+      { status: 200 }
     );
   }
-}
-
-// Add webhook types
-type EventType = 
-  | 'user.created'
-  | 'user.updated'
-  | 'user.deleted'
-  | 'session.created'
-  | 'session.ended';
-
-interface WebhookPayload {
-  type: EventType;
-  data: {
-    id: string;
-    email_addresses?: Array<{
-      id: string;
-      email_address: string;
-    }>;
-    first_name?: string;
-    last_name?: string;
-    phone_numbers?: Array<{
-      id: string;
-      phone_number: string;
-    }>;
-    image_url?: string;
-    primary_email_address_id?: string;
-  };
 }

@@ -27,6 +27,7 @@ import reviewRouter from "./routes/reviewRoute";
 import wishlistRouter from "./routes/wishlist.route";
 import analyticsRouter from "./routes/analytics.route";
 import promotionRouter from "./routes/promotion.route";
+import { clerkClient } from "@clerk/express";
 
 // Load environment variables
 dotenv.config();
@@ -38,6 +39,7 @@ export const server = createServer(app);
 // Initialize WebSocket service
 new WebSocketService(server);
 
+
 // Middleware
 app.use(cors());
 app.use(helmet());
@@ -47,6 +49,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger());
 app.use(errorHandler);
 
+// async function clerkUsers(){
+//   const userList = await clerkClient.users.getUserList()
+//   console.log(userList)
+// }
+// clerkUsers()
+
 //Base Route
 app.get("/api/v1/", (req: Request, res: Response) => {
   res.json({
@@ -54,6 +62,7 @@ app.get("/api/v1/", (req: Request, res: Response) => {
       "You probably shouldn't be here but Welcome to the multi-vendor E-commerce API",
   });
 });
+
 
 // Routes
 app.use("/api/v1/auth", authRouter);

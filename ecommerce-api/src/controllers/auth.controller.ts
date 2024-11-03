@@ -1,9 +1,11 @@
 import { Request, Response, NextFunction } from "express";
-import { clerkClient } from "@clerk/clerk-sdk-node";
+import { clerkClient } from '@clerk/express';
 import catchAsync from "../utils/catchAsync";
 import ApiError from "../utils/apiError";
 import ResponseHandler from "../utils/responseHandler";
 import { getPool } from "../config/database";
+import dotenv from "dotenv";
+dotenv.config()
 
 // Update the interface to match Clerk's actual webhook payload
 interface ClerkWebhookEvent {
@@ -50,7 +52,7 @@ export const webhook = catchAsync(
       switch (evt.type) {
         case "user.created": {
           const {
-            id:clerkUserId,
+            id: clerkUserId,
             email_addresses,
             phone_numbers,
             username,
@@ -63,20 +65,20 @@ export const webhook = catchAsync(
 
           // Find primary email
           const primaryEmail = email_addresses.find(
-            (email: { id: any }) => email.id === primary_email_address_id
+            (email: { id: any }) => email.id === primary_email_address_id,
           );
 
           // Find primary phone
           const primaryPhone = phone_numbers?.find(
-            (phone) => phone.id === primary_phone_number_id
+            (phone) => phone.id === primary_phone_number_id,
           );
 
           if (!primaryEmail) {
-            console.error('No primary email found for user:', clerkUserId);
+            console.error("No primary email found for user:", clerkUserId);
             return ResponseHandler.success(
               res,
-              { status: 'error', message: 'No primary email found' },
-              "Webhook acknowledged"
+              { status: "error", message: "No primary email found" },
+              "Webhook acknowledged",
             );
           }
 
@@ -97,7 +99,7 @@ export const webhook = catchAsync(
               last_login
             )
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, CURRENT_TIMESTAMP)
-            ON CONFLICT (clerk_id) 
+            ON CONFLICT (clerk_id)
             DO UPDATE SET
               email = EXCLUDED.email,
               username = EXCLUDED.username,
@@ -129,25 +131,32 @@ export const webhook = catchAsync(
 
           const result = await pool.query(query, values);
 
-          // try {
-          //   const clerkUser = await clerkClient.users.getUser(clerkUserId);
-          //   console.log(clerkUser)
-            
-          //   if (clerkUser) {
-          //     // Update Clerk metadata
-          //     await clerkClient.users.updateUserMetadata(clerkUserId, {
-          //       publicMetadata: {
-          //         role: 'user',
-          //         userId: result.rows[0].id,
-          //         email: primaryEmail.email_address,
-          //       }
-          //     });
-          //   } else {
-          //     console.error(`User with Clerk ID ${clerkUserId} not found in Clerk`);
-          //   }
-          // } catch (getUserError) {
-          //   console.error('Error checking user existence in Clerk:', getUserError);
-          // }
+          if (result) {
+            try {
+              const clerkUser = await clerkClient.users.getUser(clerkUserId);
+              //console.log('clerk user to be updated ->', clerkUser);
+
+              if (clerkUser) {
+                // Update Clerk metadata
+                await clerkClient.users.updateUserMetadata(clerkUserId, {
+                  publicMetadata: {
+                    role: "user",
+                    userId: result.rows[0].id,
+                    email: primaryEmail.email_address,
+                  },
+                });
+              } else {
+                console.error(
+                  `User with Clerk ID ${clerkUserId} not found in Clerk`,
+                );
+              }
+            } catch (getUserError) {
+              console.error(
+                "Error checking user existence in Clerk:",
+                getUserError,
+              );
+            }
+          }
 
           break;
         }
@@ -162,24 +171,24 @@ export const webhook = catchAsync(
             last_name,
             image_url,
             primary_email_address_id,
-            primary_phone_number_id
+            primary_phone_number_id,
           } = evt.data;
 
           const primaryEmail = email_addresses.find(
-            email => email.id === primary_email_address_id
+            (email) => email.id === primary_email_address_id,
           );
 
           const primaryPhone = phone_numbers?.find(
-            phone => phone.id === primary_phone_number_id
+            (phone) => phone.id === primary_phone_number_id,
           );
 
           if (!primaryEmail) {
-            throw ApiError.badRequest('No primary email found');
+            throw ApiError.badRequest("No primary email found");
           }
 
           const query = `
             UPDATE users
-            SET 
+            SET
               email = $1,
               username = $2,
               first_name = $3,
@@ -197,14 +206,14 @@ export const webhook = catchAsync(
           const values = [
             primaryEmail.email_address,
             username || null,
-            first_name || '',
-            last_name || '',
+            first_name || "",
+            last_name || "",
             primaryPhone?.phone_number || null,
-            primaryPhone?.phone_number ? '+233' : null,
+            primaryPhone?.phone_number ? "+233" : null,
             image_url || null,
-            primaryEmail.verification.status === 'verified',
-            primaryPhone?.verification.status === 'verified',
-            id
+            primaryEmail.verification.status === "verified",
+            primaryPhone?.verification.status === "verified",
+            id,
           ];
 
           await pool.query(query, values);
@@ -214,7 +223,7 @@ export const webhook = catchAsync(
         case "user.deleted": {
           const query = `
             UPDATE users
-            SET 
+            SET
               is_active = false,
               updated_at = CURRENT_TIMESTAMP
             WHERE clerk_id = $1
@@ -233,13 +242,13 @@ export const webhook = catchAsync(
       return ResponseHandler.success(
         res,
         { status: "success" },
-        "Webhook processed successfully"
+        "Webhook processed successfully",
       );
     } catch (error) {
       console.error("Webhook processing error:", error);
       throw error;
     }
-  }
+  },
 );
 
 export const getProfile = catchAsync(
@@ -258,7 +267,7 @@ export const getProfile = catchAsync(
     }
 
     return ResponseHandler.success(res, { user: result.rows[0] });
-  }
+  },
 );
 
 export const updateRole = catchAsync(
@@ -290,9 +299,9 @@ export const updateRole = catchAsync(
     return ResponseHandler.success(
       res,
       { user: result.rows[0] },
-      "Role updated successfully"
+      "Role updated successfully",
     );
-  }
+  },
 );
 
 export const listUsers = catchAsync(
@@ -300,7 +309,7 @@ export const listUsers = catchAsync(
     const pool = await getPool();
 
     const query = `
-      SELECT 
+      SELECT
         id,
         email,
         username,
@@ -320,7 +329,7 @@ export const listUsers = catchAsync(
     const result = await pool.query(query);
 
     return ResponseHandler.success(res, { users: result.rows });
-  }
+  },
 );
 
 export const getUserStats = catchAsync(
@@ -340,5 +349,5 @@ export const getUserStats = catchAsync(
     const result = await pool.query(query);
 
     return ResponseHandler.success(res, { stats: result.rows[0] });
-  }
+  },
 );
