@@ -5,6 +5,7 @@ import {
   getProfile,
   updateRole,
   listUsers,
+  getUserStats,
 } from '../controllers/auth.controller';
 import { verifyWebhook } from '../middleware/verify-webhook.middleware';
 
@@ -37,5 +38,5 @@ authRouter.put('/role', requireAuth, isAdmin, updateRole);
  * @access Admin only
  */
 authRouter.get('/users', requireAuth, isAdmin, listUsers);
-
+authRouter.get('/stats', requireAuth, isAdmin, getUserStats);
 export default authRouter;

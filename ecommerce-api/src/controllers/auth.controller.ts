@@ -7,39 +7,39 @@ import { getPool } from "../config/database";
 
 // Update the interface to match Clerk's actual webhook payload
 interface ClerkWebhookEvent {
+  type: string;
   data: {
     id: string;
-    first_name: string | null;
-    last_name: string | null;
     email_addresses: Array<{
       id: string;
       email_address: string;
       verification: {
         status: string;
-        strategy: string;
       };
     }>;
-    primary_email_address_id: string;
     phone_numbers: Array<{
       id: string;
       phone_number: string;
       verification: {
         status: string;
-        strategy: string;
       };
     }>;
-    image_url: string;
-    created_at: number;
-    updated_at: number;
+    username?: string;
+    first_name?: string;
+    last_name?: string;
+    image_url?: string;
+    primary_email_address_id: string;
+    primary_phone_number_id?: string;
+    public_metadata?: {
+      role?: string;
+    };
   };
-  object: string;
-  type: string;
 }
 
 export const webhook = catchAsync(
   async (req: Request, res: Response, next: NextFunction) => {
     const pool = await getPool();
-    const evt = req.body;
+    const evt = req.body as ClerkWebhookEvent;
 
     // Validate webhook payload
     if (!evt || !evt.type || !evt.data) {
@@ -52,16 +52,23 @@ export const webhook = catchAsync(
           const {
             id,
             email_addresses,
+            phone_numbers,
+            username,
             first_name,
             last_name,
-            phone_numbers,
             image_url,
             primary_email_address_id,
+            primary_phone_number_id,
           } = evt.data;
 
           // Find primary email
           const primaryEmail = email_addresses.find(
-            (email: { id: any; }) => email.id === primary_email_address_id
+            (email: { id: any }) => email.id === primary_email_address_id
+          );
+
+          // Find primary phone
+          const primaryPhone = phone_numbers?.find(
+            (phone) => phone.id === primary_phone_number_id
           );
 
           if (!primaryEmail) {
@@ -70,46 +77,65 @@ export const webhook = catchAsync(
 
           const query = `
             INSERT INTO users (
-              clerk_id, 
-              email, 
-              first_name, 
-              last_name, 
-              phone_number, 
-              avatar_url, 
+              clerk_id,
+              email,
+              username,
+              first_name,
+              last_name,
+              phone_number,
+              country_code,
+              avatar_url,
               role,
-              is_active
+              email_verified,
+              phone_verified,
+              is_active,
+              last_login
             )
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, CURRENT_TIMESTAMP)
             ON CONFLICT (clerk_id) 
             DO UPDATE SET
               email = EXCLUDED.email,
+              username = EXCLUDED.username,
               first_name = EXCLUDED.first_name,
               last_name = EXCLUDED.last_name,
               phone_number = EXCLUDED.phone_number,
-              avatar_url = EXCLUDED.avatar_url
+              country_code = EXCLUDED.country_code,
+              avatar_url = EXCLUDED.avatar_url,
+              email_verified = EXCLUDED.email_verified,
+              phone_verified = EXCLUDED.phone_verified,
+              last_login = CURRENT_TIMESTAMP
             RETURNING *
           `;
 
           const values = [
             id,
             primaryEmail.email_address,
+            username || null,
             first_name || "",
             last_name || "",
-            phone_numbers?.[0]?.phone_number || null,
+            primaryPhone?.phone_number || null,
+            primaryPhone?.phone_number ? "+233" : null,
             image_url || null,
             "user",
+            primaryEmail.verification.status === "verified",
+            primaryPhone?.verification.status === "verified",
             true,
           ];
 
           const result = await pool.query(query, values);
 
-          // Update Clerk user metadata
-          await clerkClient.users.updateUser(id, {
-            publicMetadata: {
-              role: "user",
-              userId: result.rows[0].id,
-            },
-          });
+          try {
+            // Update Clerk metadata
+            await clerkClient.users.updateUserMetadata(id, {
+              publicMetadata: {
+                role: "user",
+                userId: result.rows[0].id,
+              },
+            });
+          } catch (updateError) {
+            console.error("Error updating Clerk metadata:", updateError);
+            // Continue execution even if Clerk update fails
+          }
 
           break;
         }
@@ -118,43 +144,55 @@ export const webhook = catchAsync(
           const {
             id,
             email_addresses,
+            phone_numbers,
+            username,
             first_name,
             last_name,
-            phone_numbers,
             image_url,
             primary_email_address_id,
+            primary_phone_number_id
           } = evt.data;
 
-          const primaryEmail = email_addresses?.find(
-            (email: { id: any; }) => email.id === primary_email_address_id
+          const primaryEmail = email_addresses.find(
+            email => email.id === primary_email_address_id
+          );
+
+          const primaryPhone = phone_numbers?.find(
+            phone => phone.id === primary_phone_number_id
           );
 
           if (!primaryEmail) {
-            throw ApiError.badRequest("No primary email found");
+            throw ApiError.badRequest('No primary email found');
           }
 
           const query = `
             UPDATE users
             SET 
               email = $1,
-              first_name = $2,
-              last_name = $3,
-              phone_number = $4,
-              avatar_url = $5,
+              username = $2,
+              first_name = $3,
+              last_name = $4,
+              phone_number = $5,
+              country_code = $6,
+              avatar_url = $7,
+              email_verified = $8,
+              phone_verified = $9,
               updated_at = CURRENT_TIMESTAMP
-            WHERE clerk_id = $6
+            WHERE clerk_id = $10
             RETURNING *
           `;
 
           const values = [
-            id,
             primaryEmail.email_address,
+            username || null,
             first_name || '',
             last_name || '',
-            phone_numbers[0]?.phone_number || null,
+            primaryPhone?.phone_number || null,
+            primaryPhone?.phone_number ? '+233' : null,
             image_url || null,
-            'user',
-            true
+            primaryEmail.verification.status === 'verified',
+            primaryPhone?.verification.status === 'verified',
+            id
           ];
 
           await pool.query(query, values);
@@ -168,7 +206,6 @@ export const webhook = catchAsync(
               is_active = false,
               updated_at = CURRENT_TIMESTAMP
             WHERE clerk_id = $1
-            RETURNING *
           `;
 
           await pool.query(query, [evt.data.id]);
@@ -251,7 +288,19 @@ export const listUsers = catchAsync(
     const pool = await getPool();
 
     const query = `
-      SELECT * FROM users
+      SELECT 
+        id,
+        email,
+        username,
+        first_name,
+        last_name,
+        phone_number,
+        role,
+        email_verified,
+        phone_verified,
+        created_at,
+        last_login
+      FROM users
       WHERE is_active = true
       ORDER BY created_at DESC
     `;
@@ -259,5 +308,25 @@ export const listUsers = catchAsync(
     const result = await pool.query(query);
 
     return ResponseHandler.success(res, { users: result.rows });
+  }
+);
+
+export const getUserStats = catchAsync(
+  async (req: Request, res: Response, next: NextFunction) => {
+    const pool = await getPool();
+
+    const query = `
+      SELECT
+        COUNT(*) FILTER (WHERE is_active = true) as total_active_users,
+        COUNT(*) FILTER (WHERE role = 'vendor' AND is_active = true) as total_vendors,
+        COUNT(*) FILTER (WHERE email_verified = true AND is_active = true) as verified_emails,
+        COUNT(*) FILTER (WHERE phone_verified = true AND is_active = true) as verified_phones,
+        COUNT(*) FILTER (WHERE created_at > NOW() - INTERVAL '30 days' AND is_active = true) as new_users_last_30_days
+      FROM users
+    `;
+
+    const result = await pool.query(query);
+
+    return ResponseHandler.success(res, { stats: result.rows[0] });
   }
 );

@@ -7,27 +7,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
   const { userId, getToken } = useAuth();
   const { user } = useUser();
-  const [profile, setProfile] = useState(null);
-  // const [token, setToken] = useState<string | null>(null);
 
-  useEffect(() => {
-    const getUser = async() => {
-      if (user) {
-        const token = await getToken()
-        axios
-          .post(`http://localhost:9000/api/v1/auth/webhook`, {
-            headers: { Authorization: `Bearer ${token}` },            
-          })
-          .then((response) => setProfile(response.data))
-          .catch(console.error);
-      }else{
-       console.log('no user') 
-      }
-    }
-    getUser()
-  }, [user]);
-
-  console.log('profile resp: ', profile)
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm">
