@@ -46,7 +46,7 @@ export function SearchProductCategory() {
             <FormItem className="flex-1">
               <FormControl>
                 <input
-                  className="md:px-3 md:py-0 px-2 py-2 border-none bg-transparent border-0 focus:outline-none active:ring-0 active:border-none active:border-0 focus:border-transparent focus:ring-0"
+                  className="dark:text-gray-800 md:px-3 md:py-0 px-2 py-2 border-none bg-transparent border-0 focus:outline-none active:ring-0 active:border-none active:border-0 focus:border-transparent focus:ring-0"
                   type="search"
                   placeholder="Search Product..."
                   {...field}
@@ -56,8 +56,8 @@ export function SearchProductCategory() {
             </FormItem>
           )}
         />
-        <Button type="submit">
-          <Search size={18} className="text-white" />
+        <Button type="submit" className="dark:border">
+          <Search size={18} />
         </Button>
       </form>
     </Form>
