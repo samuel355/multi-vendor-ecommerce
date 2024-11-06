@@ -16,8 +16,8 @@ export default function MiddleHeader() {
   return (
     <>
       <div className="flex items-center gap-4 md:gap-6 md:mx-10 mx-6 py-5">
-        <button onClick={() => setSheetOpen(true) } className="p-2">
-          <AlignRight className="md:hidden flex" size={28} />
+        <button onClick={() => setSheetOpen(true) } className="p-2 md:hidden flex">
+          <AlignRight size={24} />
         </button>
         <div className="w-full md:w-1/4 ">
           <Logo />

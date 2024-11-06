@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/providers/theme-provider";
 import TopHeader from "@/components/shared/top-header";
 import {Noto_Sans} from 'next/font/google'
 import MiddleHeader from "@/components/shared/middle-header";
+import BottomHeader from "@/components/shared/bottom-header";
 
 const notoSans = Noto_Sans({
   weight: ['100', '200', '300', '400', '700', '900'], 
@@ -41,6 +42,7 @@ export default function RootLayout({
               <div className="flex flex-col w-full">
                 <TopHeader />
                 <MiddleHeader />
+                <BottomHeader />
                 {children}
               </div>
             </ThemeProvider>

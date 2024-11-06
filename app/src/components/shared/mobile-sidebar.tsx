@@ -19,14 +19,6 @@ import {
   TicketPercent,
   UserRoundPlus,
 } from "lucide-react";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "../ui/navigation-menu";
 import Link from "next/link";
 
 type MobileSidebarType = {
