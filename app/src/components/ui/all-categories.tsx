@@ -53,7 +53,7 @@ export default function AllCategories() {
         <SelectTrigger className="w-[180px] outline-none border-none">
           <SelectValue placeholder="All Categories" />
         </SelectTrigger>
-        <SelectContent className="bg-none bg-transparent">
+        <SelectContent className="bg-none">
           {
             allCategories.map((category) => (
               <SelectItem value={category.id} key={category.id}>

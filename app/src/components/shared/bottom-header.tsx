@@ -3,6 +3,7 @@ import { ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { FashionCategory } from "../categories/fashion-category";
 
 const categories = [
   { id: "fashion", name: "Fashion" },
@@ -25,43 +26,7 @@ export default function BottomHeader() {
   const renderCategoryContent = (categoryId: string | null) => {
     switch (categoryId) {
       case "fashion":
-        return (
-          <div className="h-72 mx-6 md:mx-10">
-            <h2 className="font-bold text-lg">Fashion</h2>
-            <div className="flex">
-              <div className="mr-8">
-                <h3 className="text-gray-600">WOMEN</h3>
-                <ul>
-                  <li>Accessories</li>
-                  <li>Blazers</li>
-                  <li>Coats & Jackets</li>
-                  <li>Dress</li>
-                  <li>Shirts</li>
-                  <li>Shoes</li>
-                  <li>Shorts</li>
-                  <li>Skirts</li>
-                  <li>Sweatshirts</li>
-                  <li>Tops</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-gray-600">MEN</h3>
-                <ul>
-                  <li>Accessories</li>
-                  <li>Cargo Trousers</li>
-                  <li>Hoodies</li>
-                  <li>Jackets & Coats</li>
-                  <li>Jeans</li>
-                  <li>Joggers</li>
-                  <li>Polo Shirts</li>
-                  <li>Shirts</li>
-                  <li>Shoes</li>
-                  <li>Shorts</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        );
+        return <FashionCategory />
       // Add cases for other categories
       default:
         return null;
@@ -91,7 +56,7 @@ export default function BottomHeader() {
         <div
           onMouseEnter={() => {}}
           onMouseLeave={() => setActiveCategory(null)}
-          className={`absolute z-10 w-[90vw] top-16 bg-white mx-6 md:mx-10`}
+          className={`absolute z-10 w-[90vw] top-16 mx-6 md:mx-10 shadow border`}
         >
           {renderCategoryContent(activeCategory)}
         </div>
