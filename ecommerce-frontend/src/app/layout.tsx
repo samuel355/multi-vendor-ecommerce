@@ -29,7 +29,7 @@ export default function RootLayout({
             >
               <div className="relative flex min-h-screen flex-col">
                 <SiteHeader /> {/* Add the header here */}
-                <main className="flex-1">{children}</main>
+                <main className="overflow-y-auto">{children}</main>
               </div>
             </ThemeProvider>
           </body>

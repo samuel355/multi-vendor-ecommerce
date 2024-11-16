@@ -48,7 +48,7 @@ const allCategories = [
 
 export default function AllCategories() {
   return (
-    <div className="hidden md:flex flex-row space-x-4 items-center mb-3">
+    <div className="hidden lg:flex flex-row space-x-4 items-center">
       <Select>
         <SelectTrigger className="w-[180px] outline-none border-none">
           <SelectValue placeholder="All Categories" />

@@ -5,6 +5,8 @@
 body {
   font-family: "Noto Sans", sans-serif;
   width: 100%;
+  height: 100%;
+  overflow-y: scroll !important;
 }
 
 @layer base {
@@ -70,4 +72,20 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.carousel1-image{
+    background-image: url('/carousel/banner1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.carousel2-image{
+    background-image: url('/carousel/banner2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.carousel3-image{
+    background-image: url('/carousel/banner3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }

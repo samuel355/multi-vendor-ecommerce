@@ -17,6 +17,7 @@ import {
   ScanBarcode,
   ShoppingBag,
   TicketPercent,
+  User,
   UserRoundPlus,
 } from "lucide-react";
 import Link from "next/link";
@@ -80,23 +81,31 @@ const MobileSidebar = ({ open, setOpen }: MobileSidebarType) => {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetContent side={"left"}>
-        <SheetHeader>
-          <SheetTitle className="border-b">SHOP BY CATEGORY</SheetTitle>
-        </SheetHeader>
-        <div className="w-full relative">
-          {navItems.map((item, index) => (
-            <Link
-              key={item.id}
-              href={item.href}
-              className={`flex cursor-pointer justify-between text-base items-center text-black dark:text-white w-full ${index === 1 ? 'mt-2': 'mt-1'} p-1 rounded-md`}
-            >
-              <div className="flex items-center gap-4">
-                {item.icon}
-                <p>{item.title}</p>
-              </div>
-            </Link>
-          ))}
+      <SheetContent side={"left"} className="flex flex-col justify-between">
+        <div>
+          <SheetHeader>
+            <SheetTitle className="border-b">SHOP BY CATEGORY</SheetTitle>
+          </SheetHeader>
+          <div className="w-full relative">
+            {navItems.map((item, index) => (
+              <Link
+                key={item.id}
+                href={item.href}
+                className={`flex cursor-pointer justify-between text-sm items-center text-black dark:text-white w-full ${index === 1 ? "mt-2" : "mt-1"} p-1 rounded-md`}
+              >
+                <div className="flex items-center gap-4">
+                  {item.icon}
+                  <p>{item.title}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="flex gap-2 items-center hover:underline">
+          <button className="p-2 text-gray-800 bg-gray-200 rounded-full">
+            <User size={16} />
+          </button>
+          <p className="text-sm cursor-pointer">Account</p>
         </div>
       </SheetContent>
     </Sheet>

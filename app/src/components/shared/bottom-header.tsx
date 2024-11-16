@@ -4,6 +4,7 @@ import { Button } from "../ui/button";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FashionCategory } from "../categories/fashion-category";
+import { PhoneTablet } from "../categories/phone-n-tablet";
 
 const categories = [
   { id: "fashion", name: "Fashion" },
@@ -27,12 +28,13 @@ export default function BottomHeader() {
     switch (categoryId) {
       case "fashion":
         return <FashionCategory />
-      // Add cases for other categories
+      case "phone-tablet":
+        return <PhoneTablet />
       default:
         return null;
     }
   };
-  
+
   return (
     <div className="w-full border-t relative flex gap-3 items-center">
       <div className="md:mx-10 mx-6 py-3">

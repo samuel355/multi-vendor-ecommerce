@@ -23,14 +23,14 @@ export default function MiddleHeader() {
           <Logo />
         </div>
         <div className="w-2/4 overflow-hidden hidden md:flex">
-          <div className="flex flex-row pt-3 px-3 gap-2 items-center w-full bg-gray-100 rounded-sm">
+          <div className="flex flex-row pt-1 pb-1 px-2 space-x-2 items-center w-full bg-gray-100 rounded-sm">
             <AllCategories />
             <SearchProductCategory />
           </div>
         </div>
   
         <div className="w-full md:w-1/4 flex justify-end gap-3 items-center">
-          <div className="flex gap-2 items-center hover:underline">
+          <div className="hidden md:flex gap-2 items-center hover:underline">
             <button className="p-2 text-gray-800 bg-gray-200 rounded-full">
               <User size={16} />
             </button>
