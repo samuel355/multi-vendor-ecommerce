@@ -13,7 +13,7 @@ export function HeroSection() {
             </button>
           </div>
         </div>
-        <div className=" w-1/2 h-full">
+        <div className=" w-1/2 h-full overflow-hidden">
           <div className="carousel1-image mt-20 h-full"></div>
         </div>
       </div>
