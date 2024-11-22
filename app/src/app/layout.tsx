@@ -40,9 +40,9 @@ export default function RootLayout({
               disableTransitionOnChange
             >
               <div className="flex flex-col w-full">
-                <TopHeader />
+                {/* <TopHeader />
                 <MiddleHeader />
-                <BottomHeader />
+                <BottomHeader /> */}
                 {children}
               </div>
             </ThemeProvider>

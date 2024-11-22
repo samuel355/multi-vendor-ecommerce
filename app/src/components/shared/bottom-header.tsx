@@ -36,7 +36,7 @@ export default function BottomHeader() {
   };
 
   return (
-    <div className="w-full border-t relative flex gap-3 items-center">
+    <div className="w-fullborder-t relative flex gap-3 items-center">
       <div className="md:mx-10 mx-6 py-3">
         <Button variant={"outline"}>SHOP BY CATEGORIES</Button>
       </div>
@@ -58,7 +58,7 @@ export default function BottomHeader() {
         <div
           onMouseEnter={() => {}}
           onMouseLeave={() => setActiveCategory(null)}
-          className={`absolute z-10 w-[90vw] top-16 mx-6 md:mx-10 shadow border`}
+          className={`absolute z-10 w-[90vw] top-16 mx-6 md:mx-10 shadow border bg-white dark:bg-black/90 `}
         >
           {renderCategoryContent(activeCategory)}
         </div>
