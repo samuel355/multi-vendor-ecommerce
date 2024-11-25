@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import RelatedProducts from "@/components/related-products";
 
 interface Review {
   id: string;
@@ -316,6 +317,9 @@ export default function ProductDetail() {
             </div>
           </TabsContent>
         </Tabs>
+      </div>
+      <div className="mx-10">
+        <RelatedProducts />
       </div>
     </>
   );
