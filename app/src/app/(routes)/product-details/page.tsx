@@ -1,22 +1,17 @@
 "use client";
 
-import { Minus, Plus, Star } from "lucide-react";
+import { Minus, MoreHorizontal, Plus, Star } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Separator } from "@/components/ui/separator";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import NewsLetter from "@/components/news-letter";
 
 interface Review {
   id: string;
@@ -27,22 +22,30 @@ interface Review {
   verified: boolean;
 }
 
-interface ProductDtailsProps {}
-
-const ProductDetails: React.FC<ProductDtailsProps> = () => {
+export default function ProductDetail() {
   const [selectedImage, setSelectedImage] = React.useState(0);
   const [quantity, setQuantity] = React.useState(1);
+  const [selectedSize, setSelectedSize] = React.useState("Large");
+  const [selectedColor, setSelectedColor] = React.useState(0);
 
   const images = ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"];
+
+  const colors = [
+    { name: "Olive", class: "bg-[#5A5B40]" },
+    { name: "Forest", class: "bg-[#2F4F4F]" },
+    { name: "Navy", class: "bg-[#1B1B3A]" },
+  ];
+
+  const sizes = ["Small", "Medium", "Large", "X-Large"];
 
   const reviews: Review[] = [
     {
       id: "1",
       author: "Samantha D.",
-      rating: 5,
+      rating: 4.5,
       date: "August 14, 2023",
       content:
-        "Love how soft this fabric is! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt!",
+        "I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt!",
       verified: true,
     },
     {
@@ -51,284 +54,269 @@ const ProductDetails: React.FC<ProductDtailsProps> = () => {
       rating: 4,
       date: "August 15, 2023",
       content:
-        "Really impressed with the construction! The colors are vibrant and the print quality is top-notch. Being a UNISEX design myself, I'm quite picky about aesthetics, and this shirt definitely gets a thumbs up from me.",
+        "The t-shirt exceeded my expectations! The colors are vibrant and the print quality is top-notch. Being a UI/UX designer myself, I'm quite picky about aesthetics, and this t-shirt definitely gets a thumbs up from me.",
+      verified: true,
+    },
+    {
+      id: "3",
+      author: "Ethan R.",
+      rating: 4.5,
+      date: "August 16, 2023",
+      content:
+        "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt.",
+      verified: true,
+    },
+    {
+      id: "4",
+      author: "Olivia P.",
+      rating: 4,
+      date: "August 17, 2023",
+      content:
+        "As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out.",
+      verified: true,
+    },
+    {
+      id: "5",
+      author: "Liam K.",
+      rating: 4,
+      date: "August 18, 2023",
+      content:
+        "This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion.",
+      verified: true,
+    },
+    {
+      id: "6",
+      author: "Ava H.",
+      rating: 4.5,
+      date: "August 19, 2023",
+      content:
+        "I'm not just wearing a t-shirt; I'm wearing a piece of design philosophy. The intricate details and thoughtful layout of the design make this shirt a conversation starter.",
       verified: true,
     },
   ];
 
-  const relatedProducts = [
-    {
-      id: "1",
-      name: "Polo with Contrast Trim",
-      price: 212,
-      originalPrice: 242,
-      rating: 4.5,
-      image: "/placeholder.svg",
-    },
-    {
-      id: "2",
-      name: "Gradient Graphic T-shirt",
-      price: 145,
-      originalPrice: 145,
-      rating: 4.0,
-      image: "/placeholder.svg",
-    },
-    {
-      id: "3",
-      name: "Polo with Tipping Details",
-      price: 180,
-      originalPrice: 180,
-      rating: 4.5,
-      image: "/placeholder.svg",
-    },
-    {
-      id: "4",
-      name: "Black Striped T-shirt",
-      price: 120,
-      originalPrice: 160,
-      rating: 4.0,
-      image: "/placeholder.svg",
-    },
-  ];
-
   return (
-    <div className="mx-10 py-8">
-      <nav className="flex items-center text-sm text-muted-foreground mb-8">
-        <Link href="/" className="hover:text-primary">
-          Home
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href="/shop" className="hover:text-primary">
-          Shop
-        </Link>
-        <span className="mx-2">/</span>
-        <span>T-shirts</span>
-      </nav>
-
-      <div className="grid gap-8 lg:grid-cols-2">
-        <div className="space-y-4">
-          <div className="aspect-square overflow-hidden rounded-lg border">
-            <Image
-              src={images[selectedImage]}
-              alt="Product image"
-              width={600}
-              height={600}
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div className="flex gap-4">
-            {images.map((image, index) => (
-              <button
-                key={index}
-                className={`relative aspect-square w-20 overflow-hidden rounded-lg border ${
-                  selectedImage === index ? "ring-2 ring-primary" : ""
-                }`}
-                onClick={() => setSelectedImage(index)}
-              >
-                <Image
-                  src={image}
-                  alt={`Product image ${index + 1}`}
-                  width={80}
-                  height={80}
-                  className="h-full w-full object-cover"
-                />
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="space-y-6">
-          <div>
-            <h1 className="text-3xl font-bold">ONE LIFE GRAPHIC T-SHIRT</h1>
-            <div className="flex items-center gap-2 mt-2">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`h-4 w-4 ${
-                      i < 4 ? "fill-primary text-primary" : "text-muted"
+    <>
+      {" "}
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid gap-8 lg:grid-cols-2">
+          <div className="space-y-4">
+            <div className="flex gap-4">
+              <div className="flex flex-col gap-3">
+                {images.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setSelectedImage(index)}
+                    className={`relative h-20 w-20 overflow-hidden rounded-lg border ${
+                      selectedImage === index ? "ring-2 ring-primary" : ""
                     }`}
-                  />
+                  >
+                    <Image
+                      src={image}
+                      alt={`Product thumbnail ${index + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </button>
                 ))}
               </div>
-              <span className="text-sm text-muted-foreground">(4.5)</span>
+              <div className="relative aspect-square flex-1 overflow-hidden rounded-lg bg-muted">
+                <Image
+                  src={images[selectedImage]}
+                  alt="Product image"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="flex items-baseline gap-4">
-            <span className="text-3xl font-bold">$260</span>
-            <span className="text-xl text-muted-foreground line-through">
-              $300
-            </span>
-            <span className="text-sm font-semibold text-red-500">-48%</span>
-          </div>
-
-          <div className="space-y-4">
+          <div className="space-y-6">
             <div>
-              <h3 className="font-medium mb-2">Select Color</h3>
-              <div className="flex gap-2">
-                {["bg-olive-600", "bg-slate-800", "bg-navy-600"].map(
-                  (color, index) => (
+              <h1 className="text-4xl font-bold tracking-tight">
+                ONE LIFE GRAPHIC T-SHIRT
+              </h1>
+              <div className="mt-4 flex items-center gap-4">
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`h-5 w-5 ${
+                        i < 4 ? "fill-primary text-primary" : "text-muted"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <span className="text-sm text-muted-foreground">4.5/5</span>
+              </div>
+            </div>
+
+            <div className="flex items-baseline gap-4">
+              <span className="text-3xl font-bold">$260</span>
+              <span className="text-xl text-muted-foreground line-through">
+                $300
+              </span>
+              <span className="rounded-md bg-red-50 px-2 py-1 text-sm font-semibold text-red-500">
+                -40%
+              </span>
+            </div>
+
+            <p className="text-muted-foreground">
+              This graphic t-shirt which is perfect for any occasion. Crafted
+              from a soft and breathable fabric, it offers superior comfort and
+              style.
+            </p>
+
+            <div className="space-y-4">
+              <div>
+                <h3 className="mb-2 text-sm font-medium">Select Colors</h3>
+                <div className="flex gap-2">
+                  {colors.map((color, index) => (
                     <button
                       key={index}
-                      className={`h-8 w-8 rounded-full ${color} ${
-                        index === 0 ? "ring-2 ring-primary ring-offset-2" : ""
+                      className={`h-8 w-8 rounded-full ${color.class} ${
+                        selectedColor === index
+                          ? "ring-2 ring-primary ring-offset-2"
+                          : ""
                       }`}
-                      aria-label={`Select color ${index + 1}`}
+                      onClick={() => setSelectedColor(index)}
+                      aria-label={`Select ${color.name} color`}
                     />
-                  )
-                )}
+                  ))}
+                </div>
               </div>
-            </div>
 
-            <div>
-              <h3 className="font-medium mb-2">Choose Size</h3>
-              <Select defaultValue="large">
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select size" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="small">Small</SelectItem>
-                  <SelectItem value="medium">Medium</SelectItem>
-                  <SelectItem value="large">Large</SelectItem>
-                  <SelectItem value="xlarge">X-Large</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+              <div>
+                <h3 className="mb-2 text-sm font-medium">Choose Size</h3>
+                <div className="flex flex-wrap gap-2">
+                  {sizes.map((size) => (
+                    <button
+                      key={size}
+                      className={`rounded-full px-6 py-2 text-sm ${
+                        selectedSize === size
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-muted hover:bg-muted/80"
+                      }`}
+                      onClick={() => setSelectedSize(size)}
+                    >
+                      {size}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-            <div className="flex items-center gap-4">
-              <div className="flex items-center">
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                >
-                  <Minus className="h-4 w-4" />
-                </Button>
-                <span className="w-12 text-center">{quantity}</span>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={() => setQuantity(quantity + 1)}
-                >
-                  <Plus className="h-4 w-4" />
+              <div className="flex items-center gap-4">
+                <div className="flex items-center rounded-full bg-muted">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full"
+                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                  >
+                    <Minus className="h-4 w-4" />
+                  </Button>
+                  <span className="w-12 text-center">{quantity}</span>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="rounded-full"
+                    onClick={() => setQuantity(quantity + 1)}
+                  >
+                    <Plus className="h-4 w-4" />
+                  </Button>
+                </div>
+                <Button className="flex-1 rounded-full" size="lg">
+                  Add to Cart
                 </Button>
               </div>
-              <Button className="flex-1" size="lg">
-                Add to Cart
-              </Button>
             </div>
           </div>
         </div>
-      </div>
 
-      <Tabs defaultValue="reviews" className="mt-12">
-        <TabsList>
-          <TabsTrigger value="details">Product Details</TabsTrigger>
-          <TabsTrigger value="reviews">Rating & Reviews</TabsTrigger>
-          <TabsTrigger value="faqs">FAQs</TabsTrigger>
-        </TabsList>
-        <TabsContent value="reviews" className="mt-6">
-          <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold">All Reviews</h2>
-              <Button variant="outline">Write a Review</Button>
-            </div>
+        <Tabs defaultValue="reviews" className="mt-12">
+          <TabsList className="w-full justify-start border-b rounded-none bg-transparent p-0">
+            <TabsTrigger
+              value="details"
+              className="rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:border-primary"
+            >
+              Product Details
+            </TabsTrigger>
+            <TabsTrigger
+              value="reviews"
+              className="rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:border-primary"
+            >
+              Rating & Reviews
+            </TabsTrigger>
+            <TabsTrigger
+              value="faqs"
+              className="rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:border-primary"
+            >
+              FAQs
+            </TabsTrigger>
+          </TabsList>
+          <TabsContent value="reviews" className="mt-6">
             <div className="space-y-6">
-              {reviews.map((review) => (
-                <div key={review.id} className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`h-4 w-4 ${
-                            i < review.rating
-                              ? "fill-primary text-primary"
-                              : "text-muted"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <span className="font-medium">{review.author}</span>
-                    {review.verified && (
-                      <span className="text-sm text-green-500">✓ Verified</span>
-                    )}
-                  </div>
-                  <p className="text-muted-foreground">{review.content}</p>
-                  <p className="text-sm text-muted-foreground">
-                    Posted on {review.date}
-                  </p>
+              <div className="flex items-center justify-between">
+                <h2 className="text-lg font-semibold">
+                  All Reviews{" "}
+                  <span className="text-muted-foreground">(451)</span>
+                </h2>
+                <div className="flex items-center gap-4">
+                  <Button variant="outline" size="sm" className="rounded-full">
+                    Latest
+                  </Button>
+                  <Button variant="default" size="sm" className="rounded-full">
+                    Write a Review
+                  </Button>
                 </div>
-              ))}
+              </div>
+              <div className="grid gap-6">
+                {reviews.map((review) => (
+                  <div key={review.id} className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="flex">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`h-4 w-4 ${
+                                i < review.rating
+                                  ? "fill-primary text-primary"
+                                  : "text-muted"
+                              }`}
+                            />
+                          ))}
+                        </div>
+                        <span className="font-medium">{review.author}</span>
+                        {review.verified && (
+                          <span className="text-sm text-green-500">
+                            ✓ Verified
+                          </span>
+                        )}
+                      </div>
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button variant="ghost" size="icon">
+                            <MoreHorizontal className="h-4 w-4" />
+                            <span className="sr-only">More options</span>
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DropdownMenuItem>Report Review</DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </div>
+                    <p className="text-muted-foreground">{review.content}</p>
+                    <p className="text-sm text-muted-foreground">
+                      Posted on {review.date}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </TabsContent>
-      </Tabs>
-
-      <section className="mt-16">
-        <h2 className="text-2xl font-bold mb-8">YOU MIGHT ALSO LIKE</h2>
-        <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-          {relatedProducts.map((product) => (
-            <Card key={product.id}>
-              <CardContent className="p-4">
-                <div className="aspect-square overflow-hidden rounded-lg">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    width={300}
-                    height={300}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-                <div className="mt-4">
-                  <h3 className="font-medium">{product.name}</h3>
-                  <div className="flex items-center gap-2 mt-1">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`h-3 w-3 ${
-                            i < product.rating
-                              ? "fill-primary text-primary"
-                              : "text-muted"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      ({product.rating})
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 mt-1">
-                    <span className="font-medium">${product.price}</span>
-                    {product.originalPrice > product.price && (
-                      <>
-                        <span className="text-sm text-muted-foreground line-through">
-                          ${product.originalPrice}
-                        </span>
-                        <span className="text-sm text-red-500">
-                          -
-                          {Math.round(
-                            ((product.originalPrice - product.price) /
-                              product.originalPrice) *
-                              100
-                          )}
-                          %
-                        </span>
-                      </>
-                    )}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <NewsLetter />
-    </div>
+          </TabsContent>
+        </Tabs>
+      </div>
+    </>
   );
-};
-
-export default ProductDetails;
+}
