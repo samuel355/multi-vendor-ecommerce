@@ -92,7 +92,7 @@ const ProductDetails: React.FC<ProductDtailsProps> = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="mx-10 py-8">
       <nav className="flex items-center text-sm text-muted-foreground mb-8">
         <Link href="/" className="hover:text-primary">
           Home
@@ -100,10 +100,6 @@ const ProductDetails: React.FC<ProductDtailsProps> = () => {
         <span className="mx-2">/</span>
         <Link href="/shop" className="hover:text-primary">
           Shop
-        </Link>
-        <span className="mx-2">/</span>
-        <Link href="/men" className="hover:text-primary">
-          Men
         </Link>
         <span className="mx-2">/</span>
         <span>T-shirts</span>
