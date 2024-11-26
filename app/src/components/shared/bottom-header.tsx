@@ -58,7 +58,7 @@ export default function BottomHeader() {
         <div
           onMouseEnter={() => {}}
           onMouseLeave={() => setActiveCategory(null)}
-          className={`absolute z-10 w-[90vw] top-16 mx-6 md:mx-10 shadow border bg-white dark:bg-black/90 `}
+          className={`absolute z-20 w-[90vw] top-16 mx-6 md:mx-10 shadow border bg-white dark:bg-black/90 `}
         >
           {renderCategoryContent(activeCategory)}
         </div>
