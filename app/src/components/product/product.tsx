@@ -22,12 +22,12 @@ const Product = ({
     <Card key={id} className="group relative overflow-hidden">
       <CardContent className="p-0">
         <div className="relative aspect-square">
-          <Image
+          <Link href={`/product-details/${id}`}><Image
             src={image}
             alt={title}
             fill
             className="object-cover transition-transform duration-300 group-hover:scale-105"
-          />
+          /></Link>
           <div className="absolute right-2 top-2 flex flex-col gap-2">
             <Button
               variant="secondary"
@@ -59,7 +59,7 @@ const Product = ({
         </div>
       </CardContent>
       <CardFooter className="flex flex-col items-start gap-2 p-4">
-        <Link href="#" className="line-clamp-2 hover:underline">
+        <Link href={`/product-details/${id}`} className="line-clamp-2 hover:underline">
           {title}
         </Link>
 

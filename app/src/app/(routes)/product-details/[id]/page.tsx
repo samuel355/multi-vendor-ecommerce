@@ -1,8 +1,7 @@
 "use client";
 
-import { Minus, MoreHorizontal, Plus, Star } from "lucide-react";
+import { Loader, Minus, MoreHorizontal, Plus, Star } from "lucide-react";
 import Image from "next/image";
-import * as React from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -13,6 +12,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import RelatedProducts from "@/components/related-products";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import { productsData } from "@/components/product/product-data";
+import { useRouter } from "next/navigation";
+import { ProductProps } from "@/types/product";
 
 interface Review {
   id: string;
@@ -24,12 +28,20 @@ interface Review {
 }
 
 export default function ProductDetail() {
-  const [selectedImage, setSelectedImage] = React.useState(0);
-  const [quantity, setQuantity] = React.useState(1);
-  const [selectedSize, setSelectedSize] = React.useState("Large");
-  const [selectedColor, setSelectedColor] = React.useState(0);
+  const [selectedImage, setSelectedImage] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const [selectedSize, setSelectedSize] = useState("Large");
+  const [selectedColor, setSelectedColor] = useState(0);
+  const [product, setProduct] = useState<ProductProps | null>(null);
+  const [loading, setLoading] = useState(true);
+  const { id } = useParams();
+  const router = useRouter();
 
-  const images = ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"];
+  const images = [
+    "/products/black-shade.jpg",
+    "/products/macbook-new.jpg",
+    "/products/sneaker.jpg",
+  ];
 
   const colors = [
     { name: "Olive", class: "bg-[#5A5B40]" },
@@ -96,6 +108,26 @@ export default function ProductDetail() {
     },
   ];
 
+  useEffect(() => {
+    if (id) {
+      const foundProduct = productsData.find((product) => product.id === id);
+      if (foundProduct) {
+        setProduct(foundProduct);
+        setLoading(false);
+      } else {
+        router.back();
+      }
+    }
+  }, [id, productsData, router]);
+
+  if (loading) {
+    return (
+      <div className="flex flex-col justify-center items-center my-16">
+        <Loader className="animate-spin" />
+      </div>
+    );
+  }
+
   return (
     <>
       {" "}
@@ -135,20 +167,31 @@ export default function ProductDetail() {
           <div className="space-y-6">
             <div>
               <h1 className="text-4xl font-bold tracking-tight">
-                ONE LIFE GRAPHIC T-SHIRT
+                {product?.title}
               </h1>
-              <div className="mt-4 flex items-center gap-4">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
+
+              <div className="mt-2 flex items-center gap-1">
+                {[...Array(5)].map((_, i) => {
+                  const isFullStar = i < Math.floor(product?.rating);
+                  const isHalfStar =
+                    i === Math.floor(product?.rating) && product?.rating % 1 !== 0;
+
+                  return (
                     <Star
                       key={i}
-                      className={`h-5 w-5 ${
-                        i < 4 ? "fill-primary text-primary" : "text-muted"
+                      className={`h-4 w-4 ${
+                        isFullStar
+                          ? "fill-primary text-primary"
+                          : isHalfStar
+                          ? "fill-primary/50 text-primary"
+                          : "fill-muted text-muted"
                       }`}
                     />
-                  ))}
-                </div>
-                <span className="text-sm text-muted-foreground">4.5/5</span>
+                  );
+                })}
+                <span className="ml-1 text-sm text-muted-foreground">
+                  {product?.rating}/{5}
+                </span>
               </div>
             </div>
 

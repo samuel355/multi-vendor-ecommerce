@@ -11,61 +11,21 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/ui/card"
+import { productsData } from './product/product-data'
 
-interface Product {
-  id: string
-  title: string
-  price: number
-  image: string
-  hot?: boolean
-}
 
 export default function RelatedProducts() {
   const [currentIndex, setCurrentIndex] = React.useState(0)
 
-  const products: Product[] = [
-    {
-      id: "1",
-      title: "Gaming Laptop 16\" FHD 165Hz, GeForce RTX 4070",
-      price: 1922,
-      image: "/placeholder.svg",
-    },
-    {
-      id: "2",
-      title: "Apple MacBook Air with Apple M1 Chip,13.3 inch, 8GB RAM",
-      price: 610,
-      image: "/placeholder.svg",
-    },
-    {
-      id: "3",
-      title: "Digital Camera 42X Optical Zoom 24mm Wide Angle",
-      price: 187,
-      image: "/placeholder.svg",
-    },
-    {
-      id: "4",
-      title: "42-Inch Class OLED Evo 4K Processor Smart TV",
-      price: 536,
-      image: "/placeholder.svg",
-    },
-    {
-      id: "5",
-      title: "Exide Mileage 35Ah Car Battery 60 Months Warranty",
-      price: 55,
-      image: "/placeholder.svg",
-      hot: true,
-    },
-  ]
-
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === products.length - 4 ? 0 : prevIndex + 1
+      prevIndex === productsData.length - 4 ? 0 : prevIndex + 1
     )
   }
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? products.length - 4 : prevIndex - 1
+      prevIndex === 0 ? productsData.length - 4 : prevIndex - 1
     )
   }
 
@@ -82,7 +42,7 @@ export default function RelatedProducts() {
               transform: `translateX(-${currentIndex * 25}%)`,
             }}
           >
-            {products.map((product) => (
+            {productsData.slice(0, 8).map((product) => (
               <div
                 key={product.id}
                 className="w-full min-w-[25%] px-2"

@@ -7,4 +7,5 @@ export interface ProductProps{
   hot?: boolean
   discount?: number
   rating: number
+  description?: string
 }
