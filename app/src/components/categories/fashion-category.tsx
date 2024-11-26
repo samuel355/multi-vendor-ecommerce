@@ -73,6 +73,7 @@ export function FashionCategory() {
               title={product.title}
               price={product.price}
               originalPrice={product.originalPrice}
+              rating={product.rating}
             />
           ))}
         </div>

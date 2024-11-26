@@ -19,6 +19,7 @@ export default function NewArrivals() {
               title={product.title}
               price={product.price}
               originalPrice={product.originalPrice}
+              rating={product.rating}
             />
           ))}
         </div>

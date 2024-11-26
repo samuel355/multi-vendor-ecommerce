@@ -1,20 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { Heart, ShoppingCart } from "lucide-react";
+import { Heart, ShoppingCart, Star } from "lucide-react";
 import { Card, CardContent, CardFooter } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { ProductProps } from "@/types/product";
+import { usePathname } from "next/navigation";
 
 const Product = ({
   id,
   image,
   hot,
-  discount, 
+  discount,
   title,
   price,
   originalPrice,
+  rating,
 }: ProductProps) => {
+  const pathname = usePathname();
   return (
     <Card key={id} className="group relative overflow-hidden">
       <CardContent className="p-0">
@@ -59,6 +62,32 @@ const Product = ({
         <Link href="#" className="line-clamp-2 hover:underline">
           {title}
         </Link>
+
+        {pathname.includes("/shop") && (
+          <div className="mt-2 flex items-center gap-1">
+            {[...Array(5)].map((_, i) => {
+              const isFullStar = i < Math.floor(rating);
+              const isHalfStar = i === Math.floor(rating) && rating % 1 !== 0;
+
+              return (
+                <Star
+                  key={i}
+                  className={`h-4 w-4 ${
+                    isFullStar
+                      ? "fill-primary text-primary"
+                      : isHalfStar
+                      ? "fill-primary/50 text-primary"
+                      : "fill-muted text-muted"
+                  }`}
+                />
+              );
+            })}
+            <span className="ml-1 text-sm text-muted-foreground">
+              {rating}/{5}
+            </span>
+          </div>
+        )}
+
         <div className="flex items-baseline gap-2">
           <span className="text-lg font-bold">${price}</span>
           {originalPrice && (
@@ -70,6 +99,6 @@ const Product = ({
       </CardFooter>
     </Card>
   );
-}
+};
 
 export default Product;
