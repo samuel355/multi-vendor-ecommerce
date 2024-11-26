@@ -26,66 +26,49 @@ export default function NewArrivals() {
       id: "1",
       title: "Milo Brass And Black Metal Lamp Ø18cm x 30cm",
       price: 82,
-      image: "/placeholder.svg",
+      image: "/products/black-shade.jpg",
       hot: true,
     },
     {
       id: "2",
       title: "Light Luxury Urban Leather Lounge Chair Home Living Room",
       price: 179,
-      image: "/placeholder.svg",
+      image: "/products/macbook-new.jpg",
     },
     {
       id: "3",
       title: "Howard Chandelier Six Long Arms – Gunmetal",
       price: 745,
-      image: "/placeholder.svg",
+      image: "/products/sneaker.jpg",
     },
     {
       id: "4",
       title: "14-inch Fasion Simplicity Quality Wall Clock, Home Decor",
       price: 50,
       originalPrice: 75,
-      image: "/placeholder.svg",
+      image: "/products/portable-speaker.jpg",
       discount: 33,
     },
     {
       id: "5",
       title: "Drawer Record Storage Cabinet Turntable Stand",
       price: 108,
-      image: "/placeholder.svg",
+      image: "/products/tv.jpg",
     },
     {
       id: "6",
       title: "Solid Wood Rattan Tv Unit – Natural Finish",
       price: 178,
-      image: "/placeholder.svg",
+      image: "/products/watch.jpg",
     },
   ]
 
   return (
-    <div className="space-y-12">
-      {/* Discount Banner */}
-      <div className="flex justify-center gap-4 overflow-x-auto py-8">
-        {discounts.map((discount) => (
-          <div
-            key={discount}
-            className={`flex h-24 w-24 items-center justify-center rounded-full border-2 border-primary ${
-              discount === 50 ? "bg-primary text-primary-foreground" : ""
-            }`}
-          >
-            <div className="text-center">
-              <div className="text-xl font-bold">+{discount}%</div>
-              <div className="text-sm">OFF</div>
-            </div>
-          </div>
-        ))}
-      </div>
-
+    <div className="mx-10 my-8">
       {/* New Arrivals Section */}
       <div>
         <h2 className="mb-8 text-center text-3xl font-bold">New Arrivals</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 md:grid-cols-3">
           {products.map((product) => (
             <Card key={product.id} className="group relative overflow-hidden">
               <CardContent className="p-0">

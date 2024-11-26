@@ -5,8 +5,8 @@ import { useAuth, useUser } from "@clerk/nextjs";
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import NewArrivals from "./new-arrivals/page";
 import HeroSlider from "@/components/shared/hero-slider";
+import NewArrivals from "@/components/new-arrivals";
 
 export default function Home() {
   const { userId, getToken } = useAuth();
