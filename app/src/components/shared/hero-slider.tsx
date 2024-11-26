@@ -6,7 +6,6 @@ import Link from "next/link"
 import * as React from "react"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 
 export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = React.useState(0)
@@ -27,27 +26,25 @@ export default function HeroSlider() {
       subtitle: "Instant Camera",
       brand: "Fujifilm's",
       tag: "Limited time offer *",
-      image: "/placeholder.svg",
+      image: "/carousel/banner1.jpg?height=600&width=600",
       bgColor: "bg-[#C65D47]",
       textColor: "text-white",
     },
     {
       id: 2,
-      title: "Big Sale",
-      subtitle: "Eyeshadow",
-      tag: "BLACK FRIDAY",
-      description: "Over +100 items",
-      image: "/placeholder.svg",
+      title: "New Honda CR-V",
+      subtitle: "2024 Model",
+      tag: "Available Now",
+      image: "/carousel/banner2.jpg?height=600&width=600",
       bgColor: "bg-[#C65D47]",
       textColor: "text-white",
     },
     {
       id: 3,
-      title: "Puffer Jacket",
-      subtitle: "30% off",
-      tag: "NEW COLLECTION",
-      description: "Best jacket in year",
-      image: "/placeholder.svg",
+      title: "Summer Collection",
+      subtitle: "New Arrivals",
+      tag: "Limited Edition",
+      image: "/carousel/banner3.jpg?height=600&width=600",
       bgColor: "bg-[#C65D47]",
       textColor: "text-white",
     },
@@ -59,73 +56,50 @@ export default function HeroSlider() {
   }, [])
 
   return (
-    <div className="flex flex-col md:flex-row">
-      <div className="relative w-full md:w-full lg:w-[70%] overflow-hidden">
-        <div
-          className="flex transition-transform duration-500 ease-out"
-          style={{
-            transform: `translateX(-${currentSlide * 100}%)`,
-            width: `${totalSlides * 100}%`,
-          }}
-        >
-          {slides.map((slide, index) => (
-            <div
-              key={slide.id}
-              className="relative w-full"
-              style={{ flex: `0 0 ${100 / totalSlides}%` }}
-            >
-              <div className={`${slide.bgColor} ${slide.textColor}`}>
-                <div className="container mx-auto flex min-h-[500px] flex-col justify-center p-8">
-                  {slide.tag && (
-                    <span className="mb-4 text-sm font-medium">{slide.tag}</span>
-                  )}
-                  <h2 className="mb-2 text-5xl font-bold">{slide.title}</h2>
-                  <h3 className="mb-4 text-4xl font-bold">{slide.subtitle}</h3>
-                  {slide.brand && (
-                    <p className="mb-6 text-4xl font-light">{slide.brand}</p>
-                  )}
-                  {slide.description && (
-                    <p className="mb-6">{slide.description}</p>
-                  )}
-                  <div className="flex items-center gap-4">
-                    <Button
-                      asChild
-                      className="rounded-full bg-white text-black hover:bg-gray-100"
-                    >
-                      <Link href="#">SHOP NOW</Link>
-                    </Button>
-                  </div>
-                </div>
+    <div className="flex h-[70vh] border-b">
+      {/* Main Slider - 2/3 width */}
+      <div className="relative w-2/3">
+        {slides.map((slide, index) => (
+          <div
+            key={slide.id}
+            className={`absolute left-0 top-0 h-full w-full ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            } transition-opacity ease-in duration-500`}
+          >
+            <div className="relative flex h-full items-center justify-between">
+              <div className="z-10 w-full pl-10">
+                {slide.tag && (
+                  <span className="mb-4 block text-sm font-medium">
+                    {slide.tag}
+                  </span>
+                )}
+                <h2 className="mb-4 text-6xl font-bold leading-tight">
+                  {slide.title}
+                </h2>
+                <h3 className="mb-4 text-4xl font-bold">{slide.subtitle}</h3>
+                {slide.brand && (
+                  <p className="mb-8 text-4xl font-light">{slide.brand}</p>
+                )}
+                <Button
+                  asChild
+                  className="rounded-full px-8"
+                  size="lg"
+                >
+                  <Link href="#">SHOP NOW</Link>
+                </Button>
+              </div>
+              <div className='w-full h-full bg-no-repeat bg-cover bg-center' style={{backgroundImage: `url(${slide.image})`}}>
+
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
 
-        <Button
-          variant="outline"
-          size="icon"
-          className="absolute left-4 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full"
-          onClick={prevSlide}
-        >
-          <ChevronLeft className="h-6 w-6" />
-          <span className="sr-only">Previous slide</span>
-        </Button>
-
-        <Button
-          variant="outline"
-          size="icon"
-          className="absolute right-4 top-1/2 h-10 w-10 -translate-y-1/2 rounded-full"
-          onClick={nextSlide}
-        >
-          <ChevronRight className="h-6 w-6" />
-          <span className="sr-only">Next slide</span>
-        </Button>
-
-        <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
-          {[...Array(totalSlides)].map((_, index) => (
+        <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+          {slides.map((_, index) => (
             <button
               key={index}
-              className={`h-2 w-2 rounded-full ${
+              className={`h-2 w-2 rounded-full transition-colors ${
                 currentSlide === index ? "bg-white" : "bg-white/50"
               }`}
               onClick={() => setCurrentSlide(index)}
@@ -136,30 +110,56 @@ export default function HeroSlider() {
         </div>
       </div>
 
-      <div className="w-full md:w-full lg:w-[30%] flex flex-col md:flex-row lg:flex-col">
-        <Card className="flex-1">
-          <CardContent className="p-6">
-            <h3 className="text-sm font-semibold uppercase">BLACK FRIDAY</h3>
-            <h2 className="mt-2 text-2xl font-bold">Big Sale Eyeshadow</h2>
-            <p className="mt-2 text-sm text-muted-foreground">Over +100 items</p>
-            <Button className="mt-4" variant="outline">
+      {/* Right Side Promotions - 1/3 width */}
+      <div className="w-1/3 border-l">
+        <div className="flex h-full flex-col">
+          <div className="flex h-1/2 flex-col justify-center  p-8">
+            <span className="text-sm font-semibold">BLACK FRIDAY</span>
+            <h2 className="mt-2 text-4xl font-bold leading-tight">
+              Big Sale
+              <br />
+              Eyeshadow
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Over +100 items
+            </p>
+            <Button
+              variant="outline"
+              className="mt-4 w-fit rounded-full px-6"
+              size="sm"
+            >
               SHOP NOW
             </Button>
-          </CardContent>
-        </Card>
-        <Card className="flex-1">
-          <CardContent className="p-6">
-            <h3 className="text-sm font-semibold uppercase">NEW COLLECTION</h3>
-            <h2 className="mt-2 text-2xl font-bold">Puffer Jacket 30% off</h2>
-            <p className="mt-2 text-sm text-muted-foreground">Best jacket in year</p>
-            <div className="mt-4 flex items-center justify-between">
-              <Button variant="outline">SHOP NOW</Button>
-              <span className="rounded-full bg-red-600 px-3 py-1 text-lg font-bold text-white">
+          </div>
+
+          <div className="relative flex h-1/2 flex-col justify-center  p-8 border-t">
+            <span className="text-sm font-semibold">NEW COLLECTION</span>
+            <h2 className="mt-2 text-4xl font-bold leading-tight">
+              Puffer Jacket
+              <br />
+              30% off
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Best jacket in year
+            </p>
+            <div className="mt-4 flex items-center gap-4">
+              <Button variant="outline" className="rounded-full px-6" size="sm">
+                SHOP NOW
+              </Button>
+              <span className="rounded-full bg-red-600 px-4 py-2 text-lg font-bold text-white">
                 $29
               </span>
             </div>
-          </CardContent>
-        </Card>
+            <div className="absolute bottom-0 right-0 h-48 w-48">
+              <Image
+                src="/placeholder.svg?height=200&width=200"
+                alt="Puffer jacket"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
