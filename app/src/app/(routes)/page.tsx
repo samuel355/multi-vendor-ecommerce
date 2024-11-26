@@ -15,7 +15,6 @@ export default function Home() {
   return (
     <main className="relative flex flex-col overflow-y-auto">
       <HeroSlider />
-      {/* <HeroSection /> */}
       <NoteSection />
       <NewArrivals />
     </main>
