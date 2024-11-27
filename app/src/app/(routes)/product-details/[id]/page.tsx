@@ -171,7 +171,7 @@ export default function ProductDetail() {
 
               <div className="mt-2 flex items-center gap-1">
                 {[...Array(5)].map((_, i) => {
-                  const isFullStar = i < Math.floor(product?.rating ?? 1);
+                  const isFullStar = i < Math.floor(product?.rating ?? 4.5);
                   const isHalfStar =
                     product?.rating !== undefined &&
                     i === Math.floor(product?.rating) &&

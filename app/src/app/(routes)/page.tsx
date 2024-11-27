@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import HeroSlider from "@/components/shared/hero-slider";
 import NewArrivals from "@/components/new-arrivals";
+import FlashSale from "@/components/flash-sale";
 
 export default function Home() {
   const { userId, getToken } = useAuth();
@@ -17,6 +18,7 @@ export default function Home() {
       <HeroSlider />
       <NoteSection />
       <NewArrivals />
+      <FlashSale />
     </main>
   );
 }

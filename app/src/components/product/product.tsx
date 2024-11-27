@@ -74,9 +74,9 @@ const Product = ({
                   key={i}
                   className={`h-4 w-4 ${
                     isFullStar
-                      ? "fill-primary text-primary"
+                      ? "fill-yellow-400 text-yellow-400"
                       : isHalfStar
-                      ? "fill-primary/50 text-primary"
+                      ? "fill-yellow/50 text-yellow-400"
                       : "fill-muted text-muted"
                   }`}
                 />
