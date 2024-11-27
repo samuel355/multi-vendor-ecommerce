@@ -9,65 +9,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Star } from "lucide-react";
-import { useEffect, useState } from "react";
-
-interface Product {
-  id: number;
-  name: string;
-  discount: number;
-  originalPrice: number;
-  currentPrice: number;
-  rating: number;
-  image: string;
-}
-
-const products: Product[] = [
-  {
-    id: 1,
-    name: "Make Up For Ever Water Blend Face & Body Foundation",
-    discount: 11,
-    originalPrice: 47,
-    currentPrice: 42,
-    rating: 0,
-    image: "/placeholder.svg?height=300&width=300",
-  },
-  {
-    id: 2,
-    name: "Translucent Compact Face Powder - 03 Medium, 0.22 oz",
-    discount: 37,
-    originalPrice: 14,
-    currentPrice: 9,
-    rating: 3.5,
-    image: "/placeholder.svg?height=300&width=300",
-  },
-  {
-    id: 3,
-    name: "Allure Luminous Intense Lipstick 0.15oz",
-    discount: 17,
-    originalPrice: 24,
-    currentPrice: 20,
-    rating: 5,
-    image: "/placeholder.svg?height=300&width=300",
-  },
-  {
-    id: 4,
-    name: "Makeup Brushes Artisan Easel Elite Cosmetics",
-    discount: 37,
-    originalPrice: 30,
-    currentPrice: 19,
-    rating: 5,
-    image: "/placeholder.svg?height=300&width=300",
-  },
-  {
-    id: 5,
-    name: "Makeup Magic Skin Beautifier BB Cream Tinted Moisturizer",
-    discount: 24,
-    originalPrice: 46,
-    currentPrice: 35,
-    rating: 5,
-    image: "/placeholder.svg?height=300&width=300",
-  },
-];
+import { useEffect, useState, useRef } from "react";
+import { productsData } from "./product/product-data";
+import Link from "next/link";
 
 export default function FlashSale() {
   const [time, setTime] = useState({
@@ -75,7 +19,11 @@ export default function FlashSale() {
     minutes: 2,
     seconds: 53,
   });
+  const nextButtonRef = useRef<HTMLButtonElement | null>(null);
+  const prevButtonRef = useRef<HTMLButtonElement | null>(null);
+  const [direction, setDirection] = useState<"right" | "left">("right");
 
+  // Countdown timer logic
   useEffect(() => {
     const timer = setInterval(() => {
       setTime((prevTime) => {
@@ -93,6 +41,28 @@ export default function FlashSale() {
     return () => clearInterval(timer);
   }, []);
 
+  // Auto-scroll logic
+  useEffect(() => {
+    const autoScrollInterval = setInterval(() => {
+      if (direction === "right") {
+        if (nextButtonRef.current) {
+          nextButtonRef.current.click();
+        } else {
+          setDirection("left");
+        }
+      } else if (direction === "left") {
+        if (prevButtonRef.current) {
+          prevButtonRef.current.click();
+        } else {
+          setDirection("right");
+        }
+      }
+    }, 3000);
+
+    return () => clearInterval(autoScrollInterval);
+  }, [direction]);
+
+
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }).map((_, index) => (
       <Star
@@ -107,8 +77,8 @@ export default function FlashSale() {
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4">
-      <div className="flex justify-between items-center mb-8">
+    <div className="w-full max-w-7xl mx-10">
+      <div className="flex justify-between items-center mb-8 ">
         <h2 className="text-3xl font-bold">Flash Deals</h2>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
@@ -127,20 +97,20 @@ export default function FlashSale() {
               </span>
             </div>
           </div>
-          <a href="#" className="text-black underline">
+          <Link href="/shop" className="underline">
             See All Products
-          </a>
+          </Link>
         </div>
       </div>
 
       <Carousel className="w-full">
         <CarouselContent className="-ml-2 md:-ml-4">
-          {products.map((product, index) => (
+          {productsData.map((product, index) => (
             <CarouselItem
-              key={index}
+              key={product.id}
               className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/4"
             >
-              <Card className="border-0 shadow-none">
+              <Card className="shadow">
                 <CardContent className="p-0">
                   <div className="relative">
                     <span className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 text-sm rounded">
@@ -148,33 +118,31 @@ export default function FlashSale() {
                     </span>
                     <img
                       src={product.image}
-                      alt={product.name}
+                      alt={product.title}
                       className="w-full h-[300px] object-cover rounded-lg"
                     />
                   </div>
-                  <div className="mt-4 space-y-2">
+                  <div className="mt-4 space-y-2 p-4">
                     <h3 className="font-medium text-sm line-clamp-2">
-                      {product.name}
+                      {product.title}
                     </h3>
                     <div className="flex items-center gap-2">
                       <span className="text-xl font-bold">
-                        ${product.currentPrice}
+                        ${product.price}
                       </span>
                       <span className="text-gray-400 line-through">
                         ${product.originalPrice}
                       </span>
                     </div>
-                    <div className="flex gap-1">
-                      {renderStars(product.rating)}
-                    </div>
+                    <div className="flex gap-1">{renderStars(product.rating)}</div>
                   </div>
                 </CardContent>
               </Card>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-0" />
-        <CarouselNext className="right-0" />
+        <CarouselPrevious ref={prevButtonRef} className="left-0" />
+        <CarouselNext ref={nextButtonRef} className="right-0" />
       </Carousel>
     </div>
   );
