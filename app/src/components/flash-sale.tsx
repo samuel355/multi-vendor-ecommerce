@@ -12,6 +12,7 @@ import { Star } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { productsData } from "./product/product-data";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function FlashSale() {
   const [time, setTime] = useState({
@@ -62,7 +63,6 @@ export default function FlashSale() {
     return () => clearInterval(autoScrollInterval);
   }, [direction]);
 
-
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }).map((_, index) => (
       <Star
@@ -110,16 +110,17 @@ export default function FlashSale() {
               key={product.id}
               className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/4"
             >
-              <Card className="shadow">
+              <Card className="shadow group">
                 <CardContent className="p-0">
                   <div className="relative">
                     <span className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 text-sm rounded">
                       -{product.discount}%
                     </span>
-                    <img
+                    <Image
                       src={product.image}
                       alt={product.title}
-                      className="w-full h-[300px] object-cover rounded-lg"
+                      width={100} height={100}
+                      className="w-full h-[300px] object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
                   <div className="mt-4 space-y-2 p-4">
@@ -134,7 +135,9 @@ export default function FlashSale() {
                         ${product.originalPrice}
                       </span>
                     </div>
-                    <div className="flex gap-1">{renderStars(product.rating)}</div>
+                    <div className="flex gap-1">
+                      {renderStars(product.rating)}
+                    </div>
                   </div>
                 </CardContent>
               </Card>
