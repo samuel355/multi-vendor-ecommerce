@@ -1,33 +1,29 @@
-"use client"
+"use client";
 
-import { ChevronLeft, ChevronRight } from 'lucide-react'
-import Image from "next/image"
-import * as React from "react"
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import * as React from "react";
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card"
-import { productsData } from './product/product-data'
-
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { productsData } from "./product/product-data";
+import Product from "./product/product";
 
 export default function RelatedProducts() {
-  const [currentIndex, setCurrentIndex] = React.useState(0)
+  const [currentIndex, setCurrentIndex] = React.useState(0);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === productsData.length - 4 ? 0 : prevIndex + 1
-    )
-  }
+    );
+  };
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? productsData.length - 4 : prevIndex - 1
-    )
-  }
+    );
+  };
 
   return (
     <div className="w-full">
@@ -43,39 +39,16 @@ export default function RelatedProducts() {
             }}
           >
             {productsData.slice(0, 8).map((product) => (
-              <div
-                key={product.id}
-                className="w-full min-w-[25%] px-2"
-              >
-                <Card className="border-0 shadow-none">
-                  <CardContent className="p-0">
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-                      <Image
-                        src={product.image}
-                        alt={product.title}
-                        fill
-                        className="object-cover"
-                      />
-                      {product.hot && (
-                        <Badge
-                          variant="destructive"
-                          className="absolute right-2 top-2"
-                        >
-                          HOT
-                        </Badge>
-                      )}
-                    </div>
-                  </CardContent>
-                  <CardFooter className="flex flex-col items-start p-4">
-                    <h3 className="line-clamp-2 text-sm font-medium">
-                      {product.title}
-                    </h3>
-                    <p className="mt-2 font-semibold">
-                      ${product.price}
-                    </p>
-                  </CardFooter>
-                </Card>
-              </div>
+              <Product
+                id={product.id}
+                image={product.image}
+                hot={product.hot}
+                discount={product.discount}
+                title={product.title}
+                price={product.price}
+                originalPrice={product.originalPrice}
+                rating={product.rating}
+              />
             ))}
           </div>
         </div>
@@ -99,6 +72,5 @@ export default function RelatedProducts() {
         </Button>
       </div>
     </div>
-  )
+  );
 }
-

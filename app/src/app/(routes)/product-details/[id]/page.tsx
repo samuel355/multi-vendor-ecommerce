@@ -130,8 +130,7 @@ export default function ProductDetail() {
 
   return (
     <>
-      {" "}
-      <div className="container mx-auto px-4 py-8">
+      <div className="mx-10 py-8">
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="space-y-4">
             <div className="flex gap-4">
@@ -172,9 +171,11 @@ export default function ProductDetail() {
 
               <div className="mt-2 flex items-center gap-1">
                 {[...Array(5)].map((_, i) => {
-                  const isFullStar = i < Math.floor(product?.rating);
+                  const isFullStar = i < Math.floor(product?.rating ?? 1);
                   const isHalfStar =
-                    i === Math.floor(product?.rating) && product?.rating % 1 !== 0;
+                    product?.rating !== undefined &&
+                    i === Math.floor(product?.rating) &&
+                    product?.rating % 1 !== 0;
 
                   return (
                     <Star
