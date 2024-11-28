@@ -5,30 +5,19 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { Minus, Plus, Trash2 } from "lucide-react";
-import Image from "next/image";
+import { CartItemProps } from "@/types/cart";
 import Link from "next/link";
 import React from "react";
 
-interface CartItem {
-  id: string;
-  name: string;
-  size: string;
-  color: string;
-  price: number;
-  image: string;
-  quantity: number;
-}
-
 const Cart = () => {
-  const cartItems: CartItem[] = [
+  const cartItems: CartItemProps[] = [
     {
       id: "1",
       name: "Gradient Graphic T-shirt",
       size: "Large",
       color: "White",
       price: 145,
-      image: "/placeholder.svg",
+      image: "/products/black-shade.jpg",
       quantity: 1,
     },
     {
@@ -37,7 +26,7 @@ const Cart = () => {
       size: "Medium",
       color: "Red",
       price: 180,
-      image: "/placeholder.svg",
+      image: "/products/macbook-new.jpg",
       quantity: 1,
     },
     {
@@ -46,7 +35,7 @@ const Cart = () => {
       size: "Large",
       color: "Blue",
       price: 240,
-      image: "/placeholder.svg",
+      image: "/products/sneaker.jpg",
       quantity: 1,
     },
   ];
@@ -76,7 +65,7 @@ const Cart = () => {
 
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2">
-            <div className="space-y-4">
+            <div className="space-y-4 max-h-[48rem] overflow-y-scroll">
               {cartItems.map((item) => (
                 <CartItem
                   id={item.id}
@@ -86,6 +75,7 @@ const Cart = () => {
                   color={item.color}
                   price={item.price}
                   quantity={item.quantity}
+                  dropdown={false}
                 />
               ))}
             </div>
