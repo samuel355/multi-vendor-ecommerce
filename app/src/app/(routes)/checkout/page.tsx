@@ -117,8 +117,6 @@ const Cart = () => {
         </div>
         <NewsLetter />
       </div>
-
-      <Footer />
     </>
   );
 };

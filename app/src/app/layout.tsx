@@ -35,9 +35,6 @@ export default function RootLayout({
               disableTransitionOnChange
             >
               <div className="flex flex-col w-full">
-                {/* <TopHeader />
-                <MiddleHeader />
-                <BottomHeader /> */}
                 {children}
               </div>
             </ThemeProvider>

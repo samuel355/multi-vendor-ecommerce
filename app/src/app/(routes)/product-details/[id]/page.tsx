@@ -362,9 +362,6 @@ export default function ProductDetail() {
           </TabsContent>
         </Tabs>
       </div>
-      <div className="mx-10">
-        <RelatedProducts />
-      </div>
     </>
   );
 }
