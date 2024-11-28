@@ -108,7 +108,7 @@ const Cart = () => {
                     <Button variant="outline">Apply</Button>
                   </div>
                   <Button className="w-full" size="lg">
-                    Go to Checkout
+                    Proceed to payment
                   </Button>
                 </div>
               </CardContent>

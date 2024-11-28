@@ -31,7 +31,7 @@ const CartItem: FC<CartProps> = ({
 
   return (
     <Card key={id}>
-      <CardContent className="flex items-start gap-4 p-4">
+      <CardContent className="flex flex-col md:flex-row items-start gap-4 p-4">
         <Image
           src={image}
           alt={title}
@@ -59,11 +59,11 @@ const CartItem: FC<CartProps> = ({
           <div className="flex items-center gap-4">
             {dropdown !== true && (
               <div className="flex items-center gap-2">
-                <Button variant="outline" size="icon">
+                <Button variant="outline" size="sm">
                   <Minus className="h-4 w-4" />
                 </Button>
                 <span className="w-8 text-center">{quantity}</span>
-                <Button variant="outline" size="icon">
+                <Button variant="outline" size="sm">
                   <Plus className="h-4 w-4" />
                 </Button>
               </div>
