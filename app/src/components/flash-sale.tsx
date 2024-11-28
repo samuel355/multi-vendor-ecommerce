@@ -20,9 +20,6 @@ export default function FlashSale() {
     minutes: 2,
     seconds: 53,
   });
-  const nextButtonRef = useRef<HTMLButtonElement | null>(null);
-  const prevButtonRef = useRef<HTMLButtonElement | null>(null);
-  const [direction, setDirection] = useState<"right" | "left">("right");
 
   // Countdown timer logic
   useEffect(() => {
@@ -42,27 +39,6 @@ export default function FlashSale() {
     return () => clearInterval(timer);
   }, []);
 
-  // Auto-scroll logic
-  useEffect(() => {
-    const autoScrollInterval = setInterval(() => {
-      if (direction === "right") {
-        if (nextButtonRef.current) {
-          nextButtonRef.current.click();
-        } else {
-          setDirection("left");
-        }
-      } else if (direction === "left") {
-        if (prevButtonRef.current) {
-          prevButtonRef.current.click();
-        } else {
-          setDirection("right");
-        }
-      }
-    }, 3000);
-
-    return () => clearInterval(autoScrollInterval);
-  }, [direction]);
-
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }).map((_, index) => (
       <Star
@@ -77,7 +53,7 @@ export default function FlashSale() {
   };
 
   return (
-    <div className="w-full max-w-7xl mx-10">
+    <div className="w-full px-10">
       <div className="flex justify-between items-center mb-8 ">
         <h2 className="text-3xl font-bold">Flash Deals</h2>
         <div className="flex items-center gap-4">
@@ -116,17 +92,19 @@ export default function FlashSale() {
                     <span className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 text-sm rounded">
                       -{product.discount}%
                     </span>
+                    <Link href={`/product-details/${product.id}`}>
                     <Image
                       src={product.image}
                       alt={product.title}
-                      width={100} height={100}
+                      width={100}
+                      height={100}
                       className="w-full h-[300px] object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
-                    />
+                    /></Link>
                   </div>
                   <div className="mt-4 space-y-2 p-4">
-                    <h3 className="font-medium text-sm line-clamp-2">
+                    <Link href={`/product-details/${product.id}`}><h3 className="font-medium text-sm line-clamp-2">
                       {product.title}
-                    </h3>
+                    </h3></Link>
                     <div className="flex items-center gap-2">
                       <span className="text-xl font-bold">
                         ${product.price}
@@ -144,8 +122,8 @@ export default function FlashSale() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious ref={prevButtonRef} className="left-0" />
-        <CarouselNext ref={nextButtonRef} className="right-0" />
+        <CarouselPrevious className="left-0" />
+        <CarouselNext className="right-0" />
       </Carousel>
     </div>
   );
