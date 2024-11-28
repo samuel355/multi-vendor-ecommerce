@@ -1,3 +1,4 @@
+import CartItem from "@/components/cart-item";
 import NewsLetter from "@/components/news-letter";
 import Footer from "@/components/shared/footer";
 import { Button } from "@/components/ui/button";
@@ -77,43 +78,15 @@ const Cart = () => {
           <div className="lg:col-span-2">
             <div className="space-y-4">
               {cartItems.map((item) => (
-                <Card key={item.id}>
-                  <CardContent className="flex items-start gap-4 p-4">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      width={100}
-                      height={100}
-                      className="rounded-md object-cover"
-                    />
-                    <div className="flex-1 space-y-1">
-                      <h3 className="font-semibold">{item.name}</h3>
-                      <div className="text-sm text-muted-foreground">
-                        Size: {item.size}
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        Color: {item.color}
-                      </div>
-                      <div className="font-semibold">${item.price}</div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Button variant="outline" size="icon">
-                        <Minus className="h-4 w-4" />
-                      </Button>
-                      <span className="w-8 text-center">{item.quantity}</span>
-                      <Button variant="outline" size="icon">
-                        <Plus className="h-4 w-4" />
-                      </Button>
-                    </div>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="text-destructive"
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </Button>
-                  </CardContent>
-                </Card>
+                <CartItem
+                  id={item.id}
+                  image={item.image}
+                  title={item.name}
+                  size={item.size}
+                  color={item.color}
+                  price={item.price}
+                  quantity={item.quantity}
+                />
               ))}
             </div>
           </div>
