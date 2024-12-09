@@ -1,3 +1,4 @@
+import { ProductProps } from "@/types/product";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -10,32 +11,23 @@ interface User {
   avatarUrl?: string;
 }
 
-interface Product {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  vendorId: string;
-  description?: string;
-}
-
-interface CartItem extends Product {
+interface CartItem extends ProductProps {
   quantity: number;
 }
 
-interface FavoriteItem extends Product {
+interface FavoriteItem extends ProductProps {
   addedAt: Date;
 }
 
 interface CartStore {
   items: CartItem[];
   favorites: FavoriteItem[];
-  addItem: (item: Product, quantity?: number) => void;
+  addItem: (item: ProductProps, quantity?: number) => void;
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
   getTotal: () => number;
-  addToFavorites: (item: Product) => void;
+  addToFavorites: (item: ProductProps) => void;
   removeFromFavorites: (id: string) => void;
   moveToCart: (id: string, quantity?: number) => void;
   isInCart: (id: string) => boolean;

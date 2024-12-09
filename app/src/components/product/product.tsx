@@ -6,6 +6,8 @@ import { Card, CardContent, CardFooter } from "../ui/card";
 import { Badge } from "../ui/badge";
 import { ProductProps } from "@/types/product";
 import { usePathname } from "next/navigation";
+import { useCart } from "@/store/useStore";
+import { toast } from "sonner";
 
 const Product = ({
   id,
@@ -16,8 +18,47 @@ const Product = ({
   price,
   originalPrice,
   rating,
+  vedorId,
+  description
 }: ProductProps) => {
   const pathname = usePathname();
+  
+  const productData: ProductProps = {
+    id,
+    title,
+    price,
+    image,
+    rating,
+    description,
+    vedorId,
+    originalPrice,
+    hot,
+    discount,
+  };
+
+  const {
+    addItem,
+    removeItem,
+    addToFavorites,
+    removeFromFavorites,
+    isInCart,
+    isInFavorites,
+    items
+  } = useCart();
+
+  // Handle cart operations
+  const handleCartAction = () => {
+    if (isInCart(id)) {
+      removeItem(id);
+      toast.success("Removed from cart");
+    } else {
+      addItem(productData);
+      toast.success("Added to cart");
+      console.log(productData);
+    }
+  };
+
+  console.log(items)
   return (
     <Card key={id} className="group relative overflow-hidden">
       <CardContent className="p-0">
@@ -43,6 +84,7 @@ const Product = ({
               variant="secondary"
               size="icon"
               className="h-8 w-8 rounded-full"
+              onClick={handleCartAction}
             >
               <ShoppingCart className="h-4 w-4" />
               <span className="sr-only">Add to cart</span>
@@ -81,8 +123,8 @@ const Product = ({
                     isFullStar
                       ? "fill-yellow-400 text-yellow-400"
                       : isHalfStar
-                      ? "fill-yellow/50 text-yellow-400"
-                      : "fill-muted text-muted"
+                        ? "fill-yellow/50 text-yellow-400"
+                        : "fill-muted text-muted"
                   }`}
                 />
               );

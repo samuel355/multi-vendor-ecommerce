@@ -8,4 +8,5 @@ export interface ProductProps{
   discount?: number
   rating: number
   description?: string
+  vedorId?: string
 }
