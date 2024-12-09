@@ -13,7 +13,7 @@ interface CartProps extends ProductProps {
   dropdown: boolean;
 }
 
-const CartItem: FC<CartProps> = ({
+const FavoriteItem: FC<CartProps> = ({
   id,
   image,
   title,
@@ -25,7 +25,7 @@ const CartItem: FC<CartProps> = ({
   dropdown = false,
 }: CartProps) => {
   const pathname = usePathname();
-  const {removeItem} = useCart()
+  const {removeFromFavorites} = useCart()
 
   return (
     <Card key={id}>
@@ -66,7 +66,7 @@ const CartItem: FC<CartProps> = ({
                 </Button>
               </div>
             )}
-            <Button onClick={() => removeItem(id)} variant="outline" size="sm">
+            <Button onClick={() => removeFromFavorites(id)} variant="outline" size="sm">
               <Trash2 className="h-4 w-4" />
             </Button>
           </div>
@@ -88,4 +88,4 @@ const CartItem: FC<CartProps> = ({
   );
 };
 
-export default CartItem;
+export default FavoriteItem;

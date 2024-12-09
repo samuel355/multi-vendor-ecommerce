@@ -15,7 +15,7 @@ export default function MiddleHeader() {
   const [cartOpen, setCartOpen] = useState(false);
   const [favOpen, setFavOpen] = useState(false);
   const router = useRouter()
-  const {items} = useCart()
+  const {items, favorites} = useCart()
   return (
     <>
       <div className="flex items-center gap-4 md:gap-6 md:mx-10 mx-6 py-5">
@@ -50,7 +50,7 @@ export default function MiddleHeader() {
               <Heart size={16} />
             </button>
             <span className="absolute top-0 right-0 inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full transform translate-x-1/2 -translate-y-1/2">
-              3
+              {favorites.length > 0 ? favorites.length : ""}
             </span>
             <FavoriteProducts open={favOpen} setOpen={setFavOpen} />
           </div>

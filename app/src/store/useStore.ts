@@ -26,6 +26,7 @@ interface CartStore {
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
+  clearFavorites: () => void;
   getTotal: () => number;
   addToFavorites: (item: ProductProps) => void;
   removeFromFavorites: (id: string) => void;
@@ -100,6 +101,7 @@ export const useCart = create<CartStore>()(
         })),
 
       clearCart: () => set((state) => ({ ...state, items: [] })),
+      clearFavorites: () => set((state) => ({ ...state, favorites: [] })),
 
       getTotal: () => {
         const { items } = get();

@@ -49,12 +49,24 @@ const Product = ({
   // Handle cart operations
   const handleCartAction = () => {
     if (isInCart(id)) {
-      removeItem(id);
-      toast.success("Removed from cart");
+      //removeItem(id);
+      toast.success("Product already in cart");
     } else {
       addItem(productData);
       toast.success("Added to cart");
       console.log(productData);
+    }
+  };
+  
+  //Handle favorite operations
+  const handleFavoriteAction = () => {
+    if (isInFavorites(id)) {
+      //removeFromFavorites(id);
+      toast.success("Products Already in Favorites");
+    } else {
+      addToFavorites(productData);
+      console.log(productData)
+      toast.success("Added to favorites");
     }
   };
 
@@ -76,6 +88,7 @@ const Product = ({
               variant="secondary"
               size="icon"
               className="h-8 w-8 rounded-full"
+              onClick={handleFavoriteAction}
             >
               <Heart className="h-4 w-4" />
               <span className="sr-only">Add to wishlist</span>
@@ -83,10 +96,10 @@ const Product = ({
             <Button
               variant="secondary"
               size="icon"
-              className="h-8 w-8 rounded-full"
+              className={`h-8 w-8 rounded-full ${isInCart(id) ? 'bg-red-600' : ''}`}
               onClick={handleCartAction}
             >
-              <ShoppingCart className="h-4 w-4" />
+              <ShoppingCart fill={isInCart(id) ? 'red': ''} className="h-4 w-4" />
               <span className="sr-only">Add to cart</span>
             </Button>
           </div>

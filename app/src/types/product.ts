@@ -6,7 +6,7 @@ export interface ProductProps{
   image: string
   hot?: boolean
   discount?: number
-  rating: number
+  rating?: number
   description?: string
   vedorId?: string
   size?: string
