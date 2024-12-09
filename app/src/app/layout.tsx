@@ -4,6 +4,7 @@ import "./globals.css";
 import { ClientOnly } from "@/components/client-only";
 import { ThemeProvider } from "@/providers/theme-provider";
 import {Noto_Sans} from 'next/font/google'
+import { Toaster } from "@/components/ui/sonner";
 
 const notoSans = Noto_Sans({
   weight: ['100', '200', '300', '400', '700', '900'], 
@@ -38,6 +39,7 @@ export default function RootLayout({
                 {children}
               </div>
             </ThemeProvider>
+            <Toaster />
           </body>
         </html>
       </ClerkProvider>

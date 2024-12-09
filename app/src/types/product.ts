@@ -9,4 +9,6 @@ export interface ProductProps{
   rating: number
   description?: string
   vedorId?: string
+  size?: string
+  color?: string
 }

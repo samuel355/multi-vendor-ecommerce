@@ -8,12 +8,14 @@ import MobileSidebar from "./mobile-sidebar";
 import CartContent from "./cart-content";
 import FavoriteProducts from "./favorite-products-content";
 import { useRouter } from "next/navigation";
+import { useCart } from "@/store/useStore";
 
 export default function MiddleHeader() {
   const [openSheet, setSheetOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const [favOpen, setFavOpen] = useState(false);
   const router = useRouter()
+  const {items} = useCart()
   return (
     <>
       <div className="flex items-center gap-4 md:gap-6 md:mx-10 mx-6 py-5">
@@ -60,7 +62,7 @@ export default function MiddleHeader() {
               <ShoppingCart size={16} />
             </button>
             <span className="absolute top-0 right-0 inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-red-500 rounded-full transform translate-x-1/2 -translate-y-1/2">
-              5
+              {items.length > 0 ? items.length : ""}
             </span>
 
             <CartContent open={cartOpen} setOpen={setCartOpen} />

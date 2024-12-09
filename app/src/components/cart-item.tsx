@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useCart } from "@/store/useStore";
 
 interface CartProps {
   id: string;
@@ -28,6 +29,7 @@ const CartItem: FC<CartProps> = ({
   dropdown = false,
 }: CartProps) => {
   const pathname = usePathname();
+  const {removeItem} = useCart()
 
   return (
     <Card key={id}>
@@ -68,7 +70,7 @@ const CartItem: FC<CartProps> = ({
                 </Button>
               </div>
             )}
-            <Button variant="ghost" size="icon" className="text-destructive">
+            <Button onClick={() => removeItem(id)} variant="outline" size="sm">
               <Trash2 className="h-4 w-4" />
             </Button>
           </div>
