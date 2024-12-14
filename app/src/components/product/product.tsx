@@ -87,10 +87,10 @@ const Product = ({
             <Button
               variant="secondary"
               size="icon"
-              className="h-8 w-8 rounded-full"
+              className={`h-8 w-8 rounded-full ${isInFavorites(id) ? 'bg-red-600' : ''}`}
               onClick={handleFavoriteAction}
             >
-              <Heart className="h-4 w-4" />
+              <Heart fill={isInFavorites(id) ? 'red': ''} className="h-4 w-4" />
               <span className="sr-only">Add to wishlist</span>
             </Button>
             <Button
@@ -125,7 +125,7 @@ const Product = ({
 
         {pathname.includes("/shop") && (
           <div className="mt-2 flex items-center gap-1">
-            {[...Array(5)].map((_, i) => {
+            {/* {[...Array(5)].map((_, i) => {
               const isFullStar = i < Math.floor(rating);
               const isHalfStar = i === Math.floor(rating) && rating % 1 !== 0;
 
@@ -141,7 +141,7 @@ const Product = ({
                   }`}
                 />
               );
-            })}
+            })} */}
             <span className="ml-1 text-sm text-muted-foreground">
               {rating}/{5}
             </span>
