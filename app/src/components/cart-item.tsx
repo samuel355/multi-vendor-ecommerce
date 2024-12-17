@@ -1,5 +1,5 @@
 "use client";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
 import { Button } from "./ui/button";
@@ -25,7 +25,8 @@ const CartItem: FC<CartProps> = ({
   dropdown = false,
 }: CartProps) => {
   const pathname = usePathname();
-  const {removeItem} = useCart()
+  const {removeItem, updateQuantity} = useCart()
+  const [qty, setQty] = useState(1)
 
   return (
     <Card key={id}>

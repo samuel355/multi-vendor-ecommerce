@@ -1,13 +1,10 @@
 "use client";
 import CartItem from "@/components/cart-item";
-import NewsLetter from "@/components/news-letter";
-import Footer from "@/components/shared/footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { useCart } from "@/store/useStore";
-import { CartItemProps } from "@/types/cart";
 import Link from "next/link";
 import React from "react";
 
