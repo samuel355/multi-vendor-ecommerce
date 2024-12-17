@@ -70,7 +70,6 @@ const Product = ({
     }
   };
 
-  console.log(items)
   return (
     <Card key={id} className="group relative overflow-hidden">
       <CardContent className="p-0">

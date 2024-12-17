@@ -5,11 +5,56 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { useCart } from "@/store/useStore";
+import { ProductProps } from "@/types/product";
 import Link from "next/link";
-import React from "react";
+import React, { FC, useMemo, useState } from "react";
 
-const Cart = () => {
+const Cart: FC<ProductProps> = ({ id }) => {
   const { items, getTotal } = useCart();
+
+  const [promoCode, setPromoCode] = useState(""); // For user-entered promo code
+  const [discountPercent, setDiscountPercent] = useState<number | null>(null); // Discount percentage (null means no valid discount)
+
+  // Predefined promo codes with discount percentages
+  const validPromoCodes: Record<string, number> = {
+    "SAVE10": 10, // 10% discount
+    "SAVE20": 20, // 20% discount
+    "WELCOME5": 5, // 5% discount
+  };
+
+  // Constants for delivery fee
+  const DELIVERY_FEE = 5; // Flat delivery fee
+
+  // Calculate the subtotal
+  const subtotal = useMemo(
+    () => items.reduce((acc, item) => acc + item.price * item.quantity, 0),
+    [items]
+  );
+
+  // Calculate the discount based on the total
+  const discountAmount = useMemo(() => {
+    if (discountPercent) {
+      return (subtotal * discountPercent) / 100;
+    }
+    return 0;
+  }, [subtotal, discountPercent]);
+
+  // Calculate the final total
+  const total = useMemo(() => subtotal - discountAmount + DELIVERY_FEE, [
+    subtotal,
+    discountAmount,
+  ]);
+
+  // Handle promo code validation
+  const applyPromoCode = () => {
+    const discount = validPromoCodes[promoCode.toUpperCase()];
+    if (discount) {
+      setDiscountPercent(discount);
+    } else {
+      setDiscountPercent(null);
+      alert("Invalid promo code. Please try again.");
+    }
+  };
 
   return (
     <>
@@ -33,6 +78,7 @@ const Cart = () => {
                 <div className="space-y-4 max-h-[48rem] overflow-y-scroll">
                   {items.map((item) => (
                     <CartItem
+                      key={item.id}
                       id={item.id}
                       image={item.image}
                       title={item.title}
@@ -46,6 +92,7 @@ const Cart = () => {
                 </div>
               </div>
 
+              {/* Cart Summary */}
               <div>
                 <Card>
                   <CardContent className="p-6">
@@ -55,24 +102,32 @@ const Cart = () => {
                     <div className="space-y-4">
                       <div className="flex justify-between">
                         <span>Subtotal</span>
-                        <span>${"subtotal"}</span>
+                        <span>${subtotal.toFixed(2)}</span>
                       </div>
-                      <div className="flex justify-between text-destructive">
-                        <span>Discount (-20%)</span>
-                        <span>-${"discount"}</span>
-                      </div>
+                      {discountPercent && (
+                        <div className="flex justify-between text-destructive">
+                          <span>Discount ({discountPercent}%)</span>
+                          <span>-${discountAmount.toFixed(2)}</span>
+                        </div>
+                      )}
                       <div className="flex justify-between">
                         <span>Delivery Fee</span>
-                        <span>${"deliveryFee"}</span>
+                        <span>${DELIVERY_FEE.toFixed(2)}</span>
                       </div>
                       <Separator />
                       <div className="flex justify-between font-semibold text-lg">
                         <span>Total</span>
-                        <span>${getTotal()}</span>
+                        <span>${total.toFixed(2)}</span>
                       </div>
                       <div className="flex gap-2">
-                        <Input placeholder="Add promo code" />
-                        <Button variant="outline">Apply</Button>
+                        <Input
+                          placeholder="Add promo code"
+                          value={promoCode}
+                          onChange={(e) => setPromoCode(e.target.value)}
+                        />
+                        <Button onClick={applyPromoCode} variant="outline">
+                          Apply
+                        </Button>
                       </div>
                       <Button className="w-full" size="lg">
                         Proceed to payment
