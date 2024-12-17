@@ -17,7 +17,7 @@ interface Props {
 }
 
 const FavoriteProducts: FC<Props> = ({ open, setOpen }) => {
-  const {favorites, clearFavorites} = useCart();
+  const { favorites, clearFavorites } = useCart();
   return (
     <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
@@ -25,7 +25,7 @@ const FavoriteProducts: FC<Props> = ({ open, setOpen }) => {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent className="w-64 mt-2 mr-2">
-      <div className="space-y-2 max-h-72 overflow-y-scroll">
+        <div className="space-y-2 max-h-72 overflow-y-scroll">
           {favorites.map((item) => (
             <FavoriteItem
               id={item.id}
@@ -38,9 +38,20 @@ const FavoriteProducts: FC<Props> = ({ open, setOpen }) => {
             />
           ))}
         </div>
-        
-        <div className="flex justify-end px-2 mt-4 mb-2 border-t">
-          <Link className="text-sm hover:underline mt-2" href={'/favorite-products'}>View Favorites</Link>
+
+        <div className="flex justify-between items-center p-2 border-t border-gray-200">
+          <small
+            onClick={() => {
+              clearFavorites();
+              setOpen(false);
+            }}
+            className="cursor-pointer"
+          >
+            Clear
+          </small>
+          <Link className="text-sm hover:underline mt-2" href={"/checkout"}>
+            View Favorites
+          </Link>
         </div>
       </DropdownMenuContent>
     </DropdownMenu>
