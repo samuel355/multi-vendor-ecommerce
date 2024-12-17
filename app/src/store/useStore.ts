@@ -22,12 +22,14 @@ interface FavoriteItem extends ProductProps {
 interface CartStore {
   items: CartItem[];
   favorites: FavoriteItem[];
+  discount: number; // Percentage discount, e.g., 10 for 10%
   addItem: (item: ProductProps, quantity?: number) => void;
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
   clearFavorites: () => void;
   getTotal: () => number;
+  getSubtotal: () => number;
   addToFavorites: (item: ProductProps) => void;
   removeFromFavorites: (id: string) => void;
   moveToCart: (id: string, quantity?: number) => void;
@@ -35,6 +37,7 @@ interface CartStore {
   isInFavorites: (id: string) => boolean;
   getCartItemCount: () => number;
   getFavoritesCount: () => number;
+  setDiscount: (percentage: number) => void;
 }
 
 interface AuthState {
@@ -65,6 +68,7 @@ export const useCart = create<CartStore>()(
     (set, get) => ({
       items: [],
       favorites: [],
+      discount: 0, // Initialize discount at 0%
 
       addItem: (item, quantity = 1) => {
         set((state) => {
@@ -103,13 +107,21 @@ export const useCart = create<CartStore>()(
       clearCart: () => set((state) => ({ ...state, items: [] })),
       clearFavorites: () => set((state) => ({ ...state, favorites: [] })),
 
-      getTotal: () => {
+      getSubtotal: () => {
         const { items } = get();
         return items.reduce(
-          (total, item) => total + item.price * item.quantity,
+          (subtotal, item) => subtotal + item.price * item.quantity,
           0,
         );
       },
+
+      getTotal: () => {
+        const { getSubtotal, discount } = get();
+        const subtotal = getSubtotal();
+        return subtotal - subtotal * (discount / 100);
+      },
+
+      setDiscount: (percentage) => set({ discount: percentage }),
 
       addToFavorites: (item) =>
         set((state) => {

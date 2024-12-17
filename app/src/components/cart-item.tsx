@@ -7,6 +7,7 @@ import { Minus, Plus, Trash2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/store/useStore";
 import { ProductProps } from "@/types/product";
+import { toast } from "sonner";
 
 interface CartProps extends ProductProps {
   quantity?: number;
@@ -25,8 +26,21 @@ const CartItem: FC<CartProps> = ({
   dropdown = false,
 }: CartProps) => {
   const pathname = usePathname();
-  const {removeItem, updateQuantity} = useCart()
-  const [qty, setQty] = useState(1)
+  const { items, updateQuantity, removeItem, getTotal } = useCart();
+
+  const increaseQty = (id: string) => {
+    const currentItem = items.find((item) => item.id === id);
+    if (currentItem) {
+      updateQuantity(id, currentItem.quantity + 1);
+    }
+  }
+  const decreaseQty = (id:string) =>{
+    const currentItem = items.find((item) => item.id === id);
+    if (currentItem && currentItem.quantity > 1) {
+      updateQuantity(id, currentItem.quantity - 1);
+    }
+  }
+
 
   return (
     <Card key={id}>
@@ -58,11 +72,11 @@ const CartItem: FC<CartProps> = ({
           <div className="flex items-center gap-4">
             {dropdown !== true && (
               <div className="flex items-center gap-2">
-                <Button variant="outline" size="sm">
+                <Button onClick={() =>decreaseQty(id)} variant="outline" size="sm">
                   <Minus className="h-4 w-4" />
                 </Button>
                 <span className="w-8 text-center">{quantity}</span>
-                <Button variant="outline" size="sm">
+                <Button onClick={ () => increaseQty(id) }  variant="outline" size="sm">
                   <Plus className="h-4 w-4" />
                 </Button>
               </div>
