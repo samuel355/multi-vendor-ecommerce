@@ -65,13 +65,13 @@ const Cart: FC<ProductProps> = () => {
               Home
             </Link>
             <span className="mx-2">/</span>
-            <span>Cart</span>
+            <span>Favorites</span>
           </nav>
         </div>
 
         {items.length > 0 ? (
           <>
-            <h1 className="text-4xl font-bold mb-8">YOUR CART</h1>
+            <h1 className="text-4xl font-bold mb-8">YOUR FAVORITES</h1>
 
             <div className="grid gap-8 lg:grid-cols-3">
               <div className="lg:col-span-2">
