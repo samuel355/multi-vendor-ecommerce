@@ -54,7 +54,7 @@ const FavoriteProducts: FC<Props> = ({ open, setOpen }) => {
             >
               Clear
             </small>
-            <Link className="text-sm hover:underline mt-2" href={"/checkout"}>
+            <Link className="text-sm hover:underline mt-2" href={"/favorites"}>
               View Favorites
             </Link>
           </div>
