@@ -91,8 +91,8 @@ const Cart: FC<ProductProps> = () => {
               </div>
             </div> */}
 
-            {favorites.map((favorite) => (
-              <div className="grid gap-8 grid-cols-2 ">
+            <div className="grid gap-8 grid-cols-1 lg:grid-cols-2">
+              {favorites.map((favorite) => (
                 <FavoriteItem
                   key={favorite.id}
                   id={favorite.id}
@@ -103,8 +103,8 @@ const Cart: FC<ProductProps> = () => {
                   price={favorite.price}
                   dropdown={false}
                 />
-              </div>
-            ))}
+              ))}
+            </div>
           </>
         ) : (
           <div className="flex items-center justify-center">

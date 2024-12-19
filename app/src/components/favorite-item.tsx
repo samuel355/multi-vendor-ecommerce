@@ -3,7 +3,7 @@ import { FC } from "react";
 import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { Minus, Plus, Trash2 } from "lucide-react";
+import {Plus, Trash2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/store/useStore";
 import { ProductProps } from "@/types/product";
@@ -17,11 +17,7 @@ const FavoriteItem: FC<CartProps> = ({
   id,
   image,
   title,
-  size,
-  color,
   price,
-  rating,
-  quantity,
   dropdown = false,
 }: CartProps) => {
   const pathname = usePathname();
@@ -41,10 +37,6 @@ const FavoriteItem: FC<CartProps> = ({
           {dropdown !== true ? (
             <>
               <h3 className="font-semibold">{title}</h3>
-              <div className="text-sm text-muted-foreground">Size: {size}</div>
-              <div className="text-sm text-muted-foreground">
-                Color: {color}
-              </div>
             </>
           ) : (
             <>
@@ -58,11 +50,8 @@ const FavoriteItem: FC<CartProps> = ({
             {dropdown !== true && (
               <div className="flex items-center gap-2">
                 <Button variant="outline" size="sm">
-                  <Minus className="h-4 w-4" />
-                </Button>
-                <span className="w-8 text-center">{quantity}</span>
-                <Button variant="outline" size="sm">
                   <Plus className="h-4 w-4" />
+                  Add to Cart
                 </Button>
               </div>
             )}
