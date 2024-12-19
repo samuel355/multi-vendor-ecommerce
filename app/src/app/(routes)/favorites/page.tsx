@@ -1,61 +1,12 @@
 "use client";
-import CartItem from "@/components/cart-item";
 import FavoriteItem from "@/components/favorite-item";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 import { useCart } from "@/store/useStore";
 import { ProductProps } from "@/types/product";
 import Link from "next/link";
-import React, { FC, useMemo, useState } from "react";
+import React, { FC} from "react";
 
 const Cart: FC<ProductProps> = () => {
-  const { items, favorites, getTotal } = useCart();
-
-  const [promoCode, setPromoCode] = useState(""); // For user-entered promo code
-  const [discountPercent, setDiscountPercent] = useState<number | null>(null); // Discount percentage (null means no valid discount)
-
-  // Predefined promo codes with discount percentages
-  const validPromoCodes: Record<string, number> = {
-    SAVE10: 10, // 10% discount
-    SAVE20: 20, // 20% discount
-    WELCOME5: 5, // 5% discount
-  };
-
-  // Constants for delivery fee
-  const DELIVERY_FEE = 5; // Flat delivery fee
-
-  // Calculate the subtotal
-  const subtotal = useMemo(
-    () => items.reduce((acc, item) => acc + item.price * item.quantity, 0),
-    [items]
-  );
-
-  // Calculate the discount based on the total
-  const discountAmount = useMemo(() => {
-    if (discountPercent) {
-      return (subtotal * discountPercent) / 100;
-    }
-    return 0;
-  }, [subtotal, discountPercent]);
-
-  // Calculate the final total
-  const total = useMemo(
-    () => subtotal - discountAmount + DELIVERY_FEE,
-    [subtotal, discountAmount]
-  );
-
-  // Handle promo code validation
-  const applyPromoCode = () => {
-    const discount = validPromoCodes[promoCode.toUpperCase()];
-    if (discount) {
-      setDiscountPercent(discount);
-    } else {
-      setDiscountPercent(null);
-      alert("Invalid promo code. Please try again.");
-    }
-  };
+  const {favorites} = useCart();
 
   return (
     <>

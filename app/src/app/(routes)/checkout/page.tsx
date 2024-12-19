@@ -8,6 +8,7 @@ import { useCart } from "@/store/useStore";
 import { ProductProps } from "@/types/product";
 import Link from "next/link";
 import React, { FC, useMemo, useState } from "react";
+import { toast } from "sonner";
 
 const Cart: FC<ProductProps> = () => {
   const { items, getTotal } = useCart();
@@ -52,7 +53,7 @@ const Cart: FC<ProductProps> = () => {
       setDiscountPercent(discount);
     } else {
       setDiscountPercent(null);
-      alert("Invalid promo code. Please try again.");
+      toast("Invalid promo code. Please try again.");
     }
   };
 
