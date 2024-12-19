@@ -1,5 +1,6 @@
 "use client";
 import CartItem from "@/components/cart-item";
+import FavoriteItem from "@/components/favorite-item";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -10,16 +11,16 @@ import Link from "next/link";
 import React, { FC, useMemo, useState } from "react";
 
 const Cart: FC<ProductProps> = () => {
-  const { items, getTotal } = useCart();
+  const { items, favorites, getTotal } = useCart();
 
   const [promoCode, setPromoCode] = useState(""); // For user-entered promo code
   const [discountPercent, setDiscountPercent] = useState<number | null>(null); // Discount percentage (null means no valid discount)
 
   // Predefined promo codes with discount percentages
   const validPromoCodes: Record<string, number> = {
-    "SAVE10": 10, // 10% discount
-    "SAVE20": 20, // 20% discount
-    "WELCOME5": 5, // 5% discount
+    SAVE10: 10, // 10% discount
+    SAVE20: 20, // 20% discount
+    WELCOME5: 5, // 5% discount
   };
 
   // Constants for delivery fee
@@ -40,10 +41,10 @@ const Cart: FC<ProductProps> = () => {
   }, [subtotal, discountPercent]);
 
   // Calculate the final total
-  const total = useMemo(() => subtotal - discountAmount + DELIVERY_FEE, [
-    subtotal,
-    discountAmount,
-  ]);
+  const total = useMemo(
+    () => subtotal - discountAmount + DELIVERY_FEE,
+    [subtotal, discountAmount]
+  );
 
   // Handle promo code validation
   const applyPromoCode = () => {
@@ -73,76 +74,43 @@ const Cart: FC<ProductProps> = () => {
           <>
             <h1 className="text-4xl font-bold mb-8">YOUR FAVORITES</h1>
 
-            <div className="grid gap-8 lg:grid-cols-3">
-              <div className="lg:col-span-2">
-                <div className="space-y-4 max-h-[48rem] overflow-y-scroll">
-                  {items.map((item) => (
-                    <CartItem
-                      key={item.id}
-                      id={item.id}
-                      image={item.image}
-                      title={item.title}
-                      size={item.size}
-                      color={item.color}
-                      price={item.price}
-                      quantity={item.quantity}
-                      dropdown={false}
-                    />
-                  ))}
-                </div>
+            {/* <div className="grid gap-8 grid-cols-1 lg:grid-cols-2">
+              <div className="space-y-4 max-h-[48rem] overflow-y-scroll">
+                {favorites.map((item) => (
+                  <FavoriteItem
+                    key={item.id}
+                    id={item.id}
+                    image={item.image}
+                    title={item.title}
+                    size={item.size}
+                    color={item.color}
+                    price={item.price}
+                    dropdown={false}
+                  />
+                ))}
               </div>
+            </div> */}
 
-              {/* Cart Summary */}
-              <div>
-                <Card>
-                  <CardContent className="p-6">
-                    <h2 className="text-xl font-semibold mb-4">
-                      Order Summary
-                    </h2>
-                    <div className="space-y-4">
-                      <div className="flex justify-between">
-                        <span>Subtotal</span>
-                        <span>${subtotal.toFixed(2)}</span>
-                      </div>
-                      {discountPercent && (
-                        <div className="flex justify-between text-destructive">
-                          <span>Discount ({discountPercent}%)</span>
-                          <span>-${discountAmount.toFixed(2)}</span>
-                        </div>
-                      )}
-                      <div className="flex justify-between">
-                        <span>Delivery Fee</span>
-                        <span>${DELIVERY_FEE.toFixed(2)}</span>
-                      </div>
-                      <Separator />
-                      <div className="flex justify-between font-semibold text-lg">
-                        <span>Total</span>
-                        <span>${total.toFixed(2)}</span>
-                      </div>
-                      <div className="flex gap-2">
-                        <Input
-                          placeholder="Add promo code"
-                          value={promoCode}
-                          onChange={(e) => setPromoCode(e.target.value)}
-                        />
-                        <Button onClick={applyPromoCode} variant="outline">
-                          Apply
-                        </Button>
-                      </div>
-                      <Button className="w-full" size="lg">
-                        Proceed to payment
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
+            {favorites.map((favorite) => (
+              <div className="grid gap-8 grid-cols-2 ">
+                <FavoriteItem
+                  key={favorite.id}
+                  id={favorite.id}
+                  image={favorite.image}
+                  title={favorite.title}
+                  size={favorite.size}
+                  color={favorite.color}
+                  price={favorite.price}
+                  dropdown={false}
+                />
               </div>
-            </div>
+            ))}
           </>
         ) : (
           <div className="flex items-center justify-center">
             <h4 className="p-3 border rounded">
-              Your cart is empty. Visit <Link href={"/"}>Shop</Link> Add
-              Products to cart
+              You don't have any favorite product{" "}
+              <Link href={"/"}> Visit Shop</Link> to Add Products to favorites
             </h4>
           </div>
         )}
