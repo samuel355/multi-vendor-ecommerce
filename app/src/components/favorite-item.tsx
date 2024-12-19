@@ -7,6 +7,7 @@ import {Plus, Trash2 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/store/useStore";
 import { ProductProps } from "@/types/product";
+import { toast } from "sonner";
 
 interface CartProps extends ProductProps {
   quantity?: number;
@@ -21,7 +22,12 @@ const FavoriteItem: FC<CartProps> = ({
   dropdown = false,
 }: CartProps) => {
   const pathname = usePathname();
-  const {removeFromFavorites} = useCart()
+  const {removeFromFavorites, moveToCart} = useCart()
+
+  const handleMoveToCart = () => {
+    moveToCart(id);
+    toast.success('Product moved to cart')
+  }
 
   return (
     <Card key={id}>
@@ -49,9 +55,9 @@ const FavoriteItem: FC<CartProps> = ({
           <div className="flex items-center gap-4">
             {dropdown !== true && (
               <div className="flex items-center gap-2">
-                <Button variant="outline" size="sm">
+                <Button onClick={handleMoveToCart} variant="outline" size="sm">
                   <Plus className="h-4 w-4" />
-                  Add to Cart
+                  Move to Cart
                 </Button>
               </div>
             )}

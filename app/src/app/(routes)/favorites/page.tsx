@@ -70,26 +70,9 @@ const Cart: FC<ProductProps> = () => {
           </nav>
         </div>
 
-        {items.length > 0 ? (
+        {favorites.length > 0 ? (
           <>
             <h1 className="text-4xl font-bold mb-8">YOUR FAVORITES</h1>
-
-            {/* <div className="grid gap-8 grid-cols-1 lg:grid-cols-2">
-              <div className="space-y-4 max-h-[48rem] overflow-y-scroll">
-                {favorites.map((item) => (
-                  <FavoriteItem
-                    key={item.id}
-                    id={item.id}
-                    image={item.image}
-                    title={item.title}
-                    size={item.size}
-                    color={item.color}
-                    price={item.price}
-                    dropdown={false}
-                  />
-                ))}
-              </div>
-            </div> */}
 
             <div className="grid gap-8 grid-cols-1 lg:grid-cols-2">
               {favorites.map((favorite) => (
