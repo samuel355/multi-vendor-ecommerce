@@ -38,7 +38,7 @@ export default function ProductDetail() {
   const { id } = useParams();
   const router = useRouter();
 
-  const {isInCart, addItem} = useCart()
+  const {isInCart, addItem, updateQuantity} = useCart()
 
   const images = [
     "/products/black-shade.jpg",
@@ -137,7 +137,8 @@ export default function ProductDetail() {
     if(!id) return
 
     if (isInCart(id.toString())) {
-      toast.success("Product already in cart");
+      updateQuantity(id.toString(), quantity)
+      toast('Product Added')
     } else {
       addItem(product, quantity);
       toast.success("Added to cart");
