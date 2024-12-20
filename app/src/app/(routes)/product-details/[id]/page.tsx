@@ -11,12 +11,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import RelatedProducts from "@/components/related-products";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { productsData } from "@/components/product/product-data";
 import { useRouter } from "next/navigation";
 import { ProductProps } from "@/types/product";
+import { useCart } from "@/store/useStore";
+import { toast } from "sonner";
 
 interface Review {
   id: string;
@@ -36,6 +37,8 @@ export default function ProductDetail() {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const router = useRouter();
+
+  const {isInCart, addItem} = useCart()
 
   const images = [
     "/products/black-shade.jpg",
@@ -127,6 +130,19 @@ export default function ProductDetail() {
       </div>
     );
   }
+
+  // Handle cart operations
+  const handleCartAction = () => {
+    if (!product) return;
+    if(!id) return
+
+    if (isInCart(id.toString())) {
+      toast.success("Product already in cart");
+    } else {
+      addItem(product, quantity);
+      toast.success("Added to cart");
+    }
+  };
 
   return (
     <>
@@ -270,7 +286,7 @@ export default function ProductDetail() {
                     <Plus className="h-4 w-4" />
                   </Button>
                 </div>
-                <Button className="flex-1 rounded-full" size="lg">
+                <Button onClick={handleCartAction} className="flex-1 rounded-full" size="lg">
                   Add to Cart
                 </Button>
               </div>
