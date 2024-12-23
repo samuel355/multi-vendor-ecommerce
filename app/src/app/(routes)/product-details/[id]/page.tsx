@@ -38,7 +38,7 @@ export default function ProductDetail() {
   const { id } = useParams();
   const router = useRouter();
 
-  const {isInCart, addItem, updateQuantity} = useCart()
+  const { isInCart, addItem, updateQuantity } = useCart();
 
   const images = [
     "/products/black-shade.jpg",
@@ -134,11 +134,11 @@ export default function ProductDetail() {
   // Handle cart operations
   const handleCartAction = () => {
     if (!product) return;
-    if(!id) return
+    if (!id) return;
 
     if (isInCart(id.toString())) {
-      updateQuantity(id.toString(), quantity)
-      toast('Product Added')
+      updateQuantity(id.toString(), quantity);
+      toast("Product Added");
     } else {
       addItem(product, quantity);
       toast.success("Added to cart");
@@ -287,7 +287,11 @@ export default function ProductDetail() {
                     <Plus className="h-4 w-4" />
                   </Button>
                 </div>
-                <Button onClick={handleCartAction} className="flex-1 rounded-full" size="lg">
+                <Button
+                  onClick={handleCartAction}
+                  className="flex-1 rounded-full"
+                  size="lg"
+                >
                   Add to Cart
                 </Button>
               </div>
